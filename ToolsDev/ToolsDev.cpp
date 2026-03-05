@@ -137,6 +137,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             case IDM_EXIT:
                 DestroyWindow(hWnd);
                 break;
+            case IDM_FILE_OPEN:
+				// Add a code to open a file explorer dialog and handle file selection after adding QT into the project.
+                break;
             default:
                 return DefWindowProc(hWnd, message, wParam, lParam);
             }
