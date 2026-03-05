@@ -7,8 +7,8 @@
 *.lo
 *.o
 *.obj
-!ToolsDev/Models/
-!ToolsDev/Models/*.obj
+!ToolsDev/Models/*
+!ToolsDev/Models/*/*.obj
 
 # Precompiled Headers
 *.gch
