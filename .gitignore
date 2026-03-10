@@ -11,7 +11,7 @@
 !ToolsDev/Models/*/*.obj
 
 # Allow Libraries
-!Library/**
+!Library/*
 !Library/assimp/
 !Library/assimp/bin/
 !Library/assimp/lib/
