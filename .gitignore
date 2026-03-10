@@ -10,6 +10,10 @@
 !ToolsDev/Models/*
 !ToolsDev/Models/*/*.obj
 
+# Allow Libraries
+!ToolsDev/Library/**/*.dll
+!ToolsDev/Library/**/*.lib
+
 # Precompiled Headers
 *.gch
 *.pch
