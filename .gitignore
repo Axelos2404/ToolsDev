@@ -11,9 +11,9 @@
 !ToolsDev/Models/*/*.obj
 
 # Allow Libraries
-!ToolsDev/Library/
-!ToolsDev/Library/**/*.dll
-!ToolsDev/Library/**/*.lib
+!Library/
+!Library/**/*.dll
+!Library/**/*.lib
 
 # Precompiled Headers
 *.gch
