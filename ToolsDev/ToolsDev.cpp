@@ -4,6 +4,7 @@
 #include "framework.h"
 #include "ToolsDev.h"
 
+
 #define MAX_LOADSTRING 100
 
 // Global Variables:

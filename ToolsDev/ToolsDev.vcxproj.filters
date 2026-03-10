@@ -46,4 +46,10 @@
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\Library\assimp\lib\assimp-vc143-mt.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\Library\assimp\bin\assimp-vc143-mt.dll" />
+  </ItemGroup>
 </Project>
