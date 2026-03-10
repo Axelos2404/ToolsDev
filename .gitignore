@@ -12,6 +12,10 @@
 
 # Allow Libraries
 !Library/
+!Library/assimp/
+!Library/assimp/bin/
+!Library/assimp/lib/
+!Library/assimp/include/
 !Library/**/*.dll
 !Library/**/*.lib
 
