@@ -15,7 +15,6 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
 
 # Fortran module files
 *.mod
@@ -25,7 +24,6 @@
 *.lai
 *.la
 *.a
-*.lib
 
 # Executables
 *.exe
@@ -439,7 +437,4 @@ FodyWeavers.xsd
 !ToolsDev/Models/*/*.obj
 
 # Allow Library folder
-!Library/*
-!Library/assimp/
-!Library/**/*.dll
-!Library/**/*.lib
+!Library/**
