@@ -133,6 +133,9 @@ StyleCopReport.xml
 *.svclog
 *.scc
 
+# Allow QtMsBuild integration files
+!ToolsDev/QtMsBuild/**
+
 # Chutzpah Test files
 _Chutzpah*
 
