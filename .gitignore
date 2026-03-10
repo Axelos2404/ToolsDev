@@ -11,6 +11,7 @@
 !ToolsDev/Models/*/*.obj
 
 # Allow Libraries
+!ToolsDev/Library/
 !ToolsDev/Library/**/*.dll
 !ToolsDev/Library/**/*.lib
 
