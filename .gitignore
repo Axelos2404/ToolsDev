@@ -7,17 +7,6 @@
 *.lo
 *.o
 *.obj
-!ToolsDev/Models/*
-!ToolsDev/Models/*/*.obj
-
-# Allow Libraries
-!Library/*
-!Library/assimp/
-!Library/assimp/bin/
-!Library/assimp/lib/
-!Library/assimp/include/
-!Library/**/*.dll
-!Library/**/*.lib
 
 # Precompiled Headers
 *.gch
@@ -444,3 +433,12 @@ FodyWeavers.xsd
 
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
+
+# Allow the Models folder
+!ToolsDev/Models/*
+!ToolsDev/Models/*/*.obj
+
+# Allow Library folder
+!Library/*
+!Library/**/*.dll
+!Library/**/*.lib
