@@ -63,6 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\Library\assimp\lib\assimp-vc143-mt.lib" />
+    <Library Include="..\Library\openmesh\lib\OpenMeshCored.lib" />
+    <Library Include="..\Library\openmesh\lib\OpenMeshToolsd.lib" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="..\Library\assimp\bin\assimp-vc143-mt.dll" />

@@ -39,7 +39,7 @@ void main()
 
     float diff1 = max(dot(normal, lightDir1), 0.0);
     float diff2 = max(dot(normal, lightDir2), 0.0);
-    float ambient = 0.2;
+    float ambient = 0.5;
     vec3 color = baseColor * (ambient + diff1 * 0.5 + diff2 * 0.4);
 
     FragColor = vec4(color, 1.0);
