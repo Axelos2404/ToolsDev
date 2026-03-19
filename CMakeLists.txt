@@ -5,8 +5,6 @@ include(ExternalProject)
 
 # ------------------------------------------------------------------------------
 # 1. Define your target directory
-# Change this path to exactly where your Visual Studio project is looking!
-# (Use forward slashes even on Windows)
 # ------------------------------------------------------------------------------
 set(MY_VS_INSTALL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Library/libigl" CACHE PATH "Where to put the libs")
 
