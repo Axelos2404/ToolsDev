@@ -60,10 +60,10 @@
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <QtModules>core;gui;widgets;opengl;openglwidgets;quick3d</QtModules>
-    <QtInstall>Qt_msvc2022_64</QtInstall>
+    <QtInstall>6.10.2_msvc2022_64</QtInstall>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <QtInstall>Qt_msvc2022_64</QtInstall>
+    <QtInstall>6.10.2_msvc2022_64</QtInstall>
     <QtModules>core;gui;widgets;opengl;openglwidgets;quick3d</QtModules>
   </PropertyGroup>
   <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') OR !Exists('$(QtMsBuild)\Qt.props')">
@@ -125,13 +125,13 @@
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)Library\eigen\include;$(SolutionDir)Library\glm\include;$(SolutionDir)Library\openmesh\include;$(SolutionDir)Library\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Library\libigl\include;$(SolutionDir)Library\spectra\include;$(SolutionDir)Library\xatlas\include;$(SolutionDir)Library\eigen\include;$(SolutionDir)Library\glm\include;$(SolutionDir)Library\openmesh\include;$(SolutionDir)Library\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Library\eigen\lib;$(SolutionDir)Library\glm\lib;$(SolutionDir)Library\openmesh\lib;$(SolutionDir)Library\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Library\libigl\lib;$(SolutionDir)Library\eigen\lib;$(SolutionDir)Library\glm\lib;$(SolutionDir)Library\openmesh\lib;$(SolutionDir)Library\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -195,11 +195,15 @@
     <Library Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Include="..\Library\glm\lib\glm.lib" />
     <Library Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Include="..\Library\glm\lib\glm.lib" />
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <Library Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Include="..\Library\eigen\lib\eigen_blas.lib" />
     <Library Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Include="..\Library\eigen\lib\eigen_blas.lib" />
     <Library Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Include="..\Library\eigen\lib\eigen_lapack.lib" />
     <Library Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Include="..\Library\eigen\lib\eigen_lapack.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Include="..\Library\libigl\lib\igl.lib" />
+    <Library Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Include="..\Library\libigl\lib\igl.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />

@@ -438,3 +438,4 @@ FodyWeavers.xsd
 
 # Allow Library folder
 !Library/**
+Library/libigl/

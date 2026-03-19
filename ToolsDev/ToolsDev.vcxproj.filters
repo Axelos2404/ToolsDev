@@ -65,9 +65,10 @@
     <Library Include="..\Library\assimp\lib\assimp-vc143-mt.lib" />
     <Library Include="..\Library\openmesh\lib\OpenMeshCored.lib" />
     <Library Include="..\Library\openmesh\lib\OpenMeshToolsd.lib" />
-  </ItemGroup>
-  <ItemGroup>
-    <CopyFileToFolders Include="..\Library\assimp\bin\assimp-vc143-mt.dll" />
+    <Library Include="..\Library\glm\lib\glm.lib" />
+    <Library Include="..\Library\eigen\lib\eigen_blas.lib" />
+    <Library Include="..\Library\eigen\lib\eigen_lapack.lib" />
+    <Library Include="..\Library\libigl\lib\igl.lib" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="ViewportWidget.h">
