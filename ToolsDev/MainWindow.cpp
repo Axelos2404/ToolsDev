@@ -3,6 +3,7 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QStatusBar>
+#include <CoMISo/Solver/CholmodSolver.hh>
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)

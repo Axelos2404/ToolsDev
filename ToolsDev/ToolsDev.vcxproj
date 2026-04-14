@@ -125,18 +125,20 @@
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)Library\libigl\include;$(SolutionDir)Library\spectra\include;$(SolutionDir)Library\xatlas\include;$(SolutionDir)Library\eigen\include;$(SolutionDir)Library\glm\include;$(SolutionDir)Library\openmesh\include;$(SolutionDir)Library\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Library\comiso\include;$(SolutionDir)Library\libigl\include;$(SolutionDir)Library\spectra\include;$(SolutionDir)Library\xatlas\include;$(SolutionDir)Library\eigen\include;$(SolutionDir)Library\glm\include;$(SolutionDir)Library\openmesh\include;$(SolutionDir)Library\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Library\libigl\lib;$(SolutionDir)Library\eigen\lib;$(SolutionDir)Library\glm\lib;$(SolutionDir)Library\openmesh\lib;$(SolutionDir)Library\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Library\comiso\lib;$(SolutionDir)Library\libigl\lib;$(SolutionDir)Library\eigen\lib;$(SolutionDir)Library\glm\lib;$(SolutionDir)Library\openmesh\lib;$(SolutionDir)Library\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y /d "$(SolutionDir)Library\assimp\bin\*.dll" "$(OutDir)"</Command>
-      <Command>xcopy /y /d "$(SolutionDir)Library\assimp\bin\*.dll" "$(OutDir)"
+      <Command>xcopy /y /d "$(SolutionDir)Library\eigen\bin\*.dll" "$(OutDir)"</Command>
+      <Command>xcopy /y /d "$(SolutionDir)Library\comiso\bin\*.dll" "$(OutDir)"
+xcopy /y /d "$(SolutionDir)Library\assimp\bin\*.dll" "$(OutDir)"
 xcopy /y /d "$(SolutionDir)Library\eigen\bin\*.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -149,15 +151,18 @@ xcopy /y /d "$(SolutionDir)Library\eigen\bin\*.dll" "$(OutDir)"</Command>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)Library\libigl\include;$(SolutionDir)Library\spectra\include;$(SolutionDir)Library\xatlas\include;$(SolutionDir)Library\eigen\include;$(SolutionDir)Library\glm\include;$(SolutionDir)Library\openmesh\include;$(SolutionDir)Library\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Library\comiso\include;$(SolutionDir)Library\libigl\include;$(SolutionDir)Library\spectra\include;$(SolutionDir)Library\xatlas\include;$(SolutionDir)Library\eigen\include;$(SolutionDir)Library\glm\include;$(SolutionDir)Library\openmesh\include;$(SolutionDir)Library\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Library\libigl\lib;$(SolutionDir)Library\eigen\lib;$(SolutionDir)Library\glm\lib;$(SolutionDir)Library\openmesh\lib;$(SolutionDir)Library\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Library\comiso\lib;$(SolutionDir)Library\libigl\lib;$(SolutionDir)Library\eigen\lib;$(SolutionDir)Library\glm\lib;$(SolutionDir)Library\openmesh\lib;$(SolutionDir)Library\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y /d "$(SolutionDir)Library\assimp\bin\*.dll" "$(OutDir)"
+      <Command>xcopy /y /d "$(SolutionDir)Library\assimp\bin\*.dll" "$(OutDir)"</Command>
+      <Command>xcopy /y /d "$(SolutionDir)Library\eigen\bin\*.dll" "$(OutDir)"</Command>
+      <Command>xcopy /y /d "$(SolutionDir)Library\comiso\bin\*.dll" "$(OutDir)"
+xcopy /y /d "$(SolutionDir)Library\assimp\bin\*.dll" "$(OutDir)"
 xcopy /y /d "$(SolutionDir)Library\eigen\bin\*.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
