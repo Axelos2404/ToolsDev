@@ -26,8 +26,8 @@ ExternalProject_Add(
 
         # Turn off the heavy stuff
         -DLIBIGL_BUILD_TESTS=OFF
-        -DLIBIGL_BUILD_TUTORIALS=OFF
-        -DLIBIGL_EMBREE=OFF                    
+        -DLIBIGL_BUILD_TUTORIALS=OFF      
+	-DLIBIGL_EMBREE=OFF            
         -DLIBIGL_COPYLEFT_CGAL=OFF
         
         # Since I'm using Qt, I don't need libigl's built-in window viewers
