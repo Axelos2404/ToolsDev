@@ -28,6 +28,7 @@ public:
     ~ViewportWidget() override;
 
     void SetModel(const ModelData& model);
+    void UpdateMesh(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices);
 
 protected:
     void initializeGL() override;

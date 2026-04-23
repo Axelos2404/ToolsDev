@@ -4,6 +4,7 @@
 #include <QLabel>
 #include "ViewportWidget.h"
 #include "ModelLoader.h"
+#include "MeshProcessor.h"
 
 class MainWindow : public QMainWindow
 {
@@ -11,7 +12,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget* parent = nullptr);
-
+	void OnApplyDecimationClicked(int targetVertexCount);
 private slots:
     void OnFileOpen();
 

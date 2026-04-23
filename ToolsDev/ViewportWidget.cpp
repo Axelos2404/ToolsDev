@@ -229,6 +229,25 @@ void ViewportWidget::UploadMesh(const MeshData& mesh)
     m_gpuMeshes.push_back(gpu);
 }
 
+void ViewportWidget::UpdateMesh(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices)
+{
+    makeCurrent();
+    CleanupGpuMeshes();
+
+    // Reconstruct the new decimated mesh
+    MeshData updatedMesh;
+    updatedMesh.vertices = vertices;
+    updatedMesh.indices = indices;
+
+    // Upload the new mesh to the GPU
+    UploadMesh(updatedMesh);
+
+    doneCurrent();
+
+    // Request a UI redraw
+    update();
+}
+
 void ViewportWidget::CleanupGpuMeshes()
 {
     for (auto& gpu : m_gpuMeshes)

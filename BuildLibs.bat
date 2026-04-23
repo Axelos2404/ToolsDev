@@ -28,14 +28,14 @@ echo [3/3] Cleaning up temporary and unnecessary files...
 if exist build rmdir /s /q build
 
 :: 2. Delete the CMake 'share' folder from your custom path
-:: if exist Library\libigl\share rmdir /s /q Library\libigl\share
+if exist Library\libigl\share rmdir /s /q Library\libigl\share
 
 :: 3. Delete the CMake 'cmake' folder from the lib path
-:: if exist Library\libigl\lib\cmake rmdir /s /q Library\libigl\lib\cmake
+if exist Library\libigl\lib\cmake rmdir /s /q Library\libigl\lib\cmake
 
 :: 4. Delete Eigen and Spectra from your custom path
-:: if exist Library\libigl\include\Eigen rmdir /s /q Library\libigl\include\Eigen
-:: if exist Library\libigl\include\Spectra rmdir /s /q Library\libigl\include\Spectra
+if exist Library\libigl\include\Eigen rmdir /s /q Library\libigl\include\Eigen
+if exist Library\libigl\include\Spectra rmdir /s /q Library\libigl\include\Spectra
 
 echo.
 echo ===================================================

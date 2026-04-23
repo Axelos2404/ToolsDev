@@ -3,6 +3,12 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QStatusBar>
+#include <QDockWidget>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QSlider>
+#include <QPushButton>
 #include <CoMISo/Solver/CholmodSolver.hh>
 
 MainWindow::MainWindow(QWidget* parent)
@@ -25,7 +31,39 @@ MainWindow::MainWindow(QWidget* parent)
     helpMenu->addAction("&About", this, [this]() {
         QMessageBox::about(this, "About ToolsDev",
             "ToolsDev - Auto Retopology & UV Unwrapping Tool");
-    });
+        });
+
+    // Tools Dock Widget
+    QDockWidget* toolsDock = new QDockWidget("Retopology Tools", this);
+    toolsDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+    QWidget* dockContents = new QWidget();
+    QVBoxLayout* dockLayout = new QVBoxLayout(dockContents);
+
+    // Slider setup
+    QLabel* targetVertLabel = new QLabel("Target Vertex Count: 1000");
+    QSlider* targetVertSlider = new QSlider(Qt::Horizontal);
+    targetVertSlider->setRange(10, 100000); // Adjust maximum as needed by your models
+    targetVertSlider->setValue(1000);
+
+    // Update label when slider moves
+    connect(targetVertSlider, &QSlider::valueChanged, targetVertLabel, [targetVertLabel](int value) {
+        targetVertLabel->setText(QString("Target Vertex Count: %1").arg(value));
+        });
+
+    QPushButton* applyDecimationBtn = new QPushButton("Apply Decimation");
+
+    // Connect the button to your function, passing the slider value
+    connect(applyDecimationBtn, &QPushButton::clicked, this, [this, targetVertSlider]() {
+        OnApplyDecimationClicked(targetVertSlider->value());
+        });
+
+    dockLayout->addWidget(targetVertLabel);
+    dockLayout->addWidget(targetVertSlider);
+    dockLayout->addWidget(applyDecimationBtn);
+    dockLayout->addStretch();
+
+    toolsDock->setWidget(dockContents);
+    addDockWidget(Qt::RightDockWidgetArea, toolsDock);
 
     // Status bar
     m_statusLabel = new QLabel("Ready");
@@ -63,4 +101,29 @@ void MainWindow::OnFileOpen()
         QMessageBox::warning(this, "Load Error",
             QString::fromStdString(m_loader.GetLastError()));
     }
+}
+
+void MainWindow::OnApplyDecimationClicked(int targetVertexCount)
+{
+    if (m_currentModel.meshes.empty())
+    {
+        QMessageBox::information(this, "No Model", "Please load a model before applying decimation.");
+        return;
+    }
+
+    // 1: Build the OpenMesh
+    MeshType optimisedMesh = MeshProcessor::convertRawToOpenMesh(m_currentModel);
+
+    // 2: Decimate the mesh using the slider
+    MeshProcessor::decimateMesh(optimisedMesh, targetVertexCount);
+
+	// 3: Extract the optimised vertices and indices back into the viewport
+	std::vector<Vertex> decimatedVertices;
+	std::vector<unsigned int> decimatedIndices;
+	MeshProcessor::extractRawFromOpenMesh(optimisedMesh, decimatedVertices, decimatedIndices);
+
+	// 4: Update the viewport with the new decimated mesh
+	m_viewport->UpdateMesh(decimatedVertices, decimatedIndices);
+    m_viewport->update();
+
 }

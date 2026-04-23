@@ -122,7 +122,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_USE_MATH_DEFINES;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(SolutionDir)Library\comiso\include;$(SolutionDir)Library\libigl\include;$(SolutionDir)Library\spectra\include;$(SolutionDir)Library\xatlas\include;$(SolutionDir)Library\eigen\include;$(SolutionDir)Library\glm\include;$(SolutionDir)Library\openmesh\include;$(SolutionDir)Library\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -148,7 +148,7 @@ xcopy /y /d "$(SolutionDir)Library\eigen\bin\*.dll" "$(OutDir)"</Command>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_USE_MATH_DEFINES;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(SolutionDir)Library\comiso\include;$(SolutionDir)Library\libigl\include;$(SolutionDir)Library\spectra\include;$(SolutionDir)Library\xatlas\include;$(SolutionDir)Library\eigen\include;$(SolutionDir)Library\glm\include;$(SolutionDir)Library\openmesh\include;$(SolutionDir)Library\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -170,6 +170,7 @@ xcopy /y /d "$(SolutionDir)Library\eigen\bin\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="framework.h" />
     <QtMoc Include="MainWindow.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="MeshProcessor.h" />
     <ClInclude Include="ModelLoader.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
@@ -178,6 +179,7 @@ xcopy /y /d "$(SolutionDir)Library\eigen\bin\*.dll" "$(OutDir)"</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="MeshProcessor.cpp" />
     <ClCompile Include="ModelLoader.cpp" />
     <ClCompile Include="ToolsDev.cpp" />
     <ClCompile Include="ViewportWidget.cpp" />
