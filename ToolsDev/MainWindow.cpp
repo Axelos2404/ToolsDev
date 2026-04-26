@@ -70,6 +70,12 @@ MainWindow::MainWindow(QWidget* parent)
     statusBar()->addWidget(m_statusLabel);
 }
 
+MainWindow::~MainWindow()
+{
+    if (m_workerThread.joinable())
+        m_workerThread.join();
+}
+
 void MainWindow::OnFileOpen()
 {
     QString filePath = QFileDialog::getOpenFileName(this,
@@ -111,19 +117,45 @@ void MainWindow::OnApplyDecimationClicked(int targetVertexCount)
         return;
     }
 
-    // 1: Build the OpenMesh
-    MeshType optimisedMesh = MeshProcessor::convertRawToOpenMesh(m_currentModel);
+    // 1. If a previous thread is somehow still finishing up, join it safely
+    if (m_workerThread.joinable()) {
+        m_workerThread.join();
+    }
 
-    // 2: Decimate the mesh using the slider
-    MeshProcessor::decimateMesh(optimisedMesh, targetVertexCount);
+    // Disable the UI
+    setEnabled(false);
+    m_statusLabel->setText("Decimating mesh. Please wait...");
 
-	// 3: Extract the optimised vertices and indices back into the viewport
-	std::vector<Vertex> decimatedVertices;
-	std::vector<unsigned int> decimatedIndices;
-	MeshProcessor::extractRawFromOpenMesh(optimisedMesh, decimatedVertices, decimatedIndices);
+    // 2. Make a safe, local copy of the model data on the main thread 
+    auto modelDataCopy = m_currentModel;
 
-	// 4: Update the viewport with the new decimated mesh
-	m_viewport->UpdateMesh(decimatedVertices, decimatedIndices);
-    m_viewport->update();
+    // 3. Fire off the background thread (assigned to our member variable)
+    m_workerThread = std::thread([this, modelDataCopy, targetVertexCount]() {
 
+        // Build the OpenMesh (using the safe copy)
+        MeshType optimisedMesh = MeshProcessor::convertRawToOpenMesh(modelDataCopy);
+
+        // Decimate the mesh
+        MeshProcessor::decimateMesh(optimisedMesh, targetVertexCount);
+
+        // Extract the optimised vertices and indices into standard local variables
+        std::vector<Vertex> decimatedVertices;
+        std::vector<unsigned int> decimatedIndices;
+        MeshProcessor::extractRawFromOpenMesh(optimisedMesh, decimatedVertices, decimatedIndices);
+
+        // 4: Schedule viewport update back onto the main UI thread.
+        QMetaObject::invokeMethod(this, [this,
+            v = std::move(decimatedVertices),
+            i = std::move(decimatedIndices)]() mutable {
+
+                m_viewport->UpdateMesh(v, i);
+                m_viewport->update();
+
+                setEnabled(true);
+                m_statusLabel->setText(QString("Decimation Complete. Vertices: %1, Triangles: %2")
+                    .arg(v.size())
+                    .arg(i.size() / 3));
+            });
+
+        });
 }

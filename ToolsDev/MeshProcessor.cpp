@@ -47,6 +47,11 @@ namespace MeshProcessor
 		decimater.initialize();
 		decimater.decimate_to(TargetVertexCount);
 		mesh.garbage_collection();
+
+		// Recalculate lighting normals for the new low-poly shape
+		mesh.request_face_normals();
+		mesh.request_vertex_normals();
+		mesh.update_normals();
 	}
 
 	void extractRawFromOpenMesh(const MeshType& mesh, std::vector<Vertex>& outVertices, std::vector<unsigned int>& outIndices)
@@ -54,24 +59,22 @@ namespace MeshProcessor
 		outVertices.clear();
 		outIndices.clear();
 
-		// Pre-allocate memory for efficiency
 		outVertices.reserve(mesh.n_vertices() * 3);
 		outIndices.reserve(mesh.n_faces() * 3);
 
-		// Extract vertices
 		for (auto v_it = mesh.vertices_begin(); v_it != mesh.vertices_end(); ++v_it)
 		{
 			auto pt = mesh.point(*v_it);
-			outVertices.push_back({ pt[0], pt[1], pt[2] });
+			auto n = mesh.normal(*v_it); // Grab the newly calculated normal
+
+			// Pack the position, normal, and an empty UV coordinate into your struct
+			outVertices.push_back({ {pt[0], pt[1], pt[2]}, {n[0], n[1], n[2]}, {0.0f, 0.0f} });
 		}
 
-		// 2: Extract indices
 		for (auto f_it = mesh.faces_begin(); f_it != mesh.faces_end(); ++f_it)
 		{
-			// Loop over the 3 vertices of the face
 			for (auto fv_it = mesh.cfv_iter(*f_it); fv_it.is_valid(); ++fv_it)
 			{
-				// fv_it->idx() returns the integer of the vertex
 				outIndices.push_back(fv_it->idx());
 			}
 		}
