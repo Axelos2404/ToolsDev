@@ -60,10 +60,10 @@
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <QtModules>core;gui;widgets;opengl;openglwidgets;quick3d</QtModules>
-    <QtInstall>6.10.2_msvc2022_64</QtInstall>
+    <QtInstall>Qt_msvc2022_64</QtInstall>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <QtInstall>6.10.2_msvc2022_64</QtInstall>
+    <QtInstall>Qt_msvc2022_64</QtInstall>
     <QtModules>core;gui;widgets;opengl;openglwidgets;quick3d</QtModules>
   </PropertyGroup>
   <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') OR !Exists('$(QtMsBuild)\Qt.props')">
@@ -173,6 +173,7 @@ xcopy /y /d "$(SolutionDir)Library\eigen\bin\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="MeshProcessor.h" />
     <ClInclude Include="ModelLoader.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="RetopoProcessor.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="ToolsDev.h" />
     <QtMoc Include="ViewportWidget.h" />
@@ -181,6 +182,7 @@ xcopy /y /d "$(SolutionDir)Library\eigen\bin\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="MeshProcessor.cpp" />
     <ClCompile Include="ModelLoader.cpp" />
+    <ClCompile Include="RetopoProcessor.cpp" />
     <ClCompile Include="ToolsDev.cpp" />
     <ClCompile Include="ViewportWidget.cpp" />
   </ItemGroup>
