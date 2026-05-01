@@ -143,16 +143,23 @@ void MainWindow::OnApplyDecimationClicked(int targetVertexCount)
         std::vector<unsigned int> decimatedIndices;
         MeshProcessor::extractRawFromOpenMesh(optimisedMesh, decimatedVertices, decimatedIndices);
 
+        std::vector<Vertex> quadAlignedVertices;
+        std::vector<unsigned int> quadAlignedIndices;
+        double gridDensity = 30.0; // Higher = smaller/more quads
+
+        RetopoProcessor::processRetopology(decimatedVertices, decimatedIndices,
+            quadAlignedVertices, quadAlignedIndices, gridDensity);
+
         // 4: Schedule viewport update back onto the main UI thread.
         QMetaObject::invokeMethod(this, [this,
-            v = std::move(decimatedVertices),
-            i = std::move(decimatedIndices)]() mutable {
+            v = std::move(quadAlignedVertices),
+            i = std::move(quadAlignedIndices)]() mutable {
 
                 m_viewport->UpdateMesh(v, i);
                 m_viewport->update();
 
                 setEnabled(true);
-                m_statusLabel->setText(QString("Decimation Complete. Vertices: %1, Triangles: %2")
+                m_statusLabel->setText(QString("Retopology Complete. Vertices: %1, Triangles: %2")
                     .arg(v.size())
                     .arg(i.size() / 3));
             });

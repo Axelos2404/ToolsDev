@@ -1,0 +1,34 @@
+/* manually created gmm_arch_config.h.in template to be used by autotools.  */
+
+/* gcc style __PRETTY_FUNCTION__ macro */
+#undef GMM_HAVE_PRETTY_FUNCTION
+
+/* defined if GMM is linked to a blas library */
+#undef GMM_USES_BLAS
+
+/* defined if GMM is linked to a lapack library */
+#undef GMM_USES_LAPACK
+
+/* defined if GMM is used when building the Matlab interface */
+#undef GMM_MATLAB_INTERFACE
+
+/* defined if GMM uses MPI */
+#undef GMM_USES_MPI
+
+/* defined if GMM is linked to the mumps library */
+#undef GMM_USES_MUMPS
+
+/* defined if GMM is linked to the superlu library */
+#undef GMM_USES_SUPERLU
+
+/* defined if superlu header files are not under a subdirectory called "superlu" */
+#undef GMM_NO_SUPERLU_INCLUDE_SUBDIR
+
+/* Use blas with 64 bits integers */
+#undef GMM_USE_BLAS64_INTERFACE
+
+/* defined if the BLAS fortran ABI does not return complex values directly (e.g. Intel's MKL) */
+#undef GMM_BLAS_RETURN_COMPLEX_AS_ARGUMENT
+
+/* GMM version */
+#undef GMM_VERSION

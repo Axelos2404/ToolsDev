@@ -60,10 +60,10 @@
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <QtModules>core;gui;widgets;opengl;openglwidgets;quick3d</QtModules>
-    <QtInstall>Qt_msvc2022_64</QtInstall>
+    <QtInstall>6.10.2_msvc2022_64</QtInstall>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <QtInstall>Qt_msvc2022_64</QtInstall>
+    <QtInstall>6.10.2_msvc2022_64</QtInstall>
     <QtModules>core;gui;widgets;opengl;openglwidgets;quick3d</QtModules>
   </PropertyGroup>
   <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') OR !Exists('$(QtMsBuild)\Qt.props')">
@@ -122,7 +122,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_USE_MATH_DEFINES;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;_USE_MATH_DEFINES;IGL_STATIC_LIBRARY;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(SolutionDir)Library\comiso\include;$(SolutionDir)Library\libigl\include;$(SolutionDir)Library\spectra\include;$(SolutionDir)Library\xatlas\include;$(SolutionDir)Library\eigen\include;$(SolutionDir)Library\glm\include;$(SolutionDir)Library\openmesh\include;$(SolutionDir)Library\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -132,7 +132,8 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)Library\comiso\lib;$(SolutionDir)Library\libigl\lib;$(SolutionDir)Library\eigen\lib;$(SolutionDir)Library\glm\lib;$(SolutionDir)Library\openmesh\lib;$(SolutionDir)Library\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>igl.lib
+;CoMISo.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y /d "$(SolutionDir)Library\assimp\bin\*.dll" "$(OutDir)"</Command>
@@ -148,7 +149,7 @@ xcopy /y /d "$(SolutionDir)Library\eigen\bin\*.dll" "$(OutDir)"</Command>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_USE_MATH_DEFINES;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;_USE_MATH_DEFINES;IGL_STATIC_LIBRARY;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(SolutionDir)Library\comiso\include;$(SolutionDir)Library\libigl\include;$(SolutionDir)Library\spectra\include;$(SolutionDir)Library\xatlas\include;$(SolutionDir)Library\eigen\include;$(SolutionDir)Library\glm\include;$(SolutionDir)Library\openmesh\include;$(SolutionDir)Library\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -157,6 +158,8 @@ xcopy /y /d "$(SolutionDir)Library\eigen\bin\*.dll" "$(OutDir)"</Command>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)Library\comiso\lib;$(SolutionDir)Library\libigl\lib;$(SolutionDir)Library\eigen\lib;$(SolutionDir)Library\glm\lib;$(SolutionDir)Library\openmesh\lib;$(SolutionDir)Library\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>igl.lib
+;CoMISo.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y /d "$(SolutionDir)Library\assimp\bin\*.dll" "$(OutDir)"</Command>

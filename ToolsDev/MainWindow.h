@@ -7,6 +7,7 @@
 #include "ViewportWidget.h"
 #include "ModelLoader.h"
 #include "MeshProcessor.h"
+#include "RetopoProcessor.h"
 
 class MainWindow : public QMainWindow
 {

@@ -75,12 +75,12 @@
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\Library\assimp\lib\assimp-vc143-mt.lib" />
-    <Library Include="..\Library\openmesh\lib\OpenMeshCored.lib" />
-    <Library Include="..\Library\openmesh\lib\OpenMeshToolsd.lib" />
     <Library Include="..\Library\glm\lib\glm.lib" />
     <Library Include="..\Library\eigen\lib\eigen_blas.lib" />
     <Library Include="..\Library\eigen\lib\eigen_lapack.lib" />
     <Library Include="..\Library\libigl\lib\igl.lib" />
+    <Library Include="..\Library\openmesh\lib\OpenMeshCore.lib" />
+    <Library Include="..\Library\openmesh\lib\OpenMeshTools.lib" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="ViewportWidget.h">

@@ -21,8 +21,11 @@ ExternalProject_Add(
     
     CMAKE_ARGS
         -DCMAKE_INSTALL_PREFIX=${MY_VS_INSTALL_DIR} 
+	-DCMAKE_CXX_STANDARD=17
         -DLIBIGL_USE_STATIC_LIBRARY=ON              
         -DCMAKE_BUILD_TYPE=Release                 
+	
+	-DLIBIGL_WITH_COMISO=ON
 
         # Turn off the heavy stuff
         -DLIBIGL_BUILD_TESTS=OFF
