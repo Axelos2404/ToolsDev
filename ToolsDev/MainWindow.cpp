@@ -9,6 +9,8 @@
 #include <QLabel>
 #include <QSlider>
 #include <QPushButton>
+#include <fstream>
+#include <filesystem>
 #include <CoMISo/Solver/CholmodSolver.hh>
 
 MainWindow::MainWindow(QWidget* parent)
@@ -109,6 +111,45 @@ void MainWindow::OnFileOpen()
     }
 }
 
+void ExportToOBJ(const std::string& filepath, const std::vector<Vertex>& verts, const std::vector<unsigned int>& inds)
+{
+    // Automatically create the directory if it doesn't exist
+    std::filesystem::path pathObj(filepath);
+    if (pathObj.has_parent_path()) {
+        std::filesystem::create_directories(pathObj.parent_path());
+    }
+
+    std::ofstream file(filepath);
+    if (!file.is_open()) {
+        OutputDebugStringA("[Pipeline] FAILED to open export file!\n");
+        return;
+    }
+
+    // 1. Write positions
+    for (const auto& v : verts)
+        file << "v " << v.position[0] << " " << v.position[1] << " " << v.position[2] << "\n";
+
+    // 2. Write MIQ UV coordinates
+    for (const auto& v : verts)
+        file << "vt " << v.texCoord[0] << " " << v.texCoord[1] << "\n";
+
+    // 3. Write Normals
+    for (const auto& v : verts)
+        file << "vn " << v.normal[0] << " " << v.normal[1] << " " << v.normal[2] << "\n";
+
+    // 4. Write Triangle Faces (OBJ is 1-indexed, format is v/vt/vn)
+    for (size_t i = 0; i < inds.size(); i += 3) {
+        unsigned int i0 = inds[i] + 1;
+        unsigned int i1 = inds[i + 1] + 1;
+        unsigned int i2 = inds[i + 2] + 1;
+        file << "f " << i0 << "/" << i0 << "/" << i0 << " "
+            << i1 << "/" << i1 << "/" << i1 << " "
+            << i2 << "/" << i2 << "/" << i2 << "\n";
+    }
+    file.close();
+    OutputDebugStringA("[Pipeline] OBJ Export Successful!\n");
+}
+
 void MainWindow::OnApplyDecimationClicked(int targetVertexCount)
 {
     if (m_currentModel.meshes.empty())
@@ -196,6 +237,10 @@ void MainWindow::OnApplyDecimationClicked(int targetVertexCount)
 
             OutputDebugStringA(("[Pipeline] Processed mesh " + std::to_string(m_idx + 1) + "/" + std::to_string(modelDataCopy.meshes.size()) + "\n").c_str());
         }
+
+        // Export BEFORE we move the memory to the UI thread!
+        OutputDebugStringA("[Pipeline] Exporting OBJ...\n");
+        ExportToOBJ("C:\\Temp\\MIQ_Test_Output.obj", finalVertices, finalIndices);
 
         // 7. Schedule viewport update back onto the main UI thread.
         QMetaObject::invokeMethod(this, [this,
