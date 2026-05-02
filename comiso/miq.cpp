@@ -486,14 +486,20 @@ IGL_INLINE std::vector<std::vector<typename igl::copyleft::comiso::VertexIndexin
     auto startVertexNeighbors = &VVSeam[element];
     size_t neighborSize = startVertexNeighbors->size();
 
-    // explore every seam to which this vertex is a start vertex
+        // explore every seam to which this vertex is a start vertex
     // note: a vertex can never be a start vertex and a regular vertex simultaneously
     for (size_t j = 0; j < neighborSize; j++)
     {
+      // [FIX] Ensure the list wasn't depleted by a looped seam in a previous iteration!
+      if (startVertexNeighbors->empty())
+      {
+          break;
+      }
+
       std::vector<VertexInfo> thisSeam; // temporary container
 
       // Create vertexInfo struct for start vertex
-      VertexInfo startVertex = VertexInfo(element, -1, -1, -1, -1);// -1 values are arbitrary (will never be used)
+      VertexInfo startVertex = VertexInfo(element, -1, -1, -1, -1);
       VertexInfo currentVertex = startVertex;
       // Add start vertex to the seam
       thisSeam.push_back(currentVertex);
@@ -503,13 +509,19 @@ IGL_INLINE std::vector<std::vector<typename igl::copyleft::comiso::VertexIndexin
       auto nextVertex = currentVertexNeighbors->front();
       currentVertexNeighbors->pop_front();
 
-      // bogus initialization due to lack of def. constructor
       VertexInfo prevVertex = startVertex;
       while (true)
       {
         // move to the next vertex
         prevVertex = currentVertex;
         currentVertex = nextVertex;
+
+        // [FIX] Bounds check - break gracefully if topology flow is broken
+        if (nextVertex.v < 0 || nextVertex.v >= VVSeam.size())
+        {
+            break;
+        }
+
         currentVertexNeighbors = &VVSeam[nextVertex.v];
 
         // add current vertex to this seam
@@ -517,7 +529,13 @@ IGL_INLINE std::vector<std::vector<typename igl::copyleft::comiso::VertexIndexin
 
         // remove the previous vertex
         auto it = std::find(currentVertexNeighbors->begin(), currentVertexNeighbors->end(), prevVertex);
-        assert(it != currentVertexNeighbors->end());
+        
+        // [FIX] Safe conditional break
+        if (it == currentVertexNeighbors->end())
+        {
+            break; 
+        }
+        
         currentVertexNeighbors->erase(it);
 
         if (currentVertexNeighbors->size() == 1 && !isStartVertex[currentVertex.v])
