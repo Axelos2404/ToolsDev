@@ -1,0 +1,2990 @@
+﻿'ToolsDev.exe' (Win32): Loaded 'E:\Workspace\ToolsDev\x64\Release\ToolsDev.exe'. Symbols loaded.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\ntdll.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\kernel32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\KernelBase.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbase.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'E:\Qt\6.10.2\msvc2022_64\bin\Qt6OpenGLWidgets.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'E:\Qt\6.10.2\msvc2022_64\bin\Qt6OpenGL.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'E:\Qt\6.10.2\msvc2022_64\bin\Qt6Gui.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'E:\Qt\6.10.2\msvc2022_64\bin\Qt6Widgets.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\gdi32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\user32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'E:\Workspace\ToolsDev\x64\Release\assimp-vc143-mt.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'E:\Qt\6.10.2\msvc2022_64\bin\Qt6Core.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\win32u.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\win32u.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\win32u.dll'
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\gdi32full.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\advapi32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\msvcp140.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\msvcp_win.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\msvcrt.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\msvcp140_2.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140_1.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\ole32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\sechost.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\combase.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\rpcrt4.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\rpcrt4.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\rpcrt4.dll'
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\shell32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\shell32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\dxgi.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\shell32.dll'
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\d3d11.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\ws2_32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\WinTypes.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\dwmapi.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\D3D12.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\oleaut32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\uxtheme.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\mpr.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\userenv.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\msvcp140_1.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\authz.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\netapi32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\version.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\winmm.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\powrprof.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\DWrite.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\icuuc.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\icuuc.dll'
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\icuuc.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\cryptbase.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\netutils.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\srvcli.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\icu.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\umpdc.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\imm32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\bcryptprimitives.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\windows.storage.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\SHCore.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\shlwapi.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\profapi.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'E:\Qt\6.10.2\msvc2022_64\plugins\platforms\qwindows.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\setupapi.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\comdlg32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\wtsapi32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\crypt32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.8115_none_3e075c82e3354f9c\comctl32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\UIAutomationCore.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\d3d9.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\sspicli.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\DXCore.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\kernel.appcore.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\msctf.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\devobj.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\cfgmgr32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\cfgmgr32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\cfgmgr32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\cfgmgr32.dll'
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\cfgmgr32.dll'
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\wintrust.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\msasn1.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\clbcatq.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\Windows.UI.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\Windows.UI.Immersive.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'E:\Qt\6.10.2\msvc2022_64\plugins\styles\qmodernwindowsstyle.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_f4c7a2fd13e0f763\nvldumdx.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\cryptnet.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\wldp.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\drvstore.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\imagehlp.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\cryptsp.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\rsaenh.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\bcrypt.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_f4c7a2fd13e0f763\nvgpucomp64.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_f4c7a2fd13e0f763\NvMemMapStoragex.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_f4c7a2fd13e0f763\nvd3dumx.dll'. Symbol loading disabled by Include/Exclude setting.
+The thread 43792 has exited with code 0 (0x0).
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\directxdatabasehelper.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\ResourcePolicyClient.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\ResourcePolicyClient.dll'
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_f4c7a2fd13e0f763\nvd3dumx.dll'
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_f4c7a2fd13e0f763\nvgpucomp64.dll'
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_f4c7a2fd13e0f763\NvMemMapStoragex.dll'
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\drvstore.dll'
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\wldp.dll'
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_f4c7a2fd13e0f763\nvldumdx.dll'
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\DataExchange.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\twinapi.appcore.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_f4c7a2fd13e0f763\nvldumdx.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\wldp.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\drvstore.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_f4c7a2fd13e0f763\nvgpucomp64.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_f4c7a2fd13e0f763\NvMemMapStoragex.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_f4c7a2fd13e0f763\nvd3dumx.dll'. Symbol loading disabled by Include/Exclude setting.
+The thread 41208 has exited with code 0 (0x0).
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_f4c7a2fd13e0f763\nvd3dumx.dll'
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_f4c7a2fd13e0f763\nvgpucomp64.dll'
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_f4c7a2fd13e0f763\NvMemMapStoragex.dll'
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\drvstore.dll'
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\wldp.dll'
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_f4c7a2fd13e0f763\nvldumdx.dll'
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\opengl32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\glu32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\Windows.StateRepositoryCore.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_f4c7a2fd13e0f763\nvoglv64.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\wldp.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\drvstore.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\ntmarta.dll'. Symbol loading disabled by Include/Exclude setting.
+The thread 9308 has exited with code 0 (0x0).
+The thread 39008 has exited with code 0 (0x0).
+The thread 29300 has exited with code 0 (0x0).
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_f4c7a2fd13e0f763\nvgpucomp64.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\nvspcap64.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\psapi.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\dbghelp.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\psapi.dll'
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\dbghelp.dll'
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\winsta.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\TextInputFramework.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\CoreMessaging.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\CoreUIComponents.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\ApplicationTargetedFeatureDatabase.dll'. Symbol loading disabled by Include/Exclude setting.
+The thread 'ShellHandwriting Delegate Thread' (36848) has exited with code 0 (0x0).
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\Windows.FileExplorer.Common.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\propsys.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\dui70.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\duser.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Program Files\Common Files\microsoft shared\ink\tiptsf.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\TextShaping.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\oleacc.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\edputil.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\ExplorerFrame.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\WindowsCodecs.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\thumbcache.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\msftedit.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\Windows.Globalization.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\globinputhost.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\BCP47Langs.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\Windows.System.Launcher.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\SystemSettings.DataModel.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\slc.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\OneCoreCommonProxyStub.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\OneCoreUAPCommonProxyStub.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\StructuredQuery.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\Windows.StateRepositoryPS.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\Windows.StateRepositoryClient.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\Windows.Storage.Search.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\cldapi.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\Windows.Web.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\policymanager.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\vaultcli.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\xmllite.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\sxs.dll'. Symbol loading disabled by Include/Exclude setting.
+mincore\com\oleaut32\dispatch\ups.cpp(2126)\OLEAUT32.dll!00007FFAB97DE7FD: (caller: 00007FFAB97DEE82) ReturnHr(1) tid(8ee4) 8002801D Library not registered.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\atlthunk.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\windowsudk.shellcommon.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\p9np.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\drprov.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\ntlanman.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\davclnt.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\wkscli.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\cscapi.dll'. Symbol loading disabled by Include/Exclude setting.
+Exception thrown at 0x00007FFAB76C79DA (KernelBase.dll) in ToolsDev.exe: 0x000006BA: The RPC server is unavailable.
+onecore\vm\dv\storage\plan9\rdr\dll\util.cpp(99)\p9np.dll!00007FFA72A7EFAC: (caller: 00007FFA72A795F1) LogHr(1) tid(5fe4) C0000034     Msg:[NtCreateFile(&device, SYNCHRONIZE, &attributes, &ioStatus, nullptr, FILE_ATTRIBUTE_NORMAL, (FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE), FILE_OPEN, FILE_SYNCHRONOUS_IO_NONALERT, nullptr, 0)] 
+The thread 24548 has exited with code 0 (0x0).
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\apphelp.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\urlmon.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\iertutil.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\dlnashext.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\PlayToDevice.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\DevDispItemProvider.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\MMDevAPI.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\wpdshext.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.26100.8246_none_6ef5395a3dc52f61\GdiPlus.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\PortableDeviceApi.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\EhStorShell.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\EhStorAPI.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Program Files\Microsoft OneDrive\26.063.0405.0002\FileSyncShell64.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\wininet.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\secur32.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Program Files (x86)\Common Files\Adobe\CoreSyncExtension\CoreSync_x64.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\twinapi.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\coml2.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\linkinfo.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\ntshrui.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\networkexplorer.dll'. Symbol loading disabled by Include/Exclude setting.
+'ToolsDev.exe' (Win32): Loaded 'C:\Windows\System32\actxprxy.dll'. Symbol loading disabled by Include/Exclude setting.
+onecoreuap\internal\shell\inc\SrcPkg\FileExplorerSessionWatcher\inc\FileExplorerSessionWatcher.h(1872)\SHELL32.dll!00007FFAB86516F8: (caller: 00007FFAB85503A9) ReturnHr(1) tid(8ee4) 80004001 Not implemented
+shell\SrcPkg\FileExplorer\DefView\src\DefView.cpp(17836)\SHELL32.dll!00007FFAB85503C8: (caller: 00007FFA768198AF) LogHr(1) tid(8ee4) 80004001 Not implemented
+onecoreuap\internal\shell\inc\SrcPkg\FileExplorerSessionWatcher\inc\FileExplorerSessionWatcher.h(1872)\SHELL32.dll!00007FFAB86516F8: (caller: 00007FFAB85504F4) ReturnHr(2) tid(8ee4) 80004001 Not implemented
+shell\SrcPkg\FileExplorer\DefView\src\DefView.cpp(17867)\SHELL32.dll!00007FFAB855052F: (caller: 00007FFA768198AF) LogHr(2) tid(8ee4) 80004001 Not implemented
+onecoreuap\internal\shell\inc\SrcPkg\FileExplorerSessionWatcher\inc\FileExplorerSessionWatcher.h(1872)\SHELL32.dll!00007FFAB86516F8: (caller: 00007FFAB85503A9) ReturnHr(3) tid(8ee4) 80004001 Not implemented
+shell\SrcPkg\FileExplorer\DefView\src\DefView.cpp(17836)\SHELL32.dll!00007FFAB85503C8: (caller: 00007FFA768198AF) LogHr(3) tid(8ee4) 80004001 Not implemented
+onecoreuap\internal\shell\inc\SrcPkg\FileExplorerSessionWatcher\inc\FileExplorerSessionWatcher.h(1872)\SHELL32.dll!00007FFAB86516F8: (caller: 00007FFAB85504F4) ReturnHr(4) tid(8ee4) 80004001 Not implemented
+shell\SrcPkg\FileExplorer\DefView\src\DefView.cpp(17867)\SHELL32.dll!00007FFAB855052F: (caller: 00007FFA768198AF) LogHr(4) tid(8ee4) 80004001 Not implemented
+onecoreuap\internal\shell\inc\SrcPkg\FileExplorerSessionWatcher\inc\FileExplorerSessionWatcher.h(1872)\SHELL32.dll!00007FFAB86516F8: (caller: 00007FFAB85503A9) ReturnHr(5) tid(8ee4) 80004001 Not implemented
+shell\SrcPkg\FileExplorer\DefView\src\DefView.cpp(17836)\SHELL32.dll!00007FFAB85503C8: (caller: 00007FFA768198AF) LogHr(5) tid(8ee4) 80004001 Not implemented
+onecoreuap\internal\shell\inc\SrcPkg\FileExplorerSessionWatcher\inc\FileExplorerSessionWatcher.h(1872)\SHELL32.dll!00007FFAB86516F8: (caller: 00007FFAB85504F4) ReturnHr(6) tid(8ee4) 80004001 Not implemented
+shell\SrcPkg\FileExplorer\DefView\src\DefView.cpp(17867)\SHELL32.dll!00007FFAB855052F: (caller: 00007FFA768198AF) LogHr(6) tid(8ee4) 80004001 Not implemented
+onecoreuap\internal\shell\inc\SrcPkg\FileExplorerSessionWatcher\inc\FileExplorerSessionWatcher.h(1872)\SHELL32.dll!00007FFAB86516F8: (caller: 00007FFAB85503A9) ReturnHr(7) tid(8ee4) 80004001 Not implemented
+shell\SrcPkg\FileExplorer\DefView\src\DefView.cpp(17836)\SHELL32.dll!00007FFAB85503C8: (caller: 00007FFA768198AF) LogHr(7) tid(8ee4) 80004001 Not implemented
+onecoreuap\internal\shell\inc\SrcPkg\FileExplorerSessionWatcher\inc\FileExplorerSessionWatcher.h(1872)\SHELL32.dll!00007FFAB86516F8: (caller: 00007FFAB85504F4) ReturnHr(8) tid(8ee4) 80004001 Not implemented
+shell\SrcPkg\FileExplorer\DefView\src\DefView.cpp(17867)\SHELL32.dll!00007FFAB855052F: (caller: 00007FFA768198AF) LogHr(8) tid(8ee4) 80004001 Not implemented
+'ToolsDev.exe' (Win32): Unloaded 'C:\Windows\System32\msftedit.dll'
+shell\explorerframe\navbar.cpp(82)\explorerframe.dll!00007FFA7693C075: (caller: 00007FFA767F409E) LogHr(1) tid(8ee4) 80070057 The parameter is incorrect.
+The thread 34480 has exited with code 0 (0x0).
+Exception thrown at 0x00007FFAB76C79DA in ToolsDev.exe: Microsoft C++ exception: DeadlyImportError at memory location 0x000000316FAFAC10.
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 15 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 16 ms
+The thread 33948 has exited with code 0 (0x0).
+The thread 39000 has exited with code 0 (0x0).
+The thread 2992 has exited with code 0 (0x0).
+The thread 43232 has exited with code 0 (0x0).
+The thread 43180 has exited with code 0 (0x0).
+The thread 39036 has exited with code 0 (0x0).
+The thread 24640 has exited with code 0 (0x0).
+The thread 43988 has exited with code 0 (0x0).
+The thread 19492 has exited with code 0 (0x0).
+The thread 43156 has exited with code 0 (0x0).
+The thread 34824 has exited with code 0 (0x0).
+The thread 42628 has exited with code 0 (0x0).
+The thread 9172 has exited with code 0 (0x0).
+The thread 42128 has exited with code 0 (0x0).
+The thread 34300 has exited with code 0 (0x0).
+The thread 42696 has exited with code 0 (0x0).
+The thread 41080 has exited with code 0 (0x0).
+The thread 38096 has exited with code 0 (0x0).
+The thread 5836 has exited with code 0 (0x0).
+The thread 40892 has exited with code 0 (0x0).
+The thread 41232 has exited with code 0 (0x0).
+The thread 39820 has exited with code 0 (0x0).
+The thread 44000 has exited with code 0 (0x0).
+The thread 41024 has exited with code 0 (0x0).
+The thread 36280 has exited with code 0 (0x0).
+The thread 26180 has exited with code 0 (0x0).
+The thread 1828 has exited with code 0 (0x0).
+The thread 43492 has exited with code 0 (0x0).
+The thread 22316 has exited with code 0 (0x0).
+The thread 42476 has exited with code 0 (0x0).
+The thread 40648 has exited with code 0 (0x0).
+The thread 11724 has exited with code 0 (0x0).
+The thread 40516 has exited with code 0 (0x0).
+The thread 43068 has exited with code 0 (0x0).
+The thread 43596 has exited with code 0 (0x0).
+The thread 11720 has exited with code 0 (0x0).
+The thread 25144 has exited with code 0 (0x0).
+The thread 31996 has exited with code 0 (0x0).
+The thread 36364 has exited with code 0 (0x0).
+The thread 5216 has exited with code 0 (0x0).
+The thread 5200 has exited with code 0 (0x0).
+The thread 43912 has exited with code 0 (0x0).
+The thread 24664 has exited with code 0 (0x0).
+The thread 34456 has exited with code 0 (0x0).
+The thread 24044 has exited with code 0 (0x0).
+The thread 33264 has exited with code 0 (0x0).
+The thread 34228 has exited with code 0 (0x0).
+The thread 42808 has exited with code 0 (0x0).
+The thread 41368 has exited with code 0 (0x0).
+The thread 43020 has exited with code 0 (0x0).
+The thread 36828 has exited with code 0 (0x0).
+The thread 35152 has exited with code 0 (0x0).
+The thread 24060 has exited with code 0 (0x0).
+The thread 40080 has exited with code 0 (0x0).
+The thread 41292 has exited with code 0 (0x0).
+The thread 41108 has exited with code 0 (0x0).
+The thread 43444 has exited with code 0 (0x0).
+The thread 43752 has exited with code 0 (0x0).
+The thread 37904 has exited with code 0 (0x0).
+The thread 42760 has exited with code 0 (0x0).
+The thread 14516 has exited with code 0 (0x0).
+The thread 42660 has exited with code 0 (0x0).
+The thread 14548 has exited with code 0 (0x0).
+The thread 43792 has exited with code 0 (0x0).
+[Retopo] V=1210 F=2090
+The thread 42452 has exited with code 0 (0x0).
+The thread 42888 has exited with code 0 (0x0).
+The thread 26056 has exited with code 0 (0x0).
+The thread 43056 has exited with code 0 (0x0).
+The thread 41208 has exited with code 0 (0x0).
+The thread 9308 has exited with code 0 (0x0).
+The thread 39008 has exited with code 0 (0x0).
+The thread 1896 has exited with code 0 (0x0).
+The thread 29300 has exited with code 0 (0x0).
+The thread 43696 has exited with code 0 (0x0).
+The thread 24400 has exited with code 0 (0x0).
+The thread 36848 has exited with code 0 (0x0).
+The thread 35940 has exited with code 0 (0x0).
+The thread 23876 has exited with code 0 (0x0).
+The thread 14988 has exited with code 0 (0x0).
+The thread 24652 has exited with code 0 (0x0).
+The thread 24548 has exited with code 0 (0x0).
+The thread 36796 has exited with code 0 (0x0).
+The thread 42716 has exited with code 0 (0x0).
+The thread 5788 has exited with code 0 (0x0).
+The thread 40840 has exited with code 0 (0x0).
+The thread 24620 has exited with code 0 (0x0).
+The thread 9672 has exited with code 0 (0x0).
+The thread 3140 has exited with code 0 (0x0).
+The thread 38700 has exited with code 0 (0x0).
+The thread 42944 has exited with code 0 (0x0).
+The thread 35732 has exited with code 0 (0x0).
+The thread 41824 has exited with code 0 (0x0).
+The thread 43832 has exited with code 0 (0x0).
+The thread 39272 has exited with code 0 (0x0).
+The thread 36816 has exited with code 0 (0x0).
+The thread 41228 has exited with code 0 (0x0).
+The thread 43900 has exited with code 0 (0x0).
+The thread 40656 has exited with code 0 (0x0).
+The thread 23432 has exited with code 0 (0x0).
+The thread 39576 has exited with code 0 (0x0).
+The thread 39604 has exited with code 0 (0x0).
+The thread 11232 has exited with code 0 (0x0).
+The thread 43928 has exited with code 0 (0x0).
+The thread 42972 has exited with code 0 (0x0).
+The thread 38208 has exited with code 0 (0x0).
+The thread 39644 has exited with code 0 (0x0).
+The thread 41636 has exited with code 0 (0x0).
+The thread 36576 has exited with code 0 (0x0).
+The thread 38888 has exited with code 0 (0x0).
+The thread 21560 has exited with code 0 (0x0).
+The thread 40704 has exited with code 0 (0x0).
+The thread 36408 has exited with code 0 (0x0).
+The thread 42800 has exited with code 0 (0x0).
+The thread 37164 has exited with code 0 (0x0).
+The thread 15436 has exited with code 0 (0x0).
+The thread 34480 has exited with code 0 (0x0).
+The thread 43604 has exited with code 0 (0x0).
+The thread 9280 has exited with code 0 (0x0).
+The thread 40532 has exited with code 0 (0x0).
+The thread 29824 has exited with code 0 (0x0).
+The thread 39420 has exited with code 0 (0x0).
+The thread 41032 has exited with code 0 (0x0).
+The thread 37144 has exited with code 0 (0x0).
+The thread 43860 has exited with code 0 (0x0).
+The thread 43396 has exited with code 0 (0x0).
+The thread 43044 has exited with code 0 (0x0).
+The thread 33948 has exited with code 0 (0x0).
+The thread 39000 has exited with code 0 (0x0).
+The thread 2992 has exited with code 0 (0x0).
+The thread 19492 has exited with code 0 (0x0).
+The thread 43156 has exited with code 0 (0x0).
+The thread 43180 has exited with code 0 (0x0).
+The thread 43232 has exited with code 0 (0x0).
+The thread 39036 has exited with code 0 (0x0).
+The thread 24640 has exited with code 0 (0x0).
+The thread 43988 has exited with code 0 (0x0).
+The thread 34824 has exited with code 0 (0x0).
+The thread 42628 has exited with code 0 (0x0).
+The thread 9172 has exited with code 0 (0x0).
+The thread 42128 has exited with code 0 (0x0).
+The thread 34300 has exited with code 0 (0x0).
+The thread 42696 has exited with code 0 (0x0).
+The thread 41080 has exited with code 0 (0x0).
+The thread 38096 has exited with code 0 (0x0).
+The thread 5836 has exited with code 0 (0x0).
+The thread 1828 has exited with code 0 (0x0).
+The thread 40892 has exited with code 0 (0x0).
+The thread 41232 has exited with code 0 (0x0).
+The thread 39820 has exited with code 0 (0x0).
+The thread 44000 has exited with code 0 (0x0).
+The thread 41024 has exited with code 0 (0x0).
+The thread 36280 has exited with code 0 (0x0).
+The thread 26180 has exited with code 0 (0x0).
+The thread 43492 has exited with code 0 (0x0).
+The thread 22316 has exited with code 0 (0x0).
+The thread 42476 has exited with code 0 (0x0).
+The thread 40648 has exited with code 0 (0x0).
+The thread 11724 has exited with code 0 (0x0).
+The thread 41304 has exited with code 0 (0x0).
+The thread 40516 has exited with code 0 (0x0).
+The thread 43068 has exited with code 0 (0x0).
+The thread 43596 has exited with code 0 (0x0).
+The thread 25144 has exited with code 0 (0x0).
+The thread 11720 has exited with code 0 (0x0).
+The thread 31996 has exited with code 0 (0x0).
+The thread 36364 has exited with code 0 (0x0).
+The thread 5216 has exited with code 0 (0x0).
+The thread 5200 has exited with code 0 (0x0).
+The thread 43912 has exited with code 0 (0x0).
+The thread 24664 has exited with code 0 (0x0).
+The thread 34456 has exited with code 0 (0x0).
+The thread 24044 has exited with code 0 (0x0).
+The thread 33264 has exited with code 0 (0x0).
+The thread 34228 has exited with code 0 (0x0).
+The thread 42808 has exited with code 0 (0x0).
+The thread 41368 has exited with code 0 (0x0).
+The thread 43020 has exited with code 0 (0x0).
+The thread 36828 has exited with code 0 (0x0).
+The thread 35152 has exited with code 0 (0x0).
+The thread 24060 has exited with code 0 (0x0).
+The thread 40080 has exited with code 0 (0x0).
+The thread 41292 has exited with code 0 (0x0).
+The thread 41108 has exited with code 0 (0x0).
+The thread 43444 has exited with code 0 (0x0).
+The thread 43752 has exited with code 0 (0x0).
+The thread 37904 has exited with code 0 (0x0).
+The thread 42760 has exited with code 0 (0x0).
+The thread 42660 has exited with code 0 (0x0).
+The thread 14516 has exited with code 0 (0x0).
+The thread 14548 has exited with code 0 (0x0).
+The thread 43792 has exited with code 0 (0x0).
+The thread 42452 has exited with code 0 (0x0).
+The thread 42888 has exited with code 0 (0x0).
+The thread 26056 has exited with code 0 (0x0).
+The thread 43056 has exited with code 0 (0x0).
+The thread 41208 has exited with code 0 (0x0).
+The thread 9308 has exited with code 0 (0x0).
+The thread 39008 has exited with code 0 (0x0).
+The thread 1896 has exited with code 0 (0x0).
+The thread 29300 has exited with code 0 (0x0).
+The thread 43696 has exited with code 0 (0x0).
+The thread 24400 has exited with code 0 (0x0).
+The thread 36848 has exited with code 0 (0x0).
+The thread 35940 has exited with code 0 (0x0).
+The thread 23876 has exited with code 0 (0x0).
+The thread 14988 has exited with code 0 (0x0).
+The thread 24652 has exited with code 0 (0x0).
+The thread 24548 has exited with code 0 (0x0).
+The thread 36796 has exited with code 0 (0x0).
+The thread 41824 has exited with code 0 (0x0).
+The thread 42716 has exited with code 0 (0x0).
+The thread 5788 has exited with code 0 (0x0).
+The thread 40840 has exited with code 0 (0x0).
+The thread 24620 has exited with code 0 (0x0).
+The thread 9672 has exited with code 0 (0x0).
+The thread 3140 has exited with code 0 (0x0).
+The thread 38700 has exited with code 0 (0x0).
+The thread 42944 has exited with code 0 (0x0).
+The thread 35732 has exited with code 0 (0x0).
+The thread 43832 has exited with code 0 (0x0).
+The thread 39272 has exited with code 0 (0x0).
+The thread 36816 has exited with code 0 (0x0).
+The thread 41228 has exited with code 0 (0x0).
+The thread 43900 has exited with code 0 (0x0).
+The thread 40656 has exited with code 0 (0x0).
+The thread 23432 has exited with code 0 (0x0).
+The thread 39576 has exited with code 0 (0x0).
+The thread 39604 has exited with code 0 (0x0).
+The thread 11232 has exited with code 0 (0x0).
+The thread 43928 has exited with code 0 (0x0).
+The thread 42972 has exited with code 0 (0x0).
+The thread 38208 has exited with code 0 (0x0).
+The thread 39644 has exited with code 0 (0x0).
+The thread 41636 has exited with code 0 (0x0).
+The thread 36576 has exited with code 0 (0x0).
+The thread 38888 has exited with code 0 (0x0).
+The thread 21560 has exited with code 0 (0x0).
+The thread 40704 has exited with code 0 (0x0).
+The thread 36408 has exited with code 0 (0x0).
+The thread 42800 has exited with code 0 (0x0).
+The thread 15436 has exited with code 0 (0x0).
+The thread 37164 has exited with code 0 (0x0).
+The thread 34480 has exited with code 0 (0x0).
+The thread 43604 has exited with code 0 (0x0).
+The thread 9280 has exited with code 0 (0x0).
+The thread 40532 has exited with code 0 (0x0).
+The thread 39420 has exited with code 0 (0x0).
+The thread 29824 has exited with code 0 (0x0).
+The thread 41032 has exited with code 0 (0x0).
+The thread 37144 has exited with code 0 (0x0).
+The thread 43860 has exited with code 0 (0x0).
+The thread 43396 has exited with code 0 (0x0).
+The thread 43044 has exited with code 0 (0x0).
+The thread 33948 has exited with code 0 (0x0).
+The thread 39000 has exited with code 0 (0x0).
+The thread 39732 has exited with code 0 (0x0).
+[Pipeline] Processed mesh 1/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 4 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 5 ms
+The thread 42628 has exited with code 0 (0x0).
+The thread 39036 has exited with code 0 (0x0).
+The thread 24640 has exited with code 0 (0x0).
+The thread 43988 has exited with code 0 (0x0).
+The thread 34824 has exited with code 0 (0x0).
+The thread 42128 has exited with code 0 (0x0).
+The thread 9172 has exited with code 0 (0x0).
+The thread 34300 has exited with code 0 (0x0).
+The thread 42696 has exited with code 0 (0x0).
+The thread 41080 has exited with code 0 (0x0).
+The thread 38096 has exited with code 0 (0x0).
+The thread 5836 has exited with code 0 (0x0).
+The thread 1828 has exited with code 0 (0x0).
+The thread 40892 has exited with code 0 (0x0).
+The thread 41232 has exited with code 0 (0x0).
+The thread 39820 has exited with code 0 (0x0).
+The thread 44000 has exited with code 0 (0x0).
+The thread 41024 has exited with code 0 (0x0).
+The thread 36280 has exited with code 0 (0x0).
+The thread 26180 has exited with code 0 (0x0).
+The thread 43492 has exited with code 0 (0x0).
+The thread 22316 has exited with code 0 (0x0).
+The thread 40648 has exited with code 0 (0x0).
+The thread 42476 has exited with code 0 (0x0).
+The thread 11724 has exited with code 0 (0x0).
+The thread 41304 has exited with code 0 (0x0).
+The thread 40516 has exited with code 0 (0x0).
+The thread 43068 has exited with code 0 (0x0).
+The thread 43596 has exited with code 0 (0x0).
+The thread 25144 has exited with code 0 (0x0).
+The thread 11720 has exited with code 0 (0x0).
+The thread 31996 has exited with code 0 (0x0).
+[Retopo] V=376 F=699
+The thread 36364 has exited with code 0 (0x0).
+The thread 33264 has exited with code 0 (0x0).
+The thread 5216 has exited with code 0 (0x0).
+The thread 5200 has exited with code 0 (0x0).
+The thread 43912 has exited with code 0 (0x0).
+The thread 24664 has exited with code 0 (0x0).
+The thread 34456 has exited with code 0 (0x0).
+The thread 24044 has exited with code 0 (0x0).
+The thread 34228 has exited with code 0 (0x0).
+The thread 42808 has exited with code 0 (0x0).
+The thread 41368 has exited with code 0 (0x0).
+The thread 43020 has exited with code 0 (0x0).
+The thread 36828 has exited with code 0 (0x0).
+The thread 35152 has exited with code 0 (0x0).
+The thread 24060 has exited with code 0 (0x0).
+The thread 40080 has exited with code 0 (0x0).
+The thread 43752 has exited with code 0 (0x0).
+The thread 41292 has exited with code 0 (0x0).
+The thread 41108 has exited with code 0 (0x0).
+The thread 43444 has exited with code 0 (0x0).
+The thread 37904 has exited with code 0 (0x0).
+The thread 14516 has exited with code 0 (0x0).
+The thread 42760 has exited with code 0 (0x0).
+The thread 42660 has exited with code 0 (0x0).
+The thread 14548 has exited with code 0 (0x0).
+The thread 43056 has exited with code 0 (0x0).
+The thread 43792 has exited with code 0 (0x0).
+The thread 42452 has exited with code 0 (0x0).
+The thread 42888 has exited with code 0 (0x0).
+The thread 26056 has exited with code 0 (0x0).
+The thread 41208 has exited with code 0 (0x0).
+The thread 9308 has exited with code 0 (0x0).
+The thread 39008 has exited with code 0 (0x0).
+The thread 35940 has exited with code 0 (0x0).
+The thread 1896 has exited with code 0 (0x0).
+The thread 29300 has exited with code 0 (0x0).
+The thread 43696 has exited with code 0 (0x0).
+The thread 24400 has exited with code 0 (0x0).
+The thread 36848 has exited with code 0 (0x0).
+The thread 23876 has exited with code 0 (0x0).
+The thread 41824 has exited with code 0 (0x0).
+The thread 14988 has exited with code 0 (0x0).
+The thread 24652 has exited with code 0 (0x0).
+The thread 24548 has exited with code 0 (0x0).
+The thread 36796 has exited with code 0 (0x0).
+The thread 42716 has exited with code 0 (0x0).
+The thread 5788 has exited with code 0 (0x0).
+The thread 40840 has exited with code 0 (0x0).
+The thread 24620 has exited with code 0 (0x0).
+The thread 3140 has exited with code 0 (0x0).
+The thread 9672 has exited with code 0 (0x0).
+The thread 38700 has exited with code 0 (0x0).
+The thread 42944 has exited with code 0 (0x0).
+The thread 35732 has exited with code 0 (0x0).
+The thread 43832 has exited with code 0 (0x0).
+The thread 36816 has exited with code 0 (0x0).
+The thread 39272 has exited with code 0 (0x0).
+The thread 41228 has exited with code 0 (0x0).
+The thread 43900 has exited with code 0 (0x0).
+The thread 40656 has exited with code 0 (0x0).
+The thread 23432 has exited with code 0 (0x0).
+The thread 39576 has exited with code 0 (0x0).
+The thread 39604 has exited with code 0 (0x0).
+The thread 11232 has exited with code 0 (0x0).
+The thread 43928 has exited with code 0 (0x0).
+The thread 42972 has exited with code 0 (0x0).
+The thread 40704 has exited with code 0 (0x0).
+The thread 38208 has exited with code 0 (0x0).
+The thread 39644 has exited with code 0 (0x0).
+The thread 41636 has exited with code 0 (0x0).
+The thread 36576 has exited with code 0 (0x0).
+The thread 38888 has exited with code 0 (0x0).
+The thread 21560 has exited with code 0 (0x0).
+The thread 42800 has exited with code 0 (0x0).
+The thread 36408 has exited with code 0 (0x0).
+The thread 37164 has exited with code 0 (0x0).
+The thread 15436 has exited with code 0 (0x0).
+The thread 36728 has exited with code 0 (0x0).
+The thread 23864 has exited with code 0 (0x0).
+The thread 8748 has exited with code 0 (0x0).
+The thread 37820 has exited with code 0 (0x0).
+The thread 41180 has exited with code 0 (0x0).
+The thread 34480 has exited with code 0 (0x0).
+The thread 43604 has exited with code 0 (0x0).
+The thread 9280 has exited with code 0 (0x0).
+The thread 40532 has exited with code 0 (0x0).
+The thread 39420 has exited with code 0 (0x0).
+The thread 29824 has exited with code 0 (0x0).
+The thread 41032 has exited with code 0 (0x0).
+The thread 37144 has exited with code 0 (0x0).
+The thread 43860 has exited with code 0 (0x0).
+The thread 43396 has exited with code 0 (0x0).
+The thread 43044 has exited with code 0 (0x0).
+The thread 33948 has exited with code 0 (0x0).
+The thread 39000 has exited with code 0 (0x0).
+The thread 39732 has exited with code 0 (0x0).
+The thread 42628 has exited with code 0 (0x0).
+The thread 24640 has exited with code 0 (0x0).
+The thread 39036 has exited with code 0 (0x0).
+The thread 34824 has exited with code 0 (0x0).
+The thread 43988 has exited with code 0 (0x0).
+The thread 42128 has exited with code 0 (0x0).
+The thread 9172 has exited with code 0 (0x0).
+The thread 42696 has exited with code 0 (0x0).
+The thread 34300 has exited with code 0 (0x0).
+The thread 1828 has exited with code 0 (0x0).
+The thread 41080 has exited with code 0 (0x0).
+The thread 38096 has exited with code 0 (0x0).
+The thread 5836 has exited with code 0 (0x0).
+The thread 40892 has exited with code 0 (0x0).
+The thread 41232 has exited with code 0 (0x0).
+The thread 39820 has exited with code 0 (0x0).
+The thread 44000 has exited with code 0 (0x0).
+The thread 41024 has exited with code 0 (0x0).
+The thread 11724 has exited with code 0 (0x0).
+The thread 36280 has exited with code 0 (0x0).
+The thread 26180 has exited with code 0 (0x0).
+The thread 43492 has exited with code 0 (0x0).
+The thread 22316 has exited with code 0 (0x0).
+The thread 40648 has exited with code 0 (0x0).
+The thread 42476 has exited with code 0 (0x0).
+The thread 41304 has exited with code 0 (0x0).
+The thread 40516 has exited with code 0 (0x0).
+The thread 11720 has exited with code 0 (0x0).
+The thread 43068 has exited with code 0 (0x0).
+The thread 43596 has exited with code 0 (0x0).
+The thread 25144 has exited with code 0 (0x0).
+The thread 31996 has exited with code 0 (0x0).
+The thread 33264 has exited with code 0 (0x0).
+The thread 36364 has exited with code 0 (0x0).
+The thread 5216 has exited with code 0 (0x0).
+The thread 5200 has exited with code 0 (0x0).
+The thread 43912 has exited with code 0 (0x0).
+The thread 34456 has exited with code 0 (0x0).
+The thread 24664 has exited with code 0 (0x0).
+The thread 24044 has exited with code 0 (0x0).
+The thread 34228 has exited with code 0 (0x0).
+The thread 42808 has exited with code 0 (0x0).
+The thread 41368 has exited with code 0 (0x0).
+The thread 43020 has exited with code 0 (0x0).
+The thread 36828 has exited with code 0 (0x0).
+The thread 35152 has exited with code 0 (0x0).
+The thread 24060 has exited with code 0 (0x0).
+The thread 40080 has exited with code 0 (0x0).
+The thread 43752 has exited with code 0 (0x0).
+The thread 37904 has exited with code 0 (0x0).
+The thread 42760 has exited with code 0 (0x0).
+The thread 41292 has exited with code 0 (0x0).
+The thread 41108 has exited with code 0 (0x0).
+The thread 43444 has exited with code 0 (0x0).
+The thread 43056 has exited with code 0 (0x0).
+The thread 42452 has exited with code 0 (0x0).
+The thread 42660 has exited with code 0 (0x0).
+The thread 14516 has exited with code 0 (0x0).
+The thread 14548 has exited with code 0 (0x0).
+The thread 9308 has exited with code 0 (0x0).
+The thread 42888 has exited with code 0 (0x0).
+The thread 43792 has exited with code 0 (0x0).
+The thread 26056 has exited with code 0 (0x0).
+The thread 41208 has exited with code 0 (0x0).
+The thread 39008 has exited with code 0 (0x0).
+The thread 23876 has exited with code 0 (0x0).
+The thread 35940 has exited with code 0 (0x0).
+The thread 1896 has exited with code 0 (0x0).
+The thread 29300 has exited with code 0 (0x0).
+The thread 43696 has exited with code 0 (0x0).
+The thread 24400 has exited with code 0 (0x0).
+The thread 36848 has exited with code 0 (0x0).
+The thread 41824 has exited with code 0 (0x0).
+The thread 36796 has exited with code 0 (0x0).
+The thread 14988 has exited with code 0 (0x0).
+The thread 24652 has exited with code 0 (0x0).
+The thread 24548 has exited with code 0 (0x0).
+The thread 42716 has exited with code 0 (0x0).
+The thread 5788 has exited with code 0 (0x0).
+The thread 40840 has exited with code 0 (0x0).
+The thread 24620 has exited with code 0 (0x0).
+The thread 43832 has exited with code 0 (0x0).
+The thread 3140 has exited with code 0 (0x0).
+The thread 9672 has exited with code 0 (0x0).
+The thread 38700 has exited with code 0 (0x0).
+The thread 42944 has exited with code 0 (0x0).
+The thread 35732 has exited with code 0 (0x0).
+The thread 36816 has exited with code 0 (0x0).
+The thread 40656 has exited with code 0 (0x0).
+The thread 39272 has exited with code 0 (0x0).
+The thread 41228 has exited with code 0 (0x0).
+The thread 43900 has exited with code 0 (0x0).
+The thread 39576 has exited with code 0 (0x0).
+The thread 23432 has exited with code 0 (0x0).
+The thread 39604 has exited with code 0 (0x0).
+The thread 11232 has exited with code 0 (0x0).
+Critical error detected c0000374
+A breakpoint instruction (__debugbreak() statement or a similar call) was executed in ToolsDev.exe.
+
+Exception thrown at 0x00007FFABA417555 (ntdll.dll) in ToolsDev.exe: 0xC0000374: A heap has been corrupted (parameters: 0x00007FFABA4CD0E0).
+Unhandled exception at 0x00007FFABA417555 (ntdll.dll) in ToolsDev.exe: 0xC0000374: A heap has been corrupted (parameters: 0x00007FFABA4CD0E0).
+
+Exception thrown at 0x00007FF7CA9D5597 in ToolsDev.exe: 0xC0000005: Access violation reading location 0x0000018BD157DBE0.
+
+[Retopo] SEH CRITICAL: MIQ Access Violation caught. Falling back.
+[Retopo] MIQ aborted due to internal Access Violation. Handled safely.
+[Pipeline] Processed mesh 2/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 1 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 2 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 3/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 1 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 1 ms
+[Pipeline] Skipping MIQ for tiny mesh part (100 verts)
+[Pipeline] Processed mesh 4/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 1 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 2 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 5/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 9 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 10 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 6/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 2 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 3 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 7/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+The thread 45052 has exited with code 0 (0x0).
+The thread 45048 has exited with code 0 (0x0).
+The thread 39576 has exited with code 0 (0x0).
+The thread 41228 has exited with code 0 (0x0).
+The thread 23432 has exited with code 0 (0x0).
+The thread 39604 has exited with code 0 (0x0).
+The thread 11232 has exited with code 0 (0x0).
+The thread 34556 has exited with code 0 (0x0).
+The thread 26976 has exited with code 0 (0x0).
+The thread 40840 has exited with code 0 (0x0).
+The thread 39208 has exited with code 0 (0x0).
+The thread 43056 has exited with code 0 (0x0).
+The thread 41108 has exited with code 0 (0x0).
+The thread 40556 has exited with code 0 (0x0).
+The thread 37904 has exited with code 0 (0x0).
+The thread 43752 has exited with code 0 (0x0).
+[Mesh] Decimater.decimate_to took 36 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 38 ms
+The thread 43860 has exited with code 0 (0x0).
+The thread 24060 has exited with code 0 (0x0).
+The thread 35152 has exited with code 0 (0x0).
+The thread 41044 has exited with code 0 (0x0).
+The thread 41864 has exited with code 0 (0x0).
+The thread 23068 has exited with code 0 (0x0).
+The thread 43472 has exited with code 0 (0x0).
+The thread 29924 has exited with code 0 (0x0).
+The thread 31752 has exited with code 0 (0x0).
+The thread 42808 has exited with code 0 (0x0).
+The thread 44040 has exited with code 0 (0x0).
+The thread 44044 has exited with code 0 (0x0).
+The thread 44036 has exited with code 0 (0x0).
+The thread 44052 has exited with code 0 (0x0).
+The thread 44048 has exited with code 0 (0x0).
+The thread 35592 has exited with code 0 (0x0).
+The thread 24044 has exited with code 0 (0x0).
+The thread 42452 has exited with code 0 (0x0).
+The thread 36748 has exited with code 0 (0x0).
+The thread 6332 has exited with code 0 (0x0).
+The thread 42544 has exited with code 0 (0x0).
+The thread 30616 has exited with code 0 (0x0).
+The thread 24620 has exited with code 0 (0x0).
+The thread 43832 has exited with code 0 (0x0).
+The thread 43612 has exited with code 0 (0x0).
+The thread 3140 has exited with code 0 (0x0).
+The thread 9672 has exited with code 0 (0x0).
+The thread 38700 has exited with code 0 (0x0).
+The thread 42944 has exited with code 0 (0x0).
+The thread 35732 has exited with code 0 (0x0).
+The thread 36816 has exited with code 0 (0x0).
+The thread 40656 has exited with code 0 (0x0).
+The thread 36364 has exited with code 0 (0x0).
+The thread 33264 has exited with code 0 (0x0).
+The thread 39008 has exited with code 0 (0x0).
+The thread 35940 has exited with code 0 (0x0).
+The thread 31996 has exited with code 0 (0x0).
+The thread 43912 has exited with code 0 (0x0).
+The thread 34228 has exited with code 0 (0x0).
+The thread 41368 has exited with code 0 (0x0).
+The thread 36828 has exited with code 0 (0x0).
+The thread 42660 has exited with code 0 (0x0).
+The thread 14516 has exited with code 0 (0x0).
+The thread 26056 has exited with code 0 (0x0).
+The thread 41208 has exited with code 0 (0x0).
+The thread 23876 has exited with code 0 (0x0).
+The thread 1896 has exited with code 0 (0x0).
+The thread 29300 has exited with code 0 (0x0).
+The thread 41824 has exited with code 0 (0x0).
+The thread 43696 has exited with code 0 (0x0).
+The thread 36848 has exited with code 0 (0x0).
+The thread 36796 has exited with code 0 (0x0).
+The thread 14988 has exited with code 0 (0x0).
+The thread 24400 has exited with code 0 (0x0).
+The thread 24652 has exited with code 0 (0x0).
+The thread 24548 has exited with code 0 (0x0).
+The thread 5788 has exited with code 0 (0x0).
+The thread 5216 has exited with code 0 (0x0).
+The thread 42716 has exited with code 0 (0x0).
+The thread 44064 has exited with code 0 (0x0).
+The thread 39552 has exited with code 0 (0x0).
+The thread 41308 has exited with code 0 (0x0).
+The thread 24520 has exited with code 0 (0x0).
+The thread 44056 has exited with code 0 (0x0).
+[Retopo] vertex non-manifold after cleanup
+[Pipeline] Processed mesh 8/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 10 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 12 ms
+The thread 44080 has exited with code 0 (0x0).
+The thread 44068 has exited with code 0 (0x0).
+The thread 43020 has exited with code 0 (0x0).
+The thread 24664 has exited with code 0 (0x0).
+The thread 24508 has exited with code 0 (0x0).
+The thread 40516 has exited with code 0 (0x0).
+The thread 40624 has exited with code 0 (0x0).
+The thread 8920 has exited with code 0 (0x0).
+The thread 41792 has exited with code 0 (0x0).
+The thread 42844 has exited with code 0 (0x0).
+The thread 42712 has exited with code 0 (0x0).
+The thread 35168 has exited with code 0 (0x0).
+The thread 42724 has exited with code 0 (0x0).
+The thread 5028 has exited with code 0 (0x0).
+The thread 42780 has exited with code 0 (0x0).
+The thread 41304 has exited with code 0 (0x0).
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 9/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 1 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 2 ms
+The thread 43396 has exited with code 0 (0x0).
+The thread 13776 has exited with code 0 (0x0).
+The thread 43756 has exited with code 0 (0x0).
+The thread 35700 has exited with code 0 (0x0).
+The thread 38720 has exited with code 0 (0x0).
+The thread 13016 has exited with code 0 (0x0).
+The thread 44292 has exited with code 0 (0x0).
+The thread 44300 has exited with code 0 (0x0).
+The thread 43328 has exited with code 0 (0x0).
+The thread 43676 has exited with code 0 (0x0).
+The thread 44324 has exited with code 0 (0x0).
+The thread 43048 has exited with code 0 (0x0).
+The thread 39480 has exited with code 0 (0x0).
+The thread 36544 has exited with code 0 (0x0).
+The thread 27804 has exited with code 0 (0x0).
+The thread 43340 has exited with code 0 (0x0).
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 10/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 1 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 2 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 11/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 1 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 47 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=107
+[Mesh] RemoveNonManifoldVertices took 1 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 53 ms
+The thread 42168 has exited with code 0 (0x0).
+The thread 5920 has exited with code 0 (0x0).
+The thread 44344 has exited with code 0 (0x0).
+The thread 33920 has exited with code 0 (0x0).
+The thread 36540 has exited with code 0 (0x0).
+The thread 15524 has exited with code 0 (0x0).
+The thread 13080 has exited with code 0 (0x0).
+The thread 42672 has exited with code 0 (0x0).
+The thread 44340 has exited with code 0 (0x0).
+The thread 43080 has exited with code 0 (0x0).
+The thread 44420 has exited with code 0 (0x0).
+The thread 44488 has exited with code 0 (0x0).
+The thread 44428 has exited with code 0 (0x0).
+The thread 44652 has exited with code 0 (0x0).
+The thread 44656 has exited with code 0 (0x0).
+The thread 44660 has exited with code 0 (0x0).
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 12/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 1 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 1 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 13/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 15 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=4
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 17 ms
+The thread 44644 has exited with code 0 (0x0).
+The thread 44572 has exited with code 0 (0x0).
+The thread 44672 has exited with code 0 (0x0).
+The thread 44576 has exited with code 0 (0x0).
+The thread 44584 has exited with code 0 (0x0).
+The thread 44580 has exited with code 0 (0x0).
+The thread 44588 has exited with code 0 (0x0).
+The thread 44592 has exited with code 0 (0x0).
+The thread 44596 has exited with code 0 (0x0).
+The thread 44600 has exited with code 0 (0x0).
+The thread 44604 has exited with code 0 (0x0).
+The thread 44612 has exited with code 0 (0x0).
+The thread 44608 has exited with code 0 (0x0).
+The thread 44616 has exited with code 0 (0x0).
+The thread 44620 has exited with code 0 (0x0).
+The thread 44624 has exited with code 0 (0x0).
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 14/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 1 ms
+[Pipeline] Skipping MIQ for tiny mesh part (35 verts)
+[Pipeline] Processed mesh 15/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 1 ms
+[Pipeline] Skipping MIQ for tiny mesh part (52 verts)
+[Pipeline] Processed mesh 16/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 1 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 90 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 1 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=92
+[Mesh] RemoveNonManifoldVertices took 1 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 98 ms
+The thread 44460 has exited with code 0 (0x0).
+The thread 44628 has exited with code 0 (0x0).
+The thread 44632 has exited with code 0 (0x0).
+The thread 44636 has exited with code 0 (0x0).
+The thread 44640 has exited with code 0 (0x0).
+The thread 44568 has exited with code 0 (0x0).
+The thread 44648 has exited with code 0 (0x0).
+The thread 44476 has exited with code 0 (0x0).
+The thread 44484 has exited with code 0 (0x0).
+The thread 44668 has exited with code 0 (0x0).
+The thread 44464 has exited with code 0 (0x0).
+The thread 44456 has exited with code 0 (0x0).
+The thread 44468 has exited with code 0 (0x0).
+The thread 44480 has exited with code 0 (0x0).
+The thread 44452 has exited with code 0 (0x0).
+The thread 44472 has exited with code 0 (0x0).
+The thread 44448 has exited with code 0 (0x0).
+The thread 44800 has exited with code 0 (0x0).
+The thread 44680 has exited with code 0 (0x0).
+The thread 44356 has exited with code 0 (0x0).
+The thread 44364 has exited with code 0 (0x0).
+The thread 35360 has exited with code 0 (0x0).
+The thread 44780 has exited with code 0 (0x0).
+The thread 44788 has exited with code 0 (0x0).
+The thread 44792 has exited with code 0 (0x0).
+The thread 44796 has exited with code 0 (0x0).
+The thread 44804 has exited with code 0 (0x0).
+The thread 44808 has exited with code 0 (0x0).
+The thread 44812 has exited with code 0 (0x0).
+The thread 44816 has exited with code 0 (0x0).
+The thread 44820 has exited with code 0 (0x0).
+The thread 44824 has exited with code 0 (0x0).
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 17/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 0 ms
+[Pipeline] Skipping MIQ for tiny mesh part (14 verts)
+[Pipeline] Processed mesh 18/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 1 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 1 ms
+[Retopo] V=98 F=178
+The thread 44832 has exited with code 0 (0x0).
+The thread 44828 has exited with code 0 (0x0).
+The thread 44836 has exited with code 0 (0x0).
+The thread 44840 has exited with code 0 (0x0).
+The thread 44844 has exited with code 0 (0x0).
+The thread 44848 has exited with code 0 (0x0).
+The thread 44852 has exited with code 0 (0x0).
+The thread 44856 has exited with code 0 (0x0).
+The thread 44860 has exited with code 0 (0x0).
+The thread 44868 has exited with code 0 (0x0).
+The thread 44864 has exited with code 0 (0x0).
+The thread 44888 has exited with code 0 (0x0).
+The thread 44876 has exited with code 0 (0x0).
+The thread 44872 has exited with code 0 (0x0).
+The thread 44880 has exited with code 0 (0x0).
+The thread 44884 has exited with code 0 (0x0).
+The thread 44892 has exited with code 0 (0x0).
+The thread 44896 has exited with code 0 (0x0).
+The thread 44900 has exited with code 0 (0x0).
+The thread 44904 has exited with code 0 (0x0).
+The thread 44908 has exited with code 0 (0x0).
+The thread 44912 has exited with code 0 (0x0).
+The thread 44708 has exited with code 0 (0x0).
+The thread 44712 has exited with code 0 (0x0).
+The thread 44720 has exited with code 0 (0x0).
+The thread 44716 has exited with code 0 (0x0).
+The thread 44724 has exited with code 0 (0x0).
+The thread 44728 has exited with code 0 (0x0).
+The thread 44732 has exited with code 0 (0x0).
+The thread 44736 has exited with code 0 (0x0).
+The thread 44740 has exited with code 0 (0x0).
+The thread 44744 has exited with code 0 (0x0).
+The thread 44752 has exited with code 0 (0x0).
+The thread 44748 has exited with code 0 (0x0).
+The thread 44756 has exited with code 0 (0x0).
+The thread 44760 has exited with code 0 (0x0).
+The thread 44764 has exited with code 0 (0x0).
+The thread 44768 has exited with code 0 (0x0).
+The thread 44772 has exited with code 0 (0x0).
+The thread 44776 has exited with code 0 (0x0).
+The thread 44704 has exited with code 0 (0x0).
+The thread 44784 has exited with code 0 (0x0).
+The thread 44412 has exited with code 0 (0x0).
+The thread 44676 has exited with code 0 (0x0).
+The thread 44280 has exited with code 0 (0x0).
+The thread 44936 has exited with code 0 (0x0).
+The thread 44260 has exited with code 0 (0x0).
+The thread 44256 has exited with code 0 (0x0).
+The thread 44248 has exited with code 0 (0x0).
+The thread 44404 has exited with code 0 (0x0).
+The thread 44400 has exited with code 0 (0x0).
+The thread 44396 has exited with code 0 (0x0).
+The thread 44416 has exited with code 0 (0x0).
+The thread 44432 has exited with code 0 (0x0).
+The thread 44492 has exited with code 0 (0x0).
+The thread 44436 has exited with code 0 (0x0).
+The thread 44444 has exited with code 0 (0x0).
+The thread 44500 has exited with code 0 (0x0).
+The thread 44496 has exited with code 0 (0x0).
+The thread 44504 has exited with code 0 (0x0).
+The thread 44508 has exited with code 0 (0x0).
+The thread 44512 has exited with code 0 (0x0).
+The thread 44516 has exited with code 0 (0x0).
+The thread 44520 has exited with code 0 (0x0).
+The thread 44532 has exited with code 0 (0x0).
+The thread 44524 has exited with code 0 (0x0).
+The thread 44528 has exited with code 0 (0x0).
+The thread 44540 has exited with code 0 (0x0).
+The thread 44536 has exited with code 0 (0x0).
+The thread 44544 has exited with code 0 (0x0).
+The thread 44552 has exited with code 0 (0x0).
+The thread 44548 has exited with code 0 (0x0).
+The thread 44560 has exited with code 0 (0x0).
+The thread 44556 has exited with code 0 (0x0).
+The thread 44408 has exited with code 0 (0x0).
+The thread 44564 has exited with code 0 (0x0).
+The thread 44684 has exited with code 0 (0x0).
+The thread 44688 has exited with code 0 (0x0).
+The thread 44916 has exited with code 0 (0x0).
+The thread 44692 has exited with code 0 (0x0).
+The thread 44932 has exited with code 0 (0x0).
+The thread 44920 has exited with code 0 (0x0).
+The thread 44424 has exited with code 0 (0x0).
+The thread 44924 has exited with code 0 (0x0).
+The thread 44440 has exited with code 0 (0x0).
+The thread 44388 has exited with code 0 (0x0).
+The thread 26212 has exited with code 0 (0x0).
+The thread 44380 has exited with code 0 (0x0).
+The thread 44384 has exited with code 0 (0x0).
+The thread 42208 has exited with code 0 (0x0).
+The thread 44700 has exited with code 0 (0x0).
+The thread 44928 has exited with code 0 (0x0).
+The thread 35348 has exited with code 0 (0x0).
+The thread 38268 has exited with code 0 (0x0).
+The thread 34928 has exited with code 0 (0x0).
+The thread 44976 has exited with code 0 (0x0).
+The thread 45048 has exited with code 0 (0x0).
+The thread 43324 has exited with code 0 (0x0).
+The thread 44988 has exited with code 0 (0x0).
+The thread 45052 has exited with code 0 (0x0).
+The thread 41228 has exited with code 0 (0x0).
+The thread 39576 has exited with code 0 (0x0).
+The thread 23432 has exited with code 0 (0x0).
+The thread 39604 has exited with code 0 (0x0).
+The thread 11232 has exited with code 0 (0x0).
+The thread 34556 has exited with code 0 (0x0).
+The thread 26976 has exited with code 0 (0x0).
+The thread 40840 has exited with code 0 (0x0).
+The thread 39208 has exited with code 0 (0x0).
+The thread 43056 has exited with code 0 (0x0).
+The thread 40556 has exited with code 0 (0x0).
+The thread 41108 has exited with code 0 (0x0).
+The thread 43752 has exited with code 0 (0x0).
+The thread 38568 has exited with code 0 (0x0).
+The thread 37904 has exited with code 0 (0x0).
+The thread 6808 has exited with code 0 (0x0).
+The thread 38160 has exited with code 0 (0x0).
+The thread 4908 has exited with code 0 (0x0).
+The thread 19844 has exited with code 0 (0x0).
+The thread 40456 has exited with code 0 (0x0).
+The thread 42928 has exited with code 0 (0x0).
+The thread 34136 has exited with code 0 (0x0).
+The thread 40520 has exited with code 0 (0x0).
+The thread 43908 has exited with code 0 (0x0).
+The thread 43292 has exited with code 0 (0x0).
+The thread 38996 has exited with code 0 (0x0).
+The thread 42008 has exited with code 0 (0x0).
+The thread 29332 has exited with code 0 (0x0).
+The thread 23080 has exited with code 0 (0x0).
+The thread 12924 has exited with code 0 (0x0).
+The thread 31800 has exited with code 0 (0x0).
+The thread 23976 has exited with code 0 (0x0).
+The thread 15208 has exited with code 0 (0x0).
+The thread 43316 has exited with code 0 (0x0).
+The thread 33168 has exited with code 0 (0x0).
+The thread 35848 has exited with code 0 (0x0).
+The thread 40592 has exited with code 0 (0x0).
+The thread 38872 has exited with code 0 (0x0).
+The thread 4664 has exited with code 0 (0x0).
+The thread 3236 has exited with code 0 (0x0).
+The thread 43308 has exited with code 0 (0x0).
+The thread 41088 has exited with code 0 (0x0).
+The thread 40460 has exited with code 0 (0x0).
+The thread 33252 has exited with code 0 (0x0).
+The thread 43860 has exited with code 0 (0x0).
+The thread 41076 has exited with code 0 (0x0).
+The thread 38448 has exited with code 0 (0x0).
+The thread 35152 has exited with code 0 (0x0).
+The thread 24060 has exited with code 0 (0x0).
+The thread 41044 has exited with code 0 (0x0).
+The thread 41864 has exited with code 0 (0x0).
+The thread 43472 has exited with code 0 (0x0).
+The thread 23068 has exited with code 0 (0x0).
+The thread 44052 has exited with code 0 (0x0).
+The thread 29924 has exited with code 0 (0x0).
+The thread 31752 has exited with code 0 (0x0).
+The thread 42808 has exited with code 0 (0x0).
+The thread 44040 has exited with code 0 (0x0).
+The thread 44044 has exited with code 0 (0x0).
+The thread 44036 has exited with code 0 (0x0).
+The thread 42452 has exited with code 0 (0x0).
+The thread 44048 has exited with code 0 (0x0).
+The thread 35592 has exited with code 0 (0x0).
+The thread 24044 has exited with code 0 (0x0).
+The thread 6332 has exited with code 0 (0x0).
+The thread 36748 has exited with code 0 (0x0).
+The thread 42544 has exited with code 0 (0x0).
+The thread 30616 has exited with code 0 (0x0).
+The thread 43832 has exited with code 0 (0x0).
+The thread 24620 has exited with code 0 (0x0).
+The thread 35732 has exited with code 0 (0x0).
+The thread 43612 has exited with code 0 (0x0).
+The thread 3140 has exited with code 0 (0x0).
+The thread 9672 has exited with code 0 (0x0).
+The thread 38700 has exited with code 0 (0x0).
+The thread 42944 has exited with code 0 (0x0).
+The thread 36364 has exited with code 0 (0x0).
+The thread 36816 has exited with code 0 (0x0).
+The thread 40656 has exited with code 0 (0x0).
+The thread 33264 has exited with code 0 (0x0).
+The thread 35940 has exited with code 0 (0x0).
+The thread 39008 has exited with code 0 (0x0).
+The thread 43912 has exited with code 0 (0x0).
+The thread 31996 has exited with code 0 (0x0).
+The thread 34228 has exited with code 0 (0x0).
+The thread 36828 has exited with code 0 (0x0).
+The thread 41368 has exited with code 0 (0x0).
+The thread 14516 has exited with code 0 (0x0).
+The thread 42660 has exited with code 0 (0x0).
+The thread 41208 has exited with code 0 (0x0).
+The thread 26056 has exited with code 0 (0x0).
+The thread 23876 has exited with code 0 (0x0).
+[Retopo] miq failed to solve (produced NaNs)
+[Pipeline] Processed mesh 19/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 3 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 4 ms
+[Retopo] V=348 F=631
+The thread 1896 has exited with code 0 (0x0).
+The thread 29300 has exited with code 0 (0x0).
+The thread 41824 has exited with code 0 (0x0).
+The thread 43696 has exited with code 0 (0x0).
+The thread 36848 has exited with code 0 (0x0).
+The thread 36796 has exited with code 0 (0x0).
+The thread 14988 has exited with code 0 (0x0).
+The thread 24400 has exited with code 0 (0x0).
+The thread 24652 has exited with code 0 (0x0).
+The thread 24548 has exited with code 0 (0x0).
+The thread 5788 has exited with code 0 (0x0).
+The thread 5216 has exited with code 0 (0x0).
+The thread 42716 has exited with code 0 (0x0).
+The thread 44064 has exited with code 0 (0x0).
+The thread 39552 has exited with code 0 (0x0).
+The thread 41308 has exited with code 0 (0x0).
+The thread 24520 has exited with code 0 (0x0).
+The thread 44056 has exited with code 0 (0x0).
+The thread 44080 has exited with code 0 (0x0).
+The thread 44068 has exited with code 0 (0x0).
+The thread 43020 has exited with code 0 (0x0).
+The thread 24664 has exited with code 0 (0x0).
+The thread 24508 has exited with code 0 (0x0).
+The thread 40516 has exited with code 0 (0x0).
+The thread 40624 has exited with code 0 (0x0).
+The thread 8920 has exited with code 0 (0x0).
+The thread 41792 has exited with code 0 (0x0).
+The thread 42844 has exited with code 0 (0x0).
+The thread 42712 has exited with code 0 (0x0).
+The thread 35168 has exited with code 0 (0x0).
+The thread 42724 has exited with code 0 (0x0).
+The thread 5028 has exited with code 0 (0x0).
+The thread 42780 has exited with code 0 (0x0).
+The thread 44292 has exited with code 0 (0x0).
+The thread 41304 has exited with code 0 (0x0).
+The thread 43396 has exited with code 0 (0x0).
+The thread 13776 has exited with code 0 (0x0).
+The thread 43756 has exited with code 0 (0x0).
+The thread 35700 has exited with code 0 (0x0).
+The thread 38720 has exited with code 0 (0x0).
+The thread 13016 has exited with code 0 (0x0).
+The thread 44300 has exited with code 0 (0x0).
+The thread 43328 has exited with code 0 (0x0).
+The thread 43676 has exited with code 0 (0x0).
+The thread 44324 has exited with code 0 (0x0).
+The thread 43048 has exited with code 0 (0x0).
+The thread 39480 has exited with code 0 (0x0).
+The thread 36544 has exited with code 0 (0x0).
+The thread 27804 has exited with code 0 (0x0).
+The thread 13080 has exited with code 0 (0x0).
+The thread 43340 has exited with code 0 (0x0).
+The thread 42168 has exited with code 0 (0x0).
+The thread 5920 has exited with code 0 (0x0).
+The thread 44344 has exited with code 0 (0x0).
+The thread 33920 has exited with code 0 (0x0).
+The thread 36540 has exited with code 0 (0x0).
+The thread 15524 has exited with code 0 (0x0).
+The thread 42672 has exited with code 0 (0x0).
+The thread 44340 has exited with code 0 (0x0).
+The thread 43080 has exited with code 0 (0x0).
+The thread 44420 has exited with code 0 (0x0).
+The thread 44488 has exited with code 0 (0x0).
+The thread 44428 has exited with code 0 (0x0).
+The thread 44652 has exited with code 0 (0x0).
+The thread 44656 has exited with code 0 (0x0).
+The thread 44576 has exited with code 0 (0x0).
+The thread 44660 has exited with code 0 (0x0).
+The thread 44644 has exited with code 0 (0x0).
+The thread 44572 has exited with code 0 (0x0).
+The thread 44672 has exited with code 0 (0x0).
+The thread 44580 has exited with code 0 (0x0).
+The thread 44588 has exited with code 0 (0x0).
+The thread 44584 has exited with code 0 (0x0).
+The thread 44616 has exited with code 0 (0x0).
+The thread 44596 has exited with code 0 (0x0).
+The thread 44592 has exited with code 0 (0x0).
+The thread 44600 has exited with code 0 (0x0).
+The thread 44604 has exited with code 0 (0x0).
+The thread 44612 has exited with code 0 (0x0).
+The thread 44608 has exited with code 0 (0x0).
+The thread 44620 has exited with code 0 (0x0).
+The thread 44624 has exited with code 0 (0x0).
+The thread 44996 has exited with code 0 (0x0).
+The thread 44628 has exited with code 0 (0x0).
+The thread 44632 has exited with code 0 (0x0).
+The thread 44460 has exited with code 0 (0x0).
+The thread 44636 has exited with code 0 (0x0).
+The thread 44640 has exited with code 0 (0x0).
+The thread 44568 has exited with code 0 (0x0).
+The thread 44648 has exited with code 0 (0x0).
+The thread 44476 has exited with code 0 (0x0).
+The thread 44484 has exited with code 0 (0x0).
+The thread 44668 has exited with code 0 (0x0).
+The thread 44464 has exited with code 0 (0x0).
+The thread 44456 has exited with code 0 (0x0).
+The thread 44468 has exited with code 0 (0x0).
+The thread 44480 has exited with code 0 (0x0).
+The thread 44452 has exited with code 0 (0x0).
+The thread 44472 has exited with code 0 (0x0).
+The thread 44448 has exited with code 0 (0x0).
+The thread 44800 has exited with code 0 (0x0).
+The thread 44680 has exited with code 0 (0x0).
+The thread 44356 has exited with code 0 (0x0).
+The thread 44364 has exited with code 0 (0x0).
+The thread 35360 has exited with code 0 (0x0).
+The thread 44780 has exited with code 0 (0x0).
+The thread 44788 has exited with code 0 (0x0).
+The thread 44792 has exited with code 0 (0x0).
+The thread 44796 has exited with code 0 (0x0).
+The thread 44804 has exited with code 0 (0x0).
+The thread 44808 has exited with code 0 (0x0).
+The thread 44812 has exited with code 0 (0x0).
+The thread 44816 has exited with code 0 (0x0).
+The thread 44820 has exited with code 0 (0x0).
+The thread 44824 has exited with code 0 (0x0).
+The thread 44832 has exited with code 0 (0x0).
+The thread 44828 has exited with code 0 (0x0).
+The thread 44836 has exited with code 0 (0x0).
+The thread 44840 has exited with code 0 (0x0).
+The thread 44844 has exited with code 0 (0x0).
+The thread 44848 has exited with code 0 (0x0).
+The thread 44852 has exited with code 0 (0x0).
+The thread 44856 has exited with code 0 (0x0).
+The thread 44860 has exited with code 0 (0x0).
+The thread 44868 has exited with code 0 (0x0).
+The thread 44864 has exited with code 0 (0x0).
+The thread 44888 has exited with code 0 (0x0).
+The thread 44876 has exited with code 0 (0x0).
+The thread 44872 has exited with code 0 (0x0).
+The thread 44912 has exited with code 0 (0x0).
+The thread 44880 has exited with code 0 (0x0).
+The thread 44884 has exited with code 0 (0x0).
+The thread 44892 has exited with code 0 (0x0).
+The thread 44896 has exited with code 0 (0x0).
+The thread 44900 has exited with code 0 (0x0).
+The thread 44904 has exited with code 0 (0x0).
+The thread 44908 has exited with code 0 (0x0).
+The thread 44708 has exited with code 0 (0x0).
+The thread 44716 has exited with code 0 (0x0).
+The thread 44712 has exited with code 0 (0x0).
+The thread 44720 has exited with code 0 (0x0).
+The thread 44724 has exited with code 0 (0x0).
+The thread 44728 has exited with code 0 (0x0).
+The thread 44732 has exited with code 0 (0x0).
+The thread 44736 has exited with code 0 (0x0).
+The thread 44744 has exited with code 0 (0x0).
+The thread 44740 has exited with code 0 (0x0).
+The thread 44748 has exited with code 0 (0x0).
+The thread 44752 has exited with code 0 (0x0).
+The thread 44756 has exited with code 0 (0x0).
+The thread 44760 has exited with code 0 (0x0).
+The thread 44764 has exited with code 0 (0x0).
+The thread 44772 has exited with code 0 (0x0).
+The thread 44768 has exited with code 0 (0x0).
+The thread 44776 has exited with code 0 (0x0).
+The thread 44704 has exited with code 0 (0x0).
+The thread 44784 has exited with code 0 (0x0).
+The thread 44412 has exited with code 0 (0x0).
+The thread 44676 has exited with code 0 (0x0).
+The thread 44280 has exited with code 0 (0x0).
+The thread 44936 has exited with code 0 (0x0).
+The thread 44260 has exited with code 0 (0x0).
+The thread 44256 has exited with code 0 (0x0).
+The thread 44248 has exited with code 0 (0x0).
+The thread 44404 has exited with code 0 (0x0).
+The thread 44400 has exited with code 0 (0x0).
+The thread 44396 has exited with code 0 (0x0).
+The thread 44416 has exited with code 0 (0x0).
+The thread 44432 has exited with code 0 (0x0).
+The thread 44492 has exited with code 0 (0x0).
+The thread 44436 has exited with code 0 (0x0).
+The thread 44444 has exited with code 0 (0x0).
+The thread 44500 has exited with code 0 (0x0).
+The thread 44496 has exited with code 0 (0x0).
+The thread 44504 has exited with code 0 (0x0).
+The thread 44508 has exited with code 0 (0x0).
+The thread 44512 has exited with code 0 (0x0).
+The thread 44544 has exited with code 0 (0x0).
+The thread 44516 has exited with code 0 (0x0).
+The thread 44520 has exited with code 0 (0x0).
+The thread 44532 has exited with code 0 (0x0).
+The thread 44524 has exited with code 0 (0x0).
+The thread 44528 has exited with code 0 (0x0).
+The thread 44540 has exited with code 0 (0x0).
+The thread 44536 has exited with code 0 (0x0).
+The thread 44552 has exited with code 0 (0x0).
+The thread 44556 has exited with code 0 (0x0).
+The thread 44548 has exited with code 0 (0x0).
+The thread 44560 has exited with code 0 (0x0).
+The thread 44564 has exited with code 0 (0x0).
+The thread 44408 has exited with code 0 (0x0).
+The thread 44684 has exited with code 0 (0x0).
+Exception thrown: write access violation.
+_First->_Mypair._Myval2._Myhead->**_Prev** was 0xFFFFFFFFFFFFFFFF.
+
+[Retopo] SEH CRITICAL: MIQ Access Violation caught. Falling back.
+[Retopo] MIQ aborted due to internal Access Violation. Handled safely.
+[Pipeline] Processed mesh 20/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 0 ms
+[Pipeline] Skipping MIQ for tiny mesh part (10 verts)
+[Pipeline] Processed mesh 21/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 1 ms
+[Pipeline] Skipping MIQ for tiny mesh part (25 verts)
+[Pipeline] Processed mesh 22/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 0 ms
+[Pipeline] Skipping MIQ for tiny mesh part (23 verts)
+[Pipeline] Processed mesh 23/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 1 ms
+[Pipeline] Skipping MIQ for tiny mesh part (95 verts)
+[Pipeline] Processed mesh 24/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 2 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=4
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 2 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 25/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 43 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=1204
+[Mesh] RemoveNonManifoldVertices took 1 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 47 ms
+The thread 44424 has exited with code 0 (0x0).
+The thread 44924 has exited with code 0 (0x0).
+The thread 44440 has exited with code 0 (0x0).
+The thread 44388 has exited with code 0 (0x0).
+The thread 26212 has exited with code 0 (0x0).
+The thread 44380 has exited with code 0 (0x0).
+The thread 44384 has exited with code 0 (0x0).
+The thread 42208 has exited with code 0 (0x0).
+The thread 44700 has exited with code 0 (0x0).
+The thread 44928 has exited with code 0 (0x0).
+The thread 35348 has exited with code 0 (0x0).
+The thread 38268 has exited with code 0 (0x0).
+The thread 34928 has exited with code 0 (0x0).
+The thread 44976 has exited with code 0 (0x0).
+The thread 45004 has exited with code 0 (0x0).
+The thread 45048 has exited with code 0 (0x0).
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 26/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 26 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=12
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 28 ms
+The thread 44988 has exited with code 0 (0x0).
+The thread 43324 has exited with code 0 (0x0).
+The thread 45052 has exited with code 0 (0x0).
+The thread 41228 has exited with code 0 (0x0).
+The thread 39576 has exited with code 0 (0x0).
+The thread 23432 has exited with code 0 (0x0).
+The thread 39604 has exited with code 0 (0x0).
+The thread 11232 has exited with code 0 (0x0).
+The thread 34556 has exited with code 0 (0x0).
+The thread 26976 has exited with code 0 (0x0).
+The thread 40840 has exited with code 0 (0x0).
+The thread 39208 has exited with code 0 (0x0).
+The thread 43056 has exited with code 0 (0x0).
+The thread 40556 has exited with code 0 (0x0).
+The thread 41108 has exited with code 0 (0x0).
+The thread 43752 has exited with code 0 (0x0).
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 27/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 0 ms
+[Pipeline] Skipping MIQ for tiny mesh part (27 verts)
+[Pipeline] Processed mesh 28/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 27 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=10
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 29 ms
+The thread 38996 has exited with code 0 (0x0).
+The thread 38568 has exited with code 0 (0x0).
+The thread 37904 has exited with code 0 (0x0).
+The thread 6808 has exited with code 0 (0x0).
+The thread 38160 has exited with code 0 (0x0).
+The thread 4908 has exited with code 0 (0x0).
+The thread 19844 has exited with code 0 (0x0).
+The thread 40456 has exited with code 0 (0x0).
+The thread 42928 has exited with code 0 (0x0).
+The thread 34136 has exited with code 0 (0x0).
+The thread 40520 has exited with code 0 (0x0).
+The thread 43908 has exited with code 0 (0x0).
+The thread 43292 has exited with code 0 (0x0).
+The thread 29332 has exited with code 0 (0x0).
+The thread 42008 has exited with code 0 (0x0).
+The thread 23080 has exited with code 0 (0x0).
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 29/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 1 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 2 ms
+[Pipeline] Skipping MIQ for tiny mesh part (95 verts)
+[Pipeline] Processed mesh 30/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 3 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 4 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 31/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 1 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=1
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 2 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 32/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 1 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 33/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 1 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 34/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 0 ms
+[Pipeline] Skipping MIQ for tiny mesh part (35 verts)
+[Pipeline] Processed mesh 35/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 0 ms
+[Pipeline] Skipping MIQ for tiny mesh part (8 verts)
+[Pipeline] Processed mesh 36/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 2 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 3 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 37/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 16 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 17 ms
+The thread 12924 has exited with code 0 (0x0).
+The thread 33168 has exited with code 0 (0x0).
+The thread 31800 has exited with code 0 (0x0).
+The thread 23976 has exited with code 0 (0x0).
+The thread 15208 has exited with code 0 (0x0).
+The thread 43316 has exited with code 0 (0x0).
+The thread 40592 has exited with code 0 (0x0).
+The thread 35848 has exited with code 0 (0x0).
+The thread 38872 has exited with code 0 (0x0).
+The thread 3236 has exited with code 0 (0x0).
+The thread 4664 has exited with code 0 (0x0).
+The thread 43308 has exited with code 0 (0x0).
+The thread 41088 has exited with code 0 (0x0).
+The thread 40460 has exited with code 0 (0x0).
+The thread 33252 has exited with code 0 (0x0).
+The thread 43860 has exited with code 0 (0x0).
+The thread 23068 has exited with code 0 (0x0).
+The thread 41076 has exited with code 0 (0x0).
+The thread 38448 has exited with code 0 (0x0).
+The thread 35152 has exited with code 0 (0x0).
+The thread 24060 has exited with code 0 (0x0).
+The thread 41044 has exited with code 0 (0x0).
+The thread 41864 has exited with code 0 (0x0).
+The thread 43472 has exited with code 0 (0x0).
+The thread 29924 has exited with code 0 (0x0).
+The thread 44052 has exited with code 0 (0x0).
+The thread 31752 has exited with code 0 (0x0).
+The thread 42808 has exited with code 0 (0x0).
+The thread 44040 has exited with code 0 (0x0).
+The thread 44044 has exited with code 0 (0x0).
+The thread 42452 has exited with code 0 (0x0).
+The thread 44036 has exited with code 0 (0x0).
+The thread 6332 has exited with code 0 (0x0).
+The thread 44048 has exited with code 0 (0x0).
+The thread 35592 has exited with code 0 (0x0).
+The thread 24044 has exited with code 0 (0x0).
+The thread 42544 has exited with code 0 (0x0).
+The thread 36748 has exited with code 0 (0x0).
+The thread 30616 has exited with code 0 (0x0).
+The thread 43832 has exited with code 0 (0x0).
+The thread 24620 has exited with code 0 (0x0).
+The thread 35732 has exited with code 0 (0x0).
+The thread 43612 has exited with code 0 (0x0).
+The thread 3140 has exited with code 0 (0x0).
+The thread 9672 has exited with code 0 (0x0).
+The thread 38700 has exited with code 0 (0x0).
+The thread 36364 has exited with code 0 (0x0).
+The thread 42944 has exited with code 0 (0x0).
+The thread 40656 has exited with code 0 (0x0).
+The thread 36816 has exited with code 0 (0x0).
+The thread 31996 has exited with code 0 (0x0).
+The thread 41368 has exited with code 0 (0x0).
+The thread 33264 has exited with code 0 (0x0).
+The thread 35940 has exited with code 0 (0x0).
+The thread 39008 has exited with code 0 (0x0).
+The thread 43912 has exited with code 0 (0x0).
+The thread 34228 has exited with code 0 (0x0).
+The thread 14516 has exited with code 0 (0x0).
+The thread 36828 has exited with code 0 (0x0).
+The thread 41208 has exited with code 0 (0x0).
+The thread 42660 has exited with code 0 (0x0).
+The thread 26056 has exited with code 0 (0x0).
+The thread 23876 has exited with code 0 (0x0).
+The thread 1896 has exited with code 0 (0x0).
+[Retopo] V=1425 F=2692
+The thread 29300 has exited with code 0 (0x0).
+The thread 41824 has exited with code 0 (0x0).
+The thread 43696 has exited with code 0 (0x0).
+The thread 36848 has exited with code 0 (0x0).
+The thread 36796 has exited with code 0 (0x0).
+The thread 14988 has exited with code 0 (0x0).
+The thread 24400 has exited with code 0 (0x0).
+The thread 24652 has exited with code 0 (0x0).
+The thread 24548 has exited with code 0 (0x0).
+The thread 5788 has exited with code 0 (0x0).
+The thread 5216 has exited with code 0 (0x0).
+The thread 42716 has exited with code 0 (0x0).
+The thread 44064 has exited with code 0 (0x0).
+The thread 39552 has exited with code 0 (0x0).
+The thread 41308 has exited with code 0 (0x0).
+The thread 24520 has exited with code 0 (0x0).
+The thread 44080 has exited with code 0 (0x0).
+The thread 44056 has exited with code 0 (0x0).
+The thread 44068 has exited with code 0 (0x0).
+The thread 43020 has exited with code 0 (0x0).
+The thread 24664 has exited with code 0 (0x0).
+The thread 24508 has exited with code 0 (0x0).
+The thread 40516 has exited with code 0 (0x0).
+The thread 40624 has exited with code 0 (0x0).
+The thread 8920 has exited with code 0 (0x0).
+The thread 42844 has exited with code 0 (0x0).
+The thread 41792 has exited with code 0 (0x0).
+The thread 42712 has exited with code 0 (0x0).
+The thread 35168 has exited with code 0 (0x0).
+The thread 42724 has exited with code 0 (0x0).
+The thread 5028 has exited with code 0 (0x0).
+The thread 42780 has exited with code 0 (0x0).
+The thread 44292 has exited with code 0 (0x0).
+The thread 41304 has exited with code 0 (0x0).
+The thread 43396 has exited with code 0 (0x0).
+The thread 13776 has exited with code 0 (0x0).
+The thread 43756 has exited with code 0 (0x0).
+The thread 35700 has exited with code 0 (0x0).
+The thread 38720 has exited with code 0 (0x0).
+The thread 13016 has exited with code 0 (0x0).
+The thread 44300 has exited with code 0 (0x0).
+The thread 43328 has exited with code 0 (0x0).
+The thread 43676 has exited with code 0 (0x0).
+The thread 44324 has exited with code 0 (0x0).
+The thread 43048 has exited with code 0 (0x0).
+The thread 39480 has exited with code 0 (0x0).
+The thread 36544 has exited with code 0 (0x0).
+The thread 27804 has exited with code 0 (0x0).
+The thread 13080 has exited with code 0 (0x0).
+The thread 43340 has exited with code 0 (0x0).
+The thread 42168 has exited with code 0 (0x0).
+The thread 5920 has exited with code 0 (0x0).
+The thread 44344 has exited with code 0 (0x0).
+The thread 33920 has exited with code 0 (0x0).
+The thread 36540 has exited with code 0 (0x0).
+The thread 15524 has exited with code 0 (0x0).
+The thread 42672 has exited with code 0 (0x0).
+The thread 44340 has exited with code 0 (0x0).
+The thread 43080 has exited with code 0 (0x0).
+The thread 44488 has exited with code 0 (0x0).
+The thread 44420 has exited with code 0 (0x0).
+The thread 44428 has exited with code 0 (0x0).
+The thread 44652 has exited with code 0 (0x0).
+The thread 44656 has exited with code 0 (0x0).
+The thread 44576 has exited with code 0 (0x0).
+The thread 44596 has exited with code 0 (0x0).
+The thread 44660 has exited with code 0 (0x0).
+The thread 44644 has exited with code 0 (0x0).
+The thread 44572 has exited with code 0 (0x0).
+The thread 44672 has exited with code 0 (0x0).
+The thread 44580 has exited with code 0 (0x0).
+The thread 44588 has exited with code 0 (0x0).
+The thread 44584 has exited with code 0 (0x0).
+The thread 44616 has exited with code 0 (0x0).
+The thread 44592 has exited with code 0 (0x0).
+The thread 44600 has exited with code 0 (0x0).
+The thread 44604 has exited with code 0 (0x0).
+The thread 44612 has exited with code 0 (0x0).
+The thread 44608 has exited with code 0 (0x0).
+The thread 44620 has exited with code 0 (0x0).
+The thread 44624 has exited with code 0 (0x0).
+The thread 44996 has exited with code 0 (0x0).
+The thread 44628 has exited with code 0 (0x0).
+The thread 44632 has exited with code 0 (0x0).
+The thread 44460 has exited with code 0 (0x0).
+The thread 44636 has exited with code 0 (0x0).
+The thread 44640 has exited with code 0 (0x0).
+The thread 44568 has exited with code 0 (0x0).
+The thread 44648 has exited with code 0 (0x0).
+The thread 44476 has exited with code 0 (0x0).
+The thread 44484 has exited with code 0 (0x0).
+The thread 44668 has exited with code 0 (0x0).
+The thread 44464 has exited with code 0 (0x0).
+The thread 44456 has exited with code 0 (0x0).
+The thread 44468 has exited with code 0 (0x0).
+The thread 44480 has exited with code 0 (0x0).
+The thread 44452 has exited with code 0 (0x0).
+The thread 44472 has exited with code 0 (0x0).
+The thread 44448 has exited with code 0 (0x0).
+The thread 44800 has exited with code 0 (0x0).
+The thread 44680 has exited with code 0 (0x0).
+The thread 44356 has exited with code 0 (0x0).
+The thread 44364 has exited with code 0 (0x0).
+The thread 35360 has exited with code 0 (0x0).
+The thread 44780 has exited with code 0 (0x0).
+The thread 44788 has exited with code 0 (0x0).
+The thread 44792 has exited with code 0 (0x0).
+The thread 44796 has exited with code 0 (0x0).
+The thread 44804 has exited with code 0 (0x0).
+The thread 44808 has exited with code 0 (0x0).
+The thread 44812 has exited with code 0 (0x0).
+The thread 44816 has exited with code 0 (0x0).
+The thread 44824 has exited with code 0 (0x0).
+The thread 44820 has exited with code 0 (0x0).
+The thread 44832 has exited with code 0 (0x0).
+The thread 44828 has exited with code 0 (0x0).
+The thread 44840 has exited with code 0 (0x0).
+The thread 44836 has exited with code 0 (0x0).
+The thread 44864 has exited with code 0 (0x0).
+The thread 44844 has exited with code 0 (0x0).
+The thread 44848 has exited with code 0 (0x0).
+The thread 44852 has exited with code 0 (0x0).
+The thread 44856 has exited with code 0 (0x0).
+The thread 44860 has exited with code 0 (0x0).
+The thread 44868 has exited with code 0 (0x0).
+The thread 44888 has exited with code 0 (0x0).
+The thread 44876 has exited with code 0 (0x0).
+The thread 44872 has exited with code 0 (0x0).
+The thread 44912 has exited with code 0 (0x0).
+The thread 44908 has exited with code 0 (0x0).
+The thread 44880 has exited with code 0 (0x0).
+The thread 44884 has exited with code 0 (0x0).
+The thread 44892 has exited with code 0 (0x0).
+The thread 44896 has exited with code 0 (0x0).
+The thread 44900 has exited with code 0 (0x0).
+The thread 44904 has exited with code 0 (0x0).
+The thread 44708 has exited with code 0 (0x0).
+The thread 44716 has exited with code 0 (0x0).
+The thread 44712 has exited with code 0 (0x0).
+The thread 44720 has exited with code 0 (0x0).
+The thread 44724 has exited with code 0 (0x0).
+The thread 44728 has exited with code 0 (0x0).
+The thread 44732 has exited with code 0 (0x0).
+The thread 44736 has exited with code 0 (0x0).
+The thread 44740 has exited with code 0 (0x0).
+The thread 44744 has exited with code 0 (0x0).
+The thread 44748 has exited with code 0 (0x0).
+The thread 44752 has exited with code 0 (0x0).
+The thread 44756 has exited with code 0 (0x0).
+The thread 44760 has exited with code 0 (0x0).
+The thread 44764 has exited with code 0 (0x0).
+The thread 44772 has exited with code 0 (0x0).
+The thread 44768 has exited with code 0 (0x0).
+The thread 44776 has exited with code 0 (0x0).
+The thread 44704 has exited with code 0 (0x0).
+The thread 44784 has exited with code 0 (0x0).
+The thread 44412 has exited with code 0 (0x0).
+The thread 44676 has exited with code 0 (0x0).
+The thread 44280 has exited with code 0 (0x0).
+The thread 44936 has exited with code 0 (0x0).
+The thread 44260 has exited with code 0 (0x0).
+The thread 44492 has exited with code 0 (0x0).
+The thread 44256 has exited with code 0 (0x0).
+The thread 44248 has exited with code 0 (0x0).
+The thread 44404 has exited with code 0 (0x0).
+The thread 44400 has exited with code 0 (0x0).
+The thread 44396 has exited with code 0 (0x0).
+The thread 44416 has exited with code 0 (0x0).
+The thread 44432 has exited with code 0 (0x0).
+The thread 44436 has exited with code 0 (0x0).
+The thread 44496 has exited with code 0 (0x0).
+The thread 44444 has exited with code 0 (0x0).
+The thread 44500 has exited with code 0 (0x0).
+The thread 44504 has exited with code 0 (0x0).
+The thread 44508 has exited with code 0 (0x0).
+The thread 44512 has exited with code 0 (0x0).
+The thread 44516 has exited with code 0 (0x0).
+The thread 44544 has exited with code 0 (0x0).
+The thread 44520 has exited with code 0 (0x0).
+The thread 44532 has exited with code 0 (0x0).
+The thread 44524 has exited with code 0 (0x0).
+The thread 44528 has exited with code 0 (0x0).
+The thread 44540 has exited with code 0 (0x0).
+The thread 44552 has exited with code 0 (0x0).
+The thread 44536 has exited with code 0 (0x0).
+The thread 44548 has exited with code 0 (0x0).
+The thread 44556 has exited with code 0 (0x0).
+The thread 44560 has exited with code 0 (0x0).
+The thread 44564 has exited with code 0 (0x0).
+The thread 44408 has exited with code 0 (0x0).
+The thread 44684 has exited with code 0 (0x0).
+The thread 29288 has exited with code 0 (0x0).
+[Pipeline] Processed mesh 38/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 0 ms
+[Pipeline] Skipping MIQ for tiny mesh part (11 verts)
+[Pipeline] Processed mesh 39/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 1 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 40/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 0 ms
+[Pipeline] Skipping MIQ for tiny mesh part (10 verts)
+[Pipeline] Processed mesh 41/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 0 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 42/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 1 ms
+[Pipeline] Skipping MIQ for tiny mesh part (79 verts)
+[Pipeline] Processed mesh 43/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 1 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 2 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 44/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 5 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 6 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 45/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 0 ms
+[Pipeline] Skipping MIQ for tiny mesh part (10 verts)
+[Pipeline] Processed mesh 46/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 1 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 109 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 1 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 1 ms
+[Mesh] DecimateMesh took 116 ms
+The thread 45008 has exited with code 0 (0x0).
+The thread 45012 has exited with code 0 (0x0).
+The thread 45024 has exited with code 0 (0x0).
+The thread 34456 has exited with code 0 (0x0).
+The thread 44424 has exited with code 0 (0x0).
+The thread 44924 has exited with code 0 (0x0).
+The thread 44440 has exited with code 0 (0x0).
+The thread 44388 has exited with code 0 (0x0).
+The thread 26212 has exited with code 0 (0x0).
+The thread 44380 has exited with code 0 (0x0).
+The thread 44384 has exited with code 0 (0x0).
+The thread 42208 has exited with code 0 (0x0).
+The thread 44700 has exited with code 0 (0x0).
+The thread 44928 has exited with code 0 (0x0).
+The thread 35348 has exited with code 0 (0x0).
+The thread 38268 has exited with code 0 (0x0).
+The thread 34928 has exited with code 0 (0x0).
+The thread 44976 has exited with code 0 (0x0).
+The thread 39208 has exited with code 0 (0x0).
+The thread 45004 has exited with code 0 (0x0).
+The thread 45048 has exited with code 0 (0x0).
+The thread 44988 has exited with code 0 (0x0).
+The thread 43324 has exited with code 0 (0x0).
+The thread 45052 has exited with code 0 (0x0).
+The thread 41228 has exited with code 0 (0x0).
+The thread 39576 has exited with code 0 (0x0).
+The thread 23432 has exited with code 0 (0x0).
+The thread 39604 has exited with code 0 (0x0).
+The thread 11232 has exited with code 0 (0x0).
+The thread 34556 has exited with code 0 (0x0).
+The thread 26976 has exited with code 0 (0x0).
+The thread 40840 has exited with code 0 (0x0).
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 47/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 31 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 33 ms
+The thread 43752 has exited with code 0 (0x0).
+The thread 43056 has exited with code 0 (0x0).
+The thread 40556 has exited with code 0 (0x0).
+The thread 41108 has exited with code 0 (0x0).
+The thread 38568 has exited with code 0 (0x0).
+The thread 38996 has exited with code 0 (0x0).
+The thread 37904 has exited with code 0 (0x0).
+The thread 6808 has exited with code 0 (0x0).
+The thread 38160 has exited with code 0 (0x0).
+The thread 4908 has exited with code 0 (0x0).
+The thread 40456 has exited with code 0 (0x0).
+The thread 19844 has exited with code 0 (0x0).
+The thread 42928 has exited with code 0 (0x0).
+The thread 34136 has exited with code 0 (0x0).
+The thread 40520 has exited with code 0 (0x0).
+The thread 43908 has exited with code 0 (0x0).
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 48/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 1 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 59 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 63 ms
+The thread 43292 has exited with code 0 (0x0).
+The thread 29332 has exited with code 0 (0x0).
+The thread 42008 has exited with code 0 (0x0).
+The thread 23080 has exited with code 0 (0x0).
+The thread 12924 has exited with code 0 (0x0).
+The thread 33168 has exited with code 0 (0x0).
+The thread 31800 has exited with code 0 (0x0).
+The thread 23976 has exited with code 0 (0x0).
+The thread 15208 has exited with code 0 (0x0).
+The thread 43316 has exited with code 0 (0x0).
+The thread 40592 has exited with code 0 (0x0).
+The thread 35848 has exited with code 0 (0x0).
+The thread 38872 has exited with code 0 (0x0).
+The thread 3236 has exited with code 0 (0x0).
+The thread 4664 has exited with code 0 (0x0).
+The thread 43308 has exited with code 0 (0x0).
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 49/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 1 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 78 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 1 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 83 ms
+The thread 40460 has exited with code 0 (0x0).
+The thread 41088 has exited with code 0 (0x0).
+The thread 33252 has exited with code 0 (0x0).
+The thread 43860 has exited with code 0 (0x0).
+The thread 41076 has exited with code 0 (0x0).
+The thread 23068 has exited with code 0 (0x0).
+The thread 38448 has exited with code 0 (0x0).
+The thread 35152 has exited with code 0 (0x0).
+The thread 24060 has exited with code 0 (0x0).
+The thread 41044 has exited with code 0 (0x0).
+The thread 41864 has exited with code 0 (0x0).
+The thread 43472 has exited with code 0 (0x0).
+The thread 29924 has exited with code 0 (0x0).
+The thread 44052 has exited with code 0 (0x0).
+The thread 31752 has exited with code 0 (0x0).
+The thread 42808 has exited with code 0 (0x0).
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 50/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 1 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 3 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 51/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 1 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 2 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 52/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 22 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 24 ms
+The thread 44040 has exited with code 0 (0x0).
+The thread 44044 has exited with code 0 (0x0).
+The thread 42452 has exited with code 0 (0x0).
+The thread 44036 has exited with code 0 (0x0).
+The thread 6332 has exited with code 0 (0x0).
+The thread 44048 has exited with code 0 (0x0).
+The thread 35592 has exited with code 0 (0x0).
+The thread 24044 has exited with code 0 (0x0).
+The thread 42544 has exited with code 0 (0x0).
+The thread 36748 has exited with code 0 (0x0).
+The thread 30616 has exited with code 0 (0x0).
+The thread 43832 has exited with code 0 (0x0).
+The thread 24620 has exited with code 0 (0x0).
+The thread 35732 has exited with code 0 (0x0).
+The thread 43612 has exited with code 0 (0x0).
+The thread 3140 has exited with code 0 (0x0).
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 53/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 53 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 56 ms
+The thread 41368 has exited with code 0 (0x0).
+The thread 9672 has exited with code 0 (0x0).
+The thread 38700 has exited with code 0 (0x0).
+The thread 36364 has exited with code 0 (0x0).
+The thread 42944 has exited with code 0 (0x0).
+The thread 40656 has exited with code 0 (0x0).
+The thread 36816 has exited with code 0 (0x0).
+The thread 31996 has exited with code 0 (0x0).
+The thread 35940 has exited with code 0 (0x0).
+The thread 33264 has exited with code 0 (0x0).
+The thread 39008 has exited with code 0 (0x0).
+The thread 43912 has exited with code 0 (0x0).
+The thread 14516 has exited with code 0 (0x0).
+The thread 34228 has exited with code 0 (0x0).
+The thread 36828 has exited with code 0 (0x0).
+The thread 41208 has exited with code 0 (0x0).
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 54/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 1 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 74 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 78 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 55/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 1 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 2 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 56/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 1 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 2 ms
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 57/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+The thread 42660 has exited with code 0 (0x0).
+The thread 26056 has exited with code 0 (0x0).
+The thread 23876 has exited with code 0 (0x0).
+The thread 1896 has exited with code 0 (0x0).
+The thread 29300 has exited with code 0 (0x0).
+The thread 41824 has exited with code 0 (0x0).
+The thread 43696 has exited with code 0 (0x0).
+The thread 36848 has exited with code 0 (0x0).
+The thread 36796 has exited with code 0 (0x0).
+The thread 14988 has exited with code 0 (0x0).
+The thread 24400 has exited with code 0 (0x0).
+The thread 24652 has exited with code 0 (0x0).
+The thread 24548 has exited with code 0 (0x0).
+The thread 5788 has exited with code 0 (0x0).
+The thread 5216 has exited with code 0 (0x0).
+The thread 42716 has exited with code 0 (0x0).
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 0 ms
+[Pipeline] Skipping MIQ for tiny mesh part (26 verts)
+[Pipeline] Processed mesh 58/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 0 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 0 ms
+[Pipeline] Skipping MIQ for tiny mesh part (80 verts)
+[Pipeline] Processed mesh 59/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 1 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 108 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 2 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 1 ms
+[Mesh] DecimateMesh took 115 ms
+The thread 44056 has exited with code 0 (0x0).
+The thread 44064 has exited with code 0 (0x0).
+The thread 39552 has exited with code 0 (0x0).
+The thread 41308 has exited with code 0 (0x0).
+The thread 24520 has exited with code 0 (0x0).
+The thread 44080 has exited with code 0 (0x0).
+The thread 44068 has exited with code 0 (0x0).
+The thread 24664 has exited with code 0 (0x0).
+The thread 43020 has exited with code 0 (0x0).
+The thread 24508 has exited with code 0 (0x0).
+The thread 40516 has exited with code 0 (0x0).
+The thread 40624 has exited with code 0 (0x0).
+The thread 8920 has exited with code 0 (0x0).
+The thread 42844 has exited with code 0 (0x0).
+The thread 41792 has exited with code 0 (0x0).
+The thread 42712 has exited with code 0 (0x0).
+The thread 35168 has exited with code 0 (0x0).
+The thread 43756 has exited with code 0 (0x0).
+The thread 42724 has exited with code 0 (0x0).
+The thread 5028 has exited with code 0 (0x0).
+The thread 42780 has exited with code 0 (0x0).
+The thread 44292 has exited with code 0 (0x0).
+The thread 41304 has exited with code 0 (0x0).
+The thread 43396 has exited with code 0 (0x0).
+The thread 13776 has exited with code 0 (0x0).
+The thread 35700 has exited with code 0 (0x0).
+The thread 38720 has exited with code 0 (0x0).
+The thread 13016 has exited with code 0 (0x0).
+The thread 44300 has exited with code 0 (0x0).
+The thread 43328 has exited with code 0 (0x0).
+The thread 43676 has exited with code 0 (0x0).
+The thread 44324 has exited with code 0 (0x0).
+[Retopo] Multiple disconnected islands detected; MIQ not safe
+[Pipeline] Processed mesh 60/61
+[Mesh] DecimateMesh start
+[Mesh] Decimater.initialize start
+[Mesh] Decimater.initialize took 0 ms
+[Mesh] Decimater.decimate_to start
+[Mesh] Decimater.decimate_to took 1 ms
+[Mesh] Mesh.garbage_collection start
+[Mesh] Mesh.garbage_collection took 0 ms
+[Mesh] RemoveNonManifoldVertices start
+[Mesh] removed non-manifold vertices=0
+[Mesh] RemoveNonManifoldVertices took 0 ms
+[Mesh] Final Garbage Collection start
+[Mesh] Final Garbage Collection took 0 ms
+[Mesh] Mesh.update_normals start
+[Mesh] Mesh.update_normals took 0 ms
+[Mesh] DecimateMesh took 2 ms
+[Retopo] V=121 F=238
+The thread 43048 has exited with code 0 (0x0).
+The thread 42168 has exited with code 0 (0x0).
+The thread 39480 has exited with code 0 (0x0).
+The thread 36544 has exited with code 0 (0x0).
+The thread 27804 has exited with code 0 (0x0).
+The thread 13080 has exited with code 0 (0x0).
+The thread 43340 has exited with code 0 (0x0).
+The thread 44344 has exited with code 0 (0x0).
+The thread 33920 has exited with code 0 (0x0).
+The thread 5920 has exited with code 0 (0x0).
+The thread 43080 has exited with code 0 (0x0).
+The thread 36540 has exited with code 0 (0x0).
+The thread 15524 has exited with code 0 (0x0).
+The thread 42672 has exited with code 0 (0x0).
+The thread 44340 has exited with code 0 (0x0).
+The thread 44488 has exited with code 0 (0x0).
+The thread 44420 has exited with code 0 (0x0).
+The thread 44428 has exited with code 0 (0x0).
+The thread 44652 has exited with code 0 (0x0).
+The thread 44656 has exited with code 0 (0x0).
+The thread 44576 has exited with code 0 (0x0).
+The thread 44596 has exited with code 0 (0x0).
+The thread 44644 has exited with code 0 (0x0).
+The thread 44660 has exited with code 0 (0x0).
+The thread 44572 has exited with code 0 (0x0).
+The thread 44672 has exited with code 0 (0x0).
+The thread 44580 has exited with code 0 (0x0).
+The thread 44588 has exited with code 0 (0x0).
+The thread 44616 has exited with code 0 (0x0).
+The thread 44584 has exited with code 0 (0x0).
+The thread 44592 has exited with code 0 (0x0).
+The thread 44600 has exited with code 0 (0x0).
+The thread 44604 has exited with code 0 (0x0).
+The thread 44996 has exited with code 0 (0x0).
+The thread 44612 has exited with code 0 (0x0).
+The thread 44608 has exited with code 0 (0x0).
+The thread 44620 has exited with code 0 (0x0).
+The thread 44624 has exited with code 0 (0x0).
+The thread 44628 has exited with code 0 (0x0).
+The thread 44568 has exited with code 0 (0x0).
+The thread 44632 has exited with code 0 (0x0).
+The thread 44460 has exited with code 0 (0x0).
+The thread 44636 has exited with code 0 (0x0).
+The thread 44640 has exited with code 0 (0x0).
+The thread 44476 has exited with code 0 (0x0).
+The thread 44648 has exited with code 0 (0x0).
+The thread 44484 has exited with code 0 (0x0).
+The thread 44668 has exited with code 0 (0x0).
+The thread 44464 has exited with code 0 (0x0).
+The thread 44452 has exited with code 0 (0x0).
+The thread 44456 has exited with code 0 (0x0).
+The thread 44468 has exited with code 0 (0x0).
+The thread 44480 has exited with code 0 (0x0).
+The thread 44448 has exited with code 0 (0x0).
+The thread 44800 has exited with code 0 (0x0).
+The thread 44472 has exited with code 0 (0x0).
+The thread 44796 has exited with code 0 (0x0).
+The thread 44356 has exited with code 0 (0x0).
+The thread 44680 has exited with code 0 (0x0).
+The thread 44364 has exited with code 0 (0x0).
+The thread 35360 has exited with code 0 (0x0).
+The thread 44780 has exited with code 0 (0x0).
+The thread 44788 has exited with code 0 (0x0).
+The thread 44792 has exited with code 0 (0x0).
+The thread 44808 has exited with code 0 (0x0).
+The thread 44804 has exited with code 0 (0x0).
+The thread 44820 has exited with code 0 (0x0).
+The thread 44812 has exited with code 0 (0x0).
+The thread 44816 has exited with code 0 (0x0).
+The thread 44824 has exited with code 0 (0x0).
+The thread 44828 has exited with code 0 (0x0).
+The thread 44832 has exited with code 0 (0x0).
+The thread 44840 has exited with code 0 (0x0).
+The thread 44836 has exited with code 0 (0x0).
+The thread 44864 has exited with code 0 (0x0).
+The thread 44844 has exited with code 0 (0x0).
+The thread 44848 has exited with code 0 (0x0).
+The thread 44852 has exited with code 0 (0x0).
+The thread 44860 has exited with code 0 (0x0).
+The thread 44856 has exited with code 0 (0x0).
+The thread 44888 has exited with code 0 (0x0).
+The thread 44868 has exited with code 0 (0x0).
+The thread 44876 has exited with code 0 (0x0).
+The thread 44912 has exited with code 0 (0x0).
+The thread 44872 has exited with code 0 (0x0).
+The thread 44900 has exited with code 0 (0x0).
+The thread 44908 has exited with code 0 (0x0).
+The thread 44880 has exited with code 0 (0x0).
+The thread 44884 has exited with code 0 (0x0).
+The thread 44892 has exited with code 0 (0x0).
+The thread 44896 has exited with code 0 (0x0).
+The thread 44904 has exited with code 0 (0x0).
+The thread 44708 has exited with code 0 (0x0).
+The thread 44716 has exited with code 0 (0x0).
+The thread 44712 has exited with code 0 (0x0).
+The thread 44720 has exited with code 0 (0x0).
+The thread 44724 has exited with code 0 (0x0).
+The thread 44728 has exited with code 0 (0x0).
+The thread 44732 has exited with code 0 (0x0).
+The thread 44736 has exited with code 0 (0x0).
+The thread 44740 has exited with code 0 (0x0).
+The thread 44744 has exited with code 0 (0x0).
+The thread 44748 has exited with code 0 (0x0).
+The thread 44752 has exited with code 0 (0x0).
+The thread 44756 has exited with code 0 (0x0).
+The thread 44760 has exited with code 0 (0x0).
+The thread 44772 has exited with code 0 (0x0).
+The thread 44764 has exited with code 0 (0x0).
+The thread 44768 has exited with code 0 (0x0).
+The thread 44776 has exited with code 0 (0x0).
+The thread 44704 has exited with code 0 (0x0).
+The thread 44784 has exited with code 0 (0x0).
+The thread 44412 has exited with code 0 (0x0).
+The thread 44676 has exited with code 0 (0x0).
+The thread 44280 has exited with code 0 (0x0).
+The thread 44936 has exited with code 0 (0x0).
+The thread 44260 has exited with code 0 (0x0).
+The thread 44492 has exited with code 0 (0x0).
+The thread 44256 has exited with code 0 (0x0).
+The thread 44248 has exited with code 0 (0x0).
+The thread 44404 has exited with code 0 (0x0).
+The thread 44400 has exited with code 0 (0x0).
+The thread 44396 has exited with code 0 (0x0).
+The thread 44416 has exited with code 0 (0x0).
+The thread 44432 has exited with code 0 (0x0).
+The thread 44436 has exited with code 0 (0x0).
+The thread 44496 has exited with code 0 (0x0).
+The thread 44444 has exited with code 0 (0x0).
+The thread 44500 has exited with code 0 (0x0).
+The thread 44508 has exited with code 0 (0x0).
+The thread 44504 has exited with code 0 (0x0).
+The thread 44516 has exited with code 0 (0x0).
+The thread 44520 has exited with code 0 (0x0).
+The thread 44512 has exited with code 0 (0x0).
+The thread 44544 has exited with code 0 (0x0).
+The thread 44552 has exited with code 0 (0x0).
+The thread 44532 has exited with code 0 (0x0).
+The thread 44524 has exited with code 0 (0x0).
+The thread 44528 has exited with code 0 (0x0).
+The thread 44540 has exited with code 0 (0x0).
+The thread 44548 has exited with code 0 (0x0).
+The thread 44536 has exited with code 0 (0x0).
+The thread 44556 has exited with code 0 (0x0).
+The thread 44560 has exited with code 0 (0x0).
+The thread 44564 has exited with code 0 (0x0).
+The thread 45012 has exited with code 0 (0x0).
+The thread 44408 has exited with code 0 (0x0).
+The thread 44684 has exited with code 0 (0x0).
+The thread 29288 has exited with code 0 (0x0).
+The thread 45008 has exited with code 0 (0x0).
+The thread 45024 has exited with code 0 (0x0).
+The thread 42208 has exited with code 0 (0x0).
+The thread 44424 has exited with code 0 (0x0).
+The thread 34456 has exited with code 0 (0x0).
+The thread 44924 has exited with code 0 (0x0).
+The thread 44440 has exited with code 0 (0x0).
+The thread 44388 has exited with code 0 (0x0).
+The thread 26212 has exited with code 0 (0x0).
+The thread 44380 has exited with code 0 (0x0).
+The thread 44384 has exited with code 0 (0x0).
+The thread 44700 has exited with code 0 (0x0).
+The thread 34928 has exited with code 0 (0x0).
+The thread 44928 has exited with code 0 (0x0).
+The thread 35348 has exited with code 0 (0x0).
+The thread 38268 has exited with code 0 (0x0).
+The thread 44976 has exited with code 0 (0x0).
+The thread 41228 has exited with code 0 (0x0).
+The thread 45004 has exited with code 0 (0x0).
+The thread 45048 has exited with code 0 (0x0).
+The thread 44988 has exited with code 0 (0x0).
+The thread 39208 has exited with code 0 (0x0).
+The thread 43324 has exited with code 0 (0x0).
+The thread 45052 has exited with code 0 (0x0).
+The thread 23432 has exited with code 0 (0x0).
+The thread 39576 has exited with code 0 (0x0).
+The thread 39604 has exited with code 0 (0x0).
+The thread 11232 has exited with code 0 (0x0).
+The thread 40840 has exited with code 0 (0x0).
+The thread 34556 has exited with code 0 (0x0).
+The thread 26976 has exited with code 0 (0x0).
+The thread 23744 has exited with code 0 (0x0).
+The thread 40064 has exited with code 0 (0x0).
+The thread 43656 has exited with code 0 (0x0).
+The thread 41108 has exited with code 0 (0x0).
+The thread 34584 has exited with code 0 (0x0).
+The thread 25056 has exited with code 0 (0x0).
+The thread 40368 has exited with code 0 (0x0).
+The thread 39296 has exited with code 0 (0x0).
+The thread 43752 has exited with code 0 (0x0).
+The thread 43056 has exited with code 0 (0x0).
+The thread 40556 has exited with code 0 (0x0).
+The thread 38568 has exited with code 0 (0x0).
+[Pipeline] Processed mesh 61/61
+The thread 40384 has exited with code 0 (0x0).
+The thread 36036 has exited with code 0 (0x0).
+The thread 38816 has exited with code 0 (0x0).
+The thread 28576 has exited with code 0 (0x0).
+The thread 6756 has exited with code 0 (0x0).
+The thread 38248 has exited with code 0 (0x0).
+The thread 20112 has exited with code 0 (0x0).
+The thread 39244 has exited with code 0 (0x0).
+The thread 43088 has exited with code 0 (0x0).
+The thread 40308 has exited with code 0 (0x0).
+The thread 23560 has exited with code 0 (0x0).

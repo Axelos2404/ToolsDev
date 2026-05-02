@@ -40,10 +40,10 @@ MainWindow::MainWindow(QWidget* parent)
     QVBoxLayout* dockLayout = new QVBoxLayout(dockContents);
 
     // Slider setup
-    QLabel* targetVertLabel = new QLabel("Target Vertex Count: 1000");
+    QLabel* targetVertLabel = new QLabel("Target Vertex Count: 100000");
     QSlider* targetVertSlider = new QSlider(Qt::Horizontal);
-    targetVertSlider->setRange(10, 100000); // Adjust maximum as needed by your models
-    targetVertSlider->setValue(1000);
+    targetVertSlider->setRange(10, 200000); // Expanded range for complex models
+    targetVertSlider->setValue(100000);
 
     // Update label when slider moves
     connect(targetVertSlider, &QSlider::valueChanged, targetVertLabel, [targetVertLabel](int value) {

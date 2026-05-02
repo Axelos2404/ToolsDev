@@ -8,9 +8,10 @@
 #include <igl/resolve_duplicated_faces.h>
 #include <igl/principal_curvature.h>
 #include <igl/doublearea.h>
-#include <igl/boundary_loop.h>
 #include <map>
 #include <utility>
+#include <array>
+#include <cmath>
 #include <Windows.h>
 
 // --- LibIGL Linker Fix ---
@@ -47,22 +48,71 @@ static bool Fail(const char* msg)
     return false;
 }
 
-static void RemoveDegenerateFaces(Eigen::MatrixXd& V, Eigen::MatrixXi& F, double minDblArea)
+// --- SEH SANDBOXES ---
+struct CurvatureCtx {
+    const Eigen::MatrixXd* V;
+    const Eigen::MatrixXi* F;
+    Eigen::MatrixXd* PD1;
+    Eigen::MatrixXd* PD2;
+    Eigen::VectorXd* PV1;
+    Eigen::VectorXd* PV2;
+};
+
+static void ExecuteCurvature(void* ptr) {
+    auto* ctx = static_cast<CurvatureCtx*>(ptr);
+    igl::principal_curvature(*(ctx->V), *(ctx->F), *(ctx->PD1), *(ctx->PD2), *(ctx->PV1), *(ctx->PV2));
+}
+
+static bool SafeCurvature(
+    const Eigen::MatrixXd& V, const Eigen::MatrixXi& F,
+    Eigen::MatrixXd& PD1, Eigen::MatrixXd& PD2,
+    Eigen::VectorXd& PV1, Eigen::VectorXd& PV2)
 {
-    Eigen::VectorXd dblA;
-    igl::doublearea(V, F, dblA);
-
-    Eigen::MatrixXi F_out(F.rows(), 3);
-    int fc = 0;
-    for (int i = 0; i < F.rows(); ++i)
-    {
-        if (dblA(i) > minDblArea)
-            F_out.row(fc++) = F.row(i);
+    CurvatureCtx ctx = { &V, &F, &PD1, &PD2, &PV1, &PV2 };
+    __try {
+        ExecuteCurvature(&ctx);
+        return true;
     }
-    F_out.conservativeResize(fc, 3);
+    __except (EXCEPTION_EXECUTE_HANDLER) {
+        OutputDebugStringA("[Retopo] SEH: igl::principal_curvature crashed.\n");
+        return false;
+    }
+}
 
-    Eigen::VectorXi I;
-    igl::remove_unreferenced(V, F_out, V, F, I);
+struct MIQCtx {
+    const Eigen::MatrixXd* V;
+    const Eigen::MatrixXi* F;
+    const Eigen::MatrixXd* PD1;
+    const Eigen::MatrixXd* PD2;
+    Eigen::MatrixXd* UV;
+    Eigen::MatrixXi* F_UV;
+    double scale;
+};
+
+static void ExecuteMIQ(void* ptr) {
+    auto* ctx = static_cast<MIQCtx*>(ptr);
+    igl::copyleft::comiso::miq(*(ctx->V), *(ctx->F), *(ctx->PD1), *(ctx->PD2), *(ctx->UV), *(ctx->F_UV), ctx->scale, 5.0, false, 1);
+}
+
+static bool SafeMIQ(
+    const Eigen::MatrixXd& V, const Eigen::MatrixXi& F,
+    const Eigen::MatrixXd& PD1, const Eigen::MatrixXd& PD2,
+    Eigen::MatrixXd& UV, Eigen::MatrixXi& F_UV, double scale)
+{
+#if defined(_DEBUG)
+    igl::copyleft::comiso::miq(V, F, PD1, PD2, UV, F_UV, scale, 5.0, false, 1);
+    return true;
+#else
+    MIQCtx ctx = { &V, &F, &PD1, &PD2, &UV, &F_UV, scale };
+    __try {
+        ExecuteMIQ(&ctx);
+        return true;
+    }
+    __except (EXCEPTION_EXECUTE_HANDLER) {
+        OutputDebugStringA("[Retopo] SEH CRITICAL: MIQ Access Violation caught. Falling back.\n");
+        return false;
+    }
+#endif
 }
 
 static bool SanitizeFaces(Eigen::MatrixXd& V, Eigen::MatrixXi& F)
@@ -92,7 +142,7 @@ static bool SanitizeFaces(Eigen::MatrixXd& V, Eigen::MatrixXi& F)
     fc = 0;
     for (int i = 0; i < F_tmp.rows(); ++i)
     {
-        if (dblA(i) > 1e-12)
+        if (dblA(i) > 1e-6)
             F_out.row(fc++) = F_tmp.row(i);
     }
     F_out.conservativeResize(fc, 3);
@@ -128,7 +178,6 @@ namespace RetopoProcessor
     {
         if (inVertices.empty() || inIndices.empty()) return Fail("empty input");
 
-        // Convert to LibIGL Format
         Eigen::MatrixXd V(inVertices.size(), 3);
         for (size_t i = 0; i < inVertices.size(); ++i) {
             V(i, 0) = inVertices[i].position[0];
@@ -178,67 +227,7 @@ namespace RetopoProcessor
 
         if (V_clean.rows() < 10 || F_clean.rows() < 10) return Fail("too few verts/faces after resolve");
 
-        // --- 5. Island Killer ---
-        /*std::vector<std::vector<int>> adj(V_clean.rows());
-        for (int i = 0; i < F_clean.rows(); ++i) {
-            for (int j = 0; j < 3; ++j) {
-                adj[F_clean(i, j)].push_back(F_clean(i, (j + 1) % 3));
-                adj[F_clean(i, (j + 1) % 3)].push_back(F_clean(i, j));
-            }
-        }
-
-        std::vector<int> comp_id(V_clean.rows(), -1);
-        std::vector<int> comp_size;
-        int current_comp = 0;
-
-        for (int i = 0; i < V_clean.rows(); ++i) {
-            if (comp_id[i] == -1) {
-                int size = 0;
-                std::vector<int> q;
-                q.push_back(i);
-                comp_id[i] = current_comp;
-                int head = 0;
-                while (head < q.size()) {
-                    int curr = q[head++];
-                    size++;
-                    for (int n : adj[curr]) {
-                        if (comp_id[n] == -1) {
-                            comp_id[n] = current_comp;
-                            q.push_back(n);
-                        }
-                    }
-                }
-                comp_size.push_back(size);
-                current_comp++;
-            }
-        }
-
-        int max_comp = 0, max_size = 0;
-        for (int i = 0; i < comp_size.size(); ++i) {
-            if (comp_size[i] > max_size) {
-                max_size = comp_size[i];
-                max_comp = i;
-            }
-        }
-
-        Eigen::MatrixXi F_largest(F_clean.rows(), 3);
-        int l_count = 0;
-        for (int i = 0; i < F_clean.rows(); ++i) {
-            if (comp_id[F_clean(i, 0)] == max_comp) {
-                F_largest.row(l_count++) = F_clean.row(i);
-            }
-        }
-        F_largest.conservativeResize(l_count, 3);
-
-        Eigen::MatrixXd V_temp;
-        Eigen::MatrixXi F_temp;
-        igl::remove_unreferenced(V_clean, F_largest, V_temp, F_temp, I_unref);
-        V_clean = V_temp;
-        F_clean = F_temp;
-
-        if (V_clean.rows() < 10) return Fail("too few verts after island removal");*/
-
-        // --- 5. Island Bouncer (Check for disconnected components) ---
+        // --- 5. Island Bouncer ---
         std::vector<std::vector<int>> adj(V_clean.rows());
         for (int i = 0; i < F_clean.rows(); ++i) {
             for (int j = 0; j < 3; ++j) {
@@ -252,7 +241,6 @@ namespace RetopoProcessor
 
         for (int i = 0; i < V_clean.rows(); ++i) {
             if (comp_id[i] == -1) {
-                // If we find a second disconnected island, MIQ will crash. Abort safely.
                 if (current_comp > 0) {
                     return Fail("Multiple disconnected islands detected; MIQ not safe");
                 }
@@ -274,7 +262,6 @@ namespace RetopoProcessor
             }
         }
 
-        // --- EXTRA CLEANUP + MANIFOLD SAFETY ---
         const int vcount = static_cast<int>(V_clean.rows());
 
         Eigen::MatrixXi F_noDeg(F_clean.rows(), 3);
@@ -299,7 +286,6 @@ namespace RetopoProcessor
 
         if (V_clean.rows() < 10 || F_clean.rows() < 10) return Fail("too few verts/faces after cleanup");
 
-        // --- 6. TOPOLOGY SAFETY FILTER ---
         int fin_count = 0;
         std::map<std::pair<int, int>, int> edge_counts;
         for (int i = 0; i < F_clean.rows(); ++i) {
@@ -322,11 +308,11 @@ namespace RetopoProcessor
             v_to_f[F_clean(i, 2)].push_back(i);
         }
 
-        // Split bowtie vertices instead of deleting faces
         const int original_vcount = static_cast<int>(V_clean.rows());
-        std::vector<Eigen::Vector3d> V_vec(original_vcount);
-        for (int i = 0; i < original_vcount; ++i)
-            V_vec[i] = V_clean.row(i);
+        std::vector<std::array<double, 3>> V_vec(original_vcount);
+        for (int i = 0; i < original_vcount; ++i) {
+            V_vec[i] = { V_clean(i, 0), V_clean(i, 1), V_clean(i, 2) };
+        }
 
         bool split_any = false;
 
@@ -376,7 +362,6 @@ namespace RetopoProcessor
 
             if (components > 1)
             {
-                OutputDebugStringA("[Retopo] bowtie vertex detected -> splitting vertex\n");
                 std::vector<int> comp_to_new(components, v);
                 for (int c = 1; c < components; ++c)
                 {
@@ -401,12 +386,14 @@ namespace RetopoProcessor
         if (split_any)
         {
             Eigen::MatrixXd V_new(static_cast<int>(V_vec.size()), 3);
-            for (int i = 0; i < static_cast<int>(V_vec.size()); ++i)
-                V_new.row(i) = V_vec[i].transpose();
+            for (size_t i = 0; i < V_vec.size(); ++i) {
+                V_new(i, 0) = V_vec[i][0];
+                V_new(i, 1) = V_vec[i][1];
+                V_new(i, 2) = V_vec[i][2];
+            }
             V_clean = V_new;
         }
 
-        // --- VALENCE SAFETY FILTER (pre-curvature) ---
         std::vector<int> valence(V_clean.rows(), 0);
         for (int i = 0; i < F_clean.rows(); ++i)
         {
@@ -415,7 +402,6 @@ namespace RetopoProcessor
             valence[F_clean(i, 2)]++;
         }
 
-        // Remove faces connected to low-valence vertices
         Eigen::MatrixXi F_valence(F_clean.rows(), 3);
         int fcount3 = 0;
         for (int i = 0; i < F_clean.rows(); ++i)
@@ -437,12 +423,10 @@ namespace RetopoProcessor
         if (V_clean.rows() < 10 || F_clean.rows() < 10)
             return Fail("too few verts/faces after valence filter");
 
-        // --- EDGE MANIFOLD CLEANUP (drop faces around non-manifold edges) ---
         bool changed = true;
         while (changed)
         {
             changed = false;
-
             std::map<std::pair<int, int>, std::vector<int>> edge_faces;
             for (int i = 0; i < F_clean.rows(); ++i)
             {
@@ -489,7 +473,6 @@ namespace RetopoProcessor
             }
         }
 
-        // --- VERTEX MANIFOLD CLEANUP (drop faces around non-manifold vertices) ---
         bool v_changed = true;
         while (v_changed)
         {
@@ -575,7 +558,6 @@ namespace RetopoProcessor
             }
         }
 
-        // --- MANIFOLD VALIDATION (required before MIQ) ---
         if (!SanitizeFaces(V_clean, F_clean))
             return Fail("invalid/degenerate faces after sanitize");
 
@@ -585,74 +567,91 @@ namespace RetopoProcessor
         if (!igl::is_vertex_manifold(F_clean))
             return Fail("vertex non-manifold after cleanup");
 
-        // DEBUG COUNTS (add here)
         OutputDebugStringA(("[Retopo] V=" + std::to_string(V_clean.rows()) +
             " F=" + std::to_string(F_clean.rows()) + "\n").c_str());
 
-        // --- Boundary guard: MIQ is unstable on open meshes ---
-        std::vector<std::vector<int>> loops;
-        igl::boundary_loop(F_clean, loops);
-
-        // DEBUG: boundary info (add here)
-        OutputDebugStringA(("[Retopo] boundary loops=" + std::to_string(loops.size()) + "\n").c_str());
-        for (size_t i = 0; i < loops.size(); ++i)
-        {
-            OutputDebugStringA(("[Retopo] loop[" + std::to_string(i) + "] size=" +
-                std::to_string(loops[i].size()) + "\n").c_str());
-        }
-
-        if (!loops.empty())
-            return Fail("mesh has boundaries; MIQ not safe");
-
-        // --- Final validity guard ---
         if (!ValidateMesh(V_clean, F_clean))
             return Fail("non-finite verts or invalid indices");
 
-        // --- SIZE GUARD (prevent std::bad_alloc in MIQ) ---
         constexpr int kMaxVerts = 200000;
         constexpr int kMaxFaces = 400000;
         if (V_clean.rows() > kMaxVerts || F_clean.rows() > kMaxFaces)
             return Fail("mesh too large for MIQ; reduce target vertex count");
 
+        // --- NORMALIZE SCALE TO PREVENT MIQ INTEGER MATH OVERFLOW ---
+        Eigen::Vector3d v_min = V_clean.colwise().minCoeff();
+        Eigen::Vector3d v_max = V_clean.colwise().maxCoeff();
+        double max_extent = (v_max - v_min).maxCoeff();
+        if (max_extent < 1e-8) max_extent = 1.0;
+        Eigen::MatrixXd V_norm = (V_clean.rowwise() - v_min.transpose()) / max_extent;
+
         // --- 7. THE FINAL MATH ---
-        Eigen::MatrixXd PD1(V_clean.rows(), 3);
-        Eigen::MatrixXd PD2(V_clean.rows(), 3);
-        Eigen::MatrixXd PV1(V_clean.rows(), 1);
-        Eigen::MatrixXd PV2(V_clean.rows(), 1);
+        Eigen::MatrixXd PD1(V_norm.rows(), 3);
+        Eigen::MatrixXd PD2(V_norm.rows(), 3);
+        Eigen::VectorXd PV1(V_norm.rows());
+        Eigen::VectorXd PV2(V_norm.rows());
 
-        if (V_clean.rows() < 10 || F_clean.rows() < 10) return Fail("too few verts/faces before curvature");
-
-        for (int i = 0; i < F_clean.rows(); ++i)
-        {
-            for (int j = 0; j < 3; ++j)
-            {
-                int idx = F_clean(i, j);
-                if (idx < 0 || idx >= V_clean.rows()) return Fail("invalid face index before curvature");
-            }
+        if (!SafeCurvature(V_norm, F_clean, PD1, PD2, PV1, PV2)) {
+            return Fail("igl::principal_curvature aborted safely");
         }
 
         Eigen::MatrixXd N;
-        igl::per_vertex_normals(V_clean, F_clean, N);
+        igl::per_vertex_normals(V_norm, F_clean, N);
 
-        // Build a stable tangent frame per vertex
-        for (int i = 0; i < V_clean.rows(); ++i)
+        for (int i = 0; i < V_norm.rows(); ++i)
         {
-            Eigen::Vector3d n = N.row(i).normalized();
-            Eigen::Vector3d t1 = n.unitOrthogonal();
-            Eigen::Vector3d t2 = n.cross(t1).normalized();
+            Eigen::Vector3d n = N.row(i);
+            if (!n.allFinite() || n.norm() < 1e-8) {
+                n = Eigen::Vector3d(0.0, 1.0, 0.0);
+            }
+            else {
+                n.normalize();
+            }
 
-            PD1.row(i) = t1.transpose();
-            PD2.row(i) = t2.transpose();
-            PV1(i, 0) = 0.0;
-            PV2(i, 0) = 0.0;
+            Eigen::Vector3d pd1 = PD1.row(i);
+            if (!pd1.allFinite() || pd1.norm() < 1e-8) {
+                pd1 = n.unitOrthogonal();
+            }
+            else {
+                pd1.normalize();
+                pd1 = (pd1 - n * n.dot(pd1));
+
+                if (pd1.norm() < 1e-8) {
+                    pd1 = n.unitOrthogonal();
+                }
+                else {
+                    pd1.normalize();
+                }
+            }
+
+            Eigen::Vector3d pd2 = n.cross(pd1).normalized();
+
+            PD1.row(i) = pd1.transpose();
+            PD2.row(i) = pd2.transpose();
         }
 
         Eigen::MatrixXd UV;
         Eigen::MatrixXi F_UV;
 
-        igl::copyleft::comiso::miq(V_clean, F_clean, PD1, PD2, UV, F_UV, scale, 5.0, false, 1);
+        if (!SafeMIQ(V_norm, F_clean, PD1, PD2, UV, F_UV, scale)) {
+            return Fail("MIQ aborted due to internal Access Violation. Handled safely.");
+        }
 
         if (UV.rows() == 0 || F_UV.rows() == 0) return Fail("miq produced empty UV");
+        if (!UV.allFinite()) return Fail("miq failed to solve (produced NaNs)");
+
+        // --- Validate MIQ output sizes/indices ---
+        if (F_UV.rows() != F_clean.rows() || F_UV.cols() != 3) {
+            return Fail("miq produced invalid F_UV size");
+        }
+        for (int i = 0; i < F_UV.rows(); ++i) {
+            for (int j = 0; j < 3; ++j) {
+                int uv_idx = F_UV(i, j);
+                if (uv_idx < 0 || uv_idx >= UV.rows()) {
+                    return Fail("miq produced out-of-range UV index");
+                }
+            }
+        }
 
         outVertices.clear();
         outIndices.clear();

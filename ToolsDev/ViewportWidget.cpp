@@ -30,8 +30,17 @@ in vec3 vNormal;
 in vec3 vFragPos;
 out vec4 FragColor;
 
+uniform int uUseSolidColor;
+uniform vec3 uSolidColor;
+
 void main()
 {
+    if (uUseSolidColor == 1)
+    {
+        FragColor = vec4(uSolidColor, 1.0);
+        return;
+    }
+
     vec3 normal = normalize(vNormal);
     vec3 lightDir1 = normalize(vec3(1.0, 1.0, 1.0));
     vec3 lightDir2 = normalize(vec3(-1.0, 0.8, -0.5));
@@ -45,6 +54,7 @@ void main()
     FragColor = vec4(color, 1.0);
 }
 )";
+
 
 ViewportWidget::ViewportWidget(QWidget* parent)
     : QOpenGLWidget(parent)
@@ -83,7 +93,7 @@ void ViewportWidget::paintGL()
 
     // Dynamic near/far planes based on zoom distance
     float nearPlane = m_zoom * 0.001f;
-    float farPlane  = m_zoom * 100.0f;
+    float farPlane = m_zoom * 100.0f;
     nearPlane = std::max(nearPlane, 0.001f);
 
     m_projection.setToIdentity();
@@ -104,12 +114,32 @@ void ViewportWidget::paintGL()
     m_shader.setUniformValue("uModel", model);
     m_shader.setUniformValue("uNormalMat", normalMat);
 
+    // Filled pass
+    glEnable(GL_POLYGON_OFFSET_FILL);
+    glPolygonOffset(1.0f, 1.0f);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    m_shader.setUniformValue("uUseSolidColor", 0);
+
     for (const auto& gpu : m_gpuMeshes)
     {
         glBindVertexArray(gpu.vao);
         glDrawElements(GL_TRIANGLES, gpu.indexCount, GL_UNSIGNED_INT, nullptr);
     }
 
+    // Wireframe overlay
+    glDisable(GL_POLYGON_OFFSET_FILL);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    glLineWidth(1.0f);
+    m_shader.setUniformValue("uUseSolidColor", 1);
+    m_shader.setUniformValue("uSolidColor", QVector3D(0.05f, 0.05f, 0.05f));
+
+    for (const auto& gpu : m_gpuMeshes)
+    {
+        glBindVertexArray(gpu.vao);
+        glDrawElements(GL_TRIANGLES, gpu.indexCount, GL_UNSIGNED_INT, nullptr);
+    }
+
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glBindVertexArray(0);
     m_shader.release();
 }

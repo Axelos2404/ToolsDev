@@ -4,11 +4,9 @@
 #endif
 #include <Windows.h>
 
-// including the Decimation tools from OpenMesh
 #include <OpenMesh/Tools/Decimater/DecimaterT.hh>
 #include <OpenMesh/Tools/Decimater/ModQuadricT.hh>
 #include <vector>
-#include <OpenMesh/Tools/HoleFiller/HoleFillerT.hh>
 #include <chrono>
 #include <map>
 #include <tuple>
@@ -37,76 +35,6 @@ private:
 	std::chrono::steady_clock::time_point start_;
 };
 
-static void logBoundaryInfo(MeshType& mesh, const char* tag)
-{
-	std::vector<bool> visited(mesh.n_halfedges(), false);
-	int loopCount = 0;
-	int minLoop = INT_MAX;
-	int maxLoop = 0;
-
-	for (auto heh : mesh.halfedges())
-	{
-		if (!mesh.is_boundary(heh) || visited[heh.idx()])
-			continue;
-
-		int count = 0;
-		auto start = heh;
-		auto curr = heh;
-		do
-		{
-			visited[curr.idx()] = true;
-			++count;
-			curr = mesh.next_halfedge_handle(curr);
-		} while (curr.is_valid() && curr != start);
-
-		loopCount++;
-		minLoop = std::min(minLoop, count);
-		maxLoop = std::max(maxLoop, count);
-	}
-
-	if (loopCount == 0) minLoop = 0;
-	OutputDebugStringA(("[Mesh] " + std::string(tag) +
-		" loops=" + std::to_string(loopCount) +
-		" min=" + std::to_string(minLoop) +
-		" max=" + std::to_string(maxLoop) + "\n").c_str());
-}
-
-static bool isManifoldMesh(const MeshType& mesh)
-{
-	for (auto vh : mesh.vertices())
-	{
-		if (!mesh.is_manifold(vh))
-			return false;
-	}
-	return true;
-}
-
-static bool hasOnlyValidBoundaryLoops(MeshType& mesh)
-{
-	std::vector<bool> visited(mesh.n_halfedges(), false);
-
-	for (auto heh : mesh.halfedges())
-	{
-		if (!mesh.is_boundary(heh) || visited[heh.idx()])
-			continue;
-
-		int count = 0;
-		auto start = heh;
-		auto curr = heh;
-
-		do
-		{
-			visited[curr.idx()] = true;
-			++count;
-			curr = mesh.next_halfedge_handle(curr);
-		} while (curr.is_valid() && curr != start);
-
-		if (count < 3)
-			return false;
-	}
-	return true;
-}
-
 static void removeNonManifoldVertices(MeshType& mesh)
 {
 	mesh.request_face_status();
@@ -134,7 +62,6 @@ static void removeNonManifoldVertices(MeshType& mesh)
 		{
 			if (!mesh.status(vh).deleted())
 			{
-				// Deleting the vertex automatically removes incident faces and edges safely
 				mesh.delete_vertex(vh, false);
 				changed = true;
 				totalRemoved++;
@@ -148,26 +75,6 @@ static void removeNonManifoldVertices(MeshType& mesh)
 	OutputDebugStringA(("[Mesh] removed non-manifold vertices=" + std::to_string(totalRemoved) + "\n").c_str());
 }
 
-static bool safeFillAllHoles(MeshType& mesh)
-{
-	if (!isManifoldMesh(mesh))
-	{
-		OutputDebugStringA("[Mesh] Hole fill skipped: non-manifold mesh\n");
-		return false;
-	}
-
-	if (!hasOnlyValidBoundaryLoops(mesh))
-	{
-		OutputDebugStringA("[Mesh] Hole fill skipped: boundary loop < 3\n");
-		return false;
-	}
-
-	OpenMesh::HoleFiller::HoleFillerT<MeshType> filler(mesh);
-	filler.fill_all_holes();
-	OutputDebugStringA("[Mesh] Hole fill completed\n");
-	return true;
-}
-
 namespace MeshProcessor
 {
 	MeshType convertRawToOpenMesh(const ModelData& model)
@@ -175,7 +82,7 @@ namespace MeshProcessor
 		MeshType mesh;
 		std::map<std::tuple<long long, long long, long long>, MeshType::VertexHandle> vertexMap;
 
-		const float tolerance = 10000.0f; // Welds vertices that are virtually identical in position
+		const float tolerance = 10000.0f;
 
 		for (const auto& meshData : model.meshes)
 		{
@@ -208,7 +115,6 @@ namespace MeshProcessor
 				MeshType::VertexHandle v1 = localHandles[meshData.indices[i + 1]];
 				MeshType::VertexHandle v2 = localHandles[meshData.indices[i + 2]];
 
-				// Prevent degenerate faces from being added
 				if (v0 != v1 && v1 != v2 && v2 != v0)
 				{
 					mesh.add_face(v0, v1, v2);
@@ -245,19 +151,9 @@ namespace MeshProcessor
 			removeNonManifoldVertices(mesh);
 		}
 		{
-			ScopeTimer stepTimer("LogBoundaryInfo.before");
-			logBoundaryInfo(mesh, "before hole fill");
+			ScopeTimer stepTimer("Final Garbage Collection");
+			mesh.garbage_collection();
 		}
-		{
-			ScopeTimer stepTimer("SafeFillAllHoles");
-			safeFillAllHoles(mesh);
-		}
-		{
-			ScopeTimer stepTimer("LogBoundaryInfo.after");
-			logBoundaryInfo(mesh, "after hole fill");
-		}
-
-		// Recalculate lighting normals for the new low-poly shape
 		{
 			ScopeTimer stepTimer("Mesh.update_normals");
 			mesh.request_face_normals();
@@ -277,9 +173,8 @@ namespace MeshProcessor
 		for (auto v_it = mesh.vertices_begin(); v_it != mesh.vertices_end(); ++v_it)
 		{
 			auto pt = mesh.point(*v_it);
-			auto n = mesh.normal(*v_it); // Grab the newly calculated normal
+			auto n = mesh.normal(*v_it);
 
-			// Pack the position, normal, and an empty UV coordinate into your struct
 			outVertices.push_back({ {pt[0], pt[1], pt[2]}, {n[0], n[1], n[2]}, {0.0f, 0.0f} });
 		}
 
