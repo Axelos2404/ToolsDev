@@ -117,51 +117,108 @@ void MainWindow::OnApplyDecimationClicked(int targetVertexCount)
         return;
     }
 
-    // 1. If a previous thread is somehow still finishing up, join it safely
     if (m_workerThread.joinable()) {
         m_workerThread.join();
     }
 
-    // Disable the UI
     setEnabled(false);
-    m_statusLabel->setText("Decimating mesh. Please wait...");
+    m_statusLabel->setText("Processing sub-meshes individually. Please wait...");
 
-    // 2. Make a safe, local copy of the model data on the main thread 
     auto modelDataCopy = m_currentModel;
 
-    // 3. Fire off the background thread (assigned to our member variable)
     m_workerThread = std::thread([this, modelDataCopy, targetVertexCount]() {
 
-        // Build the OpenMesh (using the safe copy)
-        MeshType optimisedMesh = MeshProcessor::convertRawToOpenMesh(modelDataCopy);
+        std::vector<Vertex> finalVertices;
+        std::vector<unsigned int> finalIndices;
 
-        // Decimate the mesh
-        MeshProcessor::decimateMesh(optimisedMesh, targetVertexCount);
+        // Calculate total original vertices to distribute the target budget proportionally
+        size_t totalOriginalVerts = 0;
+        for (const auto& mesh : modelDataCopy.meshes) {
+            totalOriginalVerts += mesh.vertices.size();
+        }
 
-        // Extract the optimised vertices and indices into standard local variables
-        std::vector<Vertex> decimatedVertices;
-        std::vector<unsigned int> decimatedIndices;
-        MeshProcessor::extractRawFromOpenMesh(optimisedMesh, decimatedVertices, decimatedIndices);
+        bool anyRetopoFailed = false;
+        double gridDensity = 30.0;
 
-        std::vector<Vertex> quadAlignedVertices;
-        std::vector<unsigned int> quadAlignedIndices;
-        double gridDensity = 30.0; // Higher = smaller/more quads
+        // Iterate through each sub-mesh (tires, chassis, windows) independently
+        for (size_t m_idx = 0; m_idx < modelDataCopy.meshes.size(); ++m_idx)
+        {
+            const auto& rawMesh = modelDataCopy.meshes[m_idx];
+            if (rawMesh.vertices.empty() || rawMesh.indices.empty()) continue;
 
-        RetopoProcessor::processRetopology(decimatedVertices, decimatedIndices,
-            quadAlignedVertices, quadAlignedIndices, gridDensity);
+            // 1. Calculate proportional target vertex count for this specific part
+            double ratio = static_cast<double>(rawMesh.vertices.size()) / static_cast<double>(totalOriginalVerts);
+            int localTarget = std::max(10, static_cast<int>(targetVertexCount * ratio));
 
-        // 4: Schedule viewport update back onto the main UI thread.
+            // 2. Package into a temporary ModelData for the converter
+            ModelData singleModel;
+            singleModel.meshes.push_back(rawMesh);
+
+            // 3. Convert and Decimate just this piece
+            MeshType optMesh = MeshProcessor::convertRawToOpenMesh(singleModel);
+            MeshProcessor::decimateMesh(optMesh, localTarget);
+
+            // 4. Extract
+            std::vector<Vertex> decVerts;
+            std::vector<unsigned int> decInds;
+            MeshProcessor::extractRawFromOpenMesh(optMesh, decVerts, decInds);
+
+            // 5. Retopologize (ONLY if the mesh is large enough to survive MIQ)
+            std::vector<Vertex> quadVerts;
+            std::vector<unsigned int> quadInds;
+            bool retopoOk = false;
+
+            // SAFEGUARD: MIQ will crash on tiny, degenerate pieces. 
+            // If the piece has fewer than 100 vertices, skip MIQ entirely.
+            if (decVerts.size() > 100 && (decInds.size() / 3) > 50)
+            {
+                retopoOk = RetopoProcessor::processRetopology(decVerts, decInds, quadVerts, quadInds, gridDensity);
+            }
+            else
+            {
+                OutputDebugStringA(("[Pipeline] Skipping MIQ for tiny mesh part (" + std::to_string(decVerts.size()) + " verts)\n").c_str());
+            }
+
+            // If a single tiny part fails MIQ (or was skipped), fall back to its decimated triangle version
+            if (!retopoOk) {
+                anyRetopoFailed = true;
+                quadVerts = decVerts;
+                quadInds = decInds;
+            }
+
+            // 6. Accumulate into the final global buffers for the viewport
+            unsigned int vertexOffset = static_cast<unsigned int>(finalVertices.size());
+            finalVertices.insert(finalVertices.end(), quadVerts.begin(), quadVerts.end());
+
+            for (unsigned int idx : quadInds) {
+                finalIndices.push_back(idx + vertexOffset);
+            }
+
+            OutputDebugStringA(("[Pipeline] Processed mesh " + std::to_string(m_idx + 1) + "/" + std::to_string(modelDataCopy.meshes.size()) + "\n").c_str());
+        }
+
+        // 7. Schedule viewport update back onto the main UI thread.
         QMetaObject::invokeMethod(this, [this,
-            v = std::move(quadAlignedVertices),
-            i = std::move(quadAlignedIndices)]() mutable {
+            v = std::move(finalVertices),
+            i = std::move(finalIndices),
+            anyRetopoFailed]() mutable {
 
                 m_viewport->UpdateMesh(v, i);
                 m_viewport->update();
 
                 setEnabled(true);
-                m_statusLabel->setText(QString("Retopology Complete. Vertices: %1, Triangles: %2")
-                    .arg(v.size())
-                    .arg(i.size() / 3));
+                if (!anyRetopoFailed)
+                {
+                    m_statusLabel->setText(QString("Retopology Complete. Vertices: %1, Triangles: %2")
+                        .arg(v.size())
+                        .arg(i.size() / 3));
+                }
+                else
+                {
+                    m_statusLabel->setText(QString("Finished (Some tiny parts fell back to Triangles). Vertices: %1, Triangles: %2")
+                        .arg(v.size())
+                        .arg(i.size() / 3));
+                }
             });
 
         });

@@ -21,16 +21,20 @@ ExternalProject_Add(
     
     CMAKE_ARGS
         -DCMAKE_INSTALL_PREFIX=${MY_VS_INSTALL_DIR} 
-	-DCMAKE_CXX_STANDARD=17
+        -DCMAKE_CXX_STANDARD=17
+        
+        # Replace /D_WIN32 with /DWIN32
+        "-DCMAKE_CXX_FLAGS=/std:c++17 /EHsc /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /DWIN32"
+        
         -DLIBIGL_USE_STATIC_LIBRARY=ON              
         -DCMAKE_BUILD_TYPE=Release                 
-	
-	-DLIBIGL_WITH_COMISO=ON
+        
+        # (Removed LIBIGL_WITH_COMISO because LibIGL warns it ignores it)
 
         # Turn off the heavy stuff
         -DLIBIGL_BUILD_TESTS=OFF
         -DLIBIGL_BUILD_TUTORIALS=OFF      
-	-DLIBIGL_EMBREE=OFF            
+        -DLIBIGL_EMBREE=OFF            
         
         # Since I'm using Qt, I don't need libigl's built-in window viewers
         -DLIBIGL_OPENGL=OFF
