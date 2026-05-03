@@ -1,10 +1,10 @@
 @echo off
 echo ===================================================
-echo   Starting LibIGL and CoMISo Superbuild Process...
+echo   Starting LibIGL, CoMISo, and QEx Superbuild...
 echo ===================================================
 echo.
 
-echo [1/7] Fetching CoMISo Source Code...
+echo [1/8] Fetching CoMISo Source Code...
 if not exist "Library\comiso\CMakeLists.txt" (
     echo Downloading official CoMISo repository...
     if exist "Library\comiso" rmdir /s /q "Library\comiso"
@@ -12,7 +12,7 @@ if not exist "Library\comiso\CMakeLists.txt" (
 )
 
 echo.
-echo [2/7] Resolving External Dependencies (Eigen3)...
+echo [2/8] Resolving External Dependencies (Eigen3)...
 if not exist "Library\Eigen\share\eigen3\cmake\Eigen3Config.cmake" (
     echo Downloading and configuring Eigen3...
     curl -s -L -o eigen.zip "https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.zip"
@@ -34,7 +34,7 @@ if not exist "Library\Eigen\share\eigen3\cmake\Eigen3Config.cmake" (
 )
 
 echo.
-echo [3/7] Resolving External Dependencies (GMM++)...
+echo [3/8] Resolving External Dependencies (GMM++)...
 if not exist "Library\comiso\include\gmm" (
     echo Downloading missing GMM++ headers...
     curl -s -L -o getfem.zip "https://github.com/getfem-doc/getfem/archive/refs/heads/master.zip"
@@ -48,7 +48,7 @@ if not exist "Library\comiso\include\gmm" (
 )
 
 echo.
-echo [4/7] Compiling CoMISo with GMM++ and Eigen3...
+echo [4/8] Compiling CoMISo with GMM++ and Eigen3...
 :: Inject Eigen3 search directly into the top of CoMISo's CMakeLists so it can compile standalone!
 if not exist "Library\comiso\patched_eigen.flag" (
     echo find_package^(Eigen3 REQUIRED CONFIG PATHS "%CD:\=/%/Library/Eigen/share/eigen3/cmake"^) > Library\comiso\new_cmake.txt
@@ -72,17 +72,39 @@ if not exist "Library\comiso\lib" mkdir "Library\comiso\lib"
 copy /Y "Library\comiso\build\Release\CoMISo.lib" "Library\comiso\lib\CoMISo.lib"
 
 echo.
-echo [5/7] Generating LibIGL CMake build files...
+echo [5/8] Generating LibIGL CMake build files...
 cmake -B build -DCMAKE_CXX_STANDARD=17
 if %errorlevel% neq 0 goto error
 
 echo.
-echo [6/7] Compiling LibIGL...
+echo [6/8] Compiling LibIGL...
 cmake --build build --config Release
 if %errorlevel% neq 0 goto error
 
 echo.
-echo [7/7] Applying Custom Auto-Retopology Patches...
+echo [7/8] Fetching and Compiling libQEx (Quad Extraction)...
+if not exist "Library\qex\CMakeLists.txt" (
+    echo Downloading official libQEx repository...
+    if exist "Library\qex" rmdir /s /q "Library\qex"
+    git clone https://github.com/hcebke/libQEx.git Library\qex
+)
+
+:: Configure and build libQEx, injecting the path to our local Eigen installation
+cmake -S Library\qex -B Library\qex\build ^
+  -DCMAKE_CXX_STANDARD=17 ^
+  -DEigen3_DIR="%CD%\Library\Eigen\share\eigen3\cmake" ^
+  -DCMAKE_CXX_FLAGS="/I\"%CD%\Library\Eigen\include\eigen3\" /EHsc /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE"
+if %errorlevel% neq 0 goto error
+
+cmake --build Library\qex\build --config Release
+if %errorlevel% neq 0 goto error
+
+:: Organize the output so Visual Studio can find it easily
+if not exist "Library\qex\lib" mkdir "Library\qex\lib"
+copy /Y "Library\qex\build\Release\*.lib" "Library\qex\lib\"
+
+echo.
+echo [8/8] Applying Custom Auto-Retopology Patches...
 
 :: Patch A: Fetch the CoMISo bridge from my GitHub branch
 if not exist "Library\libigl\include\igl\copyleft\comiso" mkdir "Library\libigl\include\igl\copyleft\comiso"
@@ -107,17 +129,18 @@ echo ===================================================
 echo   Cleaning up massive temporary files...
 if exist build rmdir /s /q build
 if exist Library\comiso\build rmdir /s /q Library\comiso\build
+if exist Library\qex\build rmdir /s /q Library\qex\build
 if exist Library\libigl\share rmdir /s /q Library\libigl\share
 if exist Library\libigl\lib\cmake rmdir /s /q Library\libigl\lib\cmake
 if exist Library\libigl\include\Eigen rmdir /s /q Library\libigl\include\Eigen
 if exist Library\libigl\include\Spectra rmdir /s /q Library\libigl\include\Spectra
 
-:: Remove CoMISo source code bloat to save hard drive space
-:: if exist "Library\comiso\ext" rmdir /s /q "Library\comiso\ext"
+:: Remove source code bloat to save hard drive space
 if exist "Library\comiso\Examples" rmdir /s /q "Library\comiso\Examples"
 if exist "Library\comiso\QtWidgets" rmdir /s /q "Library\comiso\QtWidgets"
 if exist "Library\comiso\.git" rmdir /s /q "Library\comiso\.git"
 if exist "Library\comiso\cmake" rmdir /s /q "Library\comiso\cmake"
+if exist "Library\qex\.git" rmdir /s /q "Library\qex\.git"
 
 echo.
 echo   SUCCESS! 
