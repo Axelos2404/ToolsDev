@@ -127,7 +127,7 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;_USE_MATH_DEFINES;IGL_STATIC_LIBRARY;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)Library\comiso\include;$(SolutionDir)Library\libigl\include;$(SolutionDir)Library\spectra\include;$(SolutionDir)Library\xatlas\include;$(SolutionDir)Library\Eigen\include\eigen3;$(SolutionDir)Library\glm\include;$(SolutionDir)Library\openmesh\include;$(SolutionDir)Library\assimp\include;$(SolutionDir)Library;$(SolutionDir)Library\comiso\Solver;E:\Workspace\ToolsDev\Library\libigl\include\igl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Library\comiso\include;$(SolutionDir)Library\libigl\include;$(SolutionDir)Library\spectra\include;$(SolutionDir)Library\xatlas\include;$(SolutionDir)Library\Eigen\include\eigen3;$(SolutionDir)Library\glm\include;$(SolutionDir)Library\openmesh\include;$(SolutionDir)Library\assimp\include;$(SolutionDir)Library;$(SolutionDir)Library\comiso\Solver;$(SolutionDir)Library\libigl\include\igl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -135,7 +135,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)Library\comiso\lib;$(SolutionDir)Library\libigl\lib;$(SolutionDir)Library\eigen\lib;$(SolutionDir)Library\glm\lib;$(SolutionDir)Library\openmesh\lib;$(SolutionDir)Library\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>igl.lib
-;CoMISo.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+;CoMISo.lib;QExStatic.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y /d "$(SolutionDir)Library\assimp\bin\*.dll" "$(OutDir)"</Command>
@@ -154,7 +154,7 @@ xcopy /y /d "$(SolutionDir)Library\eigen\bin\*.dll" "$(OutDir)"</Command>
       <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;_USE_MATH_DEFINES;IGL_STATIC_LIBRARY;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(SolutionDir)Library\comiso\include;$(SolutionDir)Library\libigl\include;$(SolutionDir)Library\spectra\include;$(SolutionDir)Library\xatlas\include;$(SolutionDir)Library\Eigen\include\eigen3;$(SolutionDir)Library\glm\include;$(SolutionDir)Library\openmesh\include;$(SolutionDir)Library\assimp\include;$(SolutionDir)Library;$(SolutionDir)Library\comiso\Solver;E:\Workspace\ToolsDev\Library\libigl\include\igl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Library\comiso\include;$(SolutionDir)Library\libigl\include;$(SolutionDir)Library\spectra\include;$(SolutionDir)Library\xatlas\include;$(SolutionDir)Library\Eigen\include\eigen3;$(SolutionDir)Library\glm\include;$(SolutionDir)Library\openmesh\include;$(SolutionDir)Library\assimp\include;$(SolutionDir)Library;$(SolutionDir)Library\comiso\Solver;$(SolutionDir)Library\libigl\include\igl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -162,7 +162,7 @@ xcopy /y /d "$(SolutionDir)Library\eigen\bin\*.dll" "$(OutDir)"</Command>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)Library\comiso\lib;$(SolutionDir)Library\libigl\lib;$(SolutionDir)Library\eigen\lib;$(SolutionDir)Library\glm\lib;$(SolutionDir)Library\openmesh\lib;$(SolutionDir)Library\assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>igl.lib
-;CoMISo.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+;CoMISo.lib;QExStatic.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y /d "$(SolutionDir)Library\assimp\bin\*.dll" "$(OutDir)"</Command>
