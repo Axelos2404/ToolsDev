@@ -1,3 +1,6 @@
+#define NOMINMAX
+#include <Windows.h>
+
 #include "MainWindow.h"
 #include <QMenuBar>
 #include <QFileDialog>
@@ -11,7 +14,6 @@
 #include <QPushButton>
 #include <fstream>
 #include <filesystem>
-#include <CoMISo/Solver/CholmodSolver.hh>
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
@@ -179,9 +181,8 @@ void MainWindow::OnApplyDecimationClicked(int targetVertexCount)
         }
 
         bool anyRetopoFailed = false;
-        double gridDensity = 30.0;
 
-        // Iterate through each sub-mesh (tires, chassis, windows) independently
+        // Iterate through each sub-mesh independently
         for (size_t m_idx = 0; m_idx < modelDataCopy.meshes.size(); ++m_idx)
         {
             const auto& rawMesh = modelDataCopy.meshes[m_idx];
@@ -191,43 +192,31 @@ void MainWindow::OnApplyDecimationClicked(int targetVertexCount)
             double ratio = static_cast<double>(rawMesh.vertices.size()) / static_cast<double>(totalOriginalVerts);
             int localTarget = std::max(10, static_cast<int>(targetVertexCount * ratio));
 
-            // 2. Package into a temporary ModelData for the converter
-            ModelData singleModel;
-            singleModel.meshes.push_back(rawMesh);
-
-            // 3. Convert and Decimate just this piece
-            MeshType optMesh = MeshProcessor::convertRawToOpenMesh(singleModel);
-            MeshProcessor::decimateMesh(optMesh, localTarget);
-
-            // 4. Extract
-            std::vector<Vertex> decVerts;
-            std::vector<unsigned int> decInds;
-            MeshProcessor::extractRawFromOpenMesh(optMesh, decVerts, decInds);
-
-            // 5. Retopologize (ONLY if the mesh is large enough to survive MIQ)
+            // 2. Retopologize directly from the RAW high-res mesh
             std::vector<Vertex> quadVerts;
             std::vector<unsigned int> quadInds;
             bool retopoOk = false;
 
-            // SAFEGUARD: MIQ will crash on tiny, degenerate pieces. 
-            // If the piece has fewer than 100 vertices, skip MIQ entirely.
-            if (decVerts.size() > 100 && (decInds.size() / 3) > 50)
+            // SAFEGUARD: MIQ needs at least a basic surface to work with.
+            if (rawMesh.vertices.size() > 100 && (rawMesh.indices.size() / 3) > 50)
             {
-                retopoOk = RetopoProcessor::processRetopology(decVerts, decInds, quadVerts, quadInds, gridDensity);
+                retopoOk = RetopoProcessor::processRetopology(
+                    rawMesh.vertices, rawMesh.indices,
+                    quadVerts, quadInds, localTarget);
             }
             else
             {
-                OutputDebugStringA(("[Pipeline] Skipping MIQ for tiny mesh part (" + std::to_string(decVerts.size()) + " verts)\n").c_str());
+                OutputDebugStringA(("[Pipeline] Skipping MIQ for tiny mesh part (" + std::to_string(rawMesh.vertices.size()) + " verts)\n").c_str());
             }
 
-            // If a single tiny part fails MIQ (or was skipped), fall back to its decimated triangle version
+            // 3. Fallback to the ORIGINAL mesh if Instant Meshes was skipped or failed
             if (!retopoOk) {
                 anyRetopoFailed = true;
-                quadVerts = decVerts;
-                quadInds = decInds;
+                quadVerts = rawMesh.vertices;
+                quadInds = rawMesh.indices;
             }
 
-            // 6. Accumulate into the final global buffers for the viewport
+            // 4. Accumulate into the final global buffers for the viewport
             unsigned int vertexOffset = static_cast<unsigned int>(finalVertices.size());
             finalVertices.insert(finalVertices.end(), quadVerts.begin(), quadVerts.end());
 
@@ -242,7 +231,7 @@ void MainWindow::OnApplyDecimationClicked(int targetVertexCount)
         OutputDebugStringA("[Pipeline] Exporting OBJ...\n");
         ExportToOBJ("C:\\Temp\\MIQ_Test_Output.obj", finalVertices, finalIndices);
 
-        // 7. Schedule viewport update back onto the main UI thread.
+        // Schedule viewport update back onto the main UI thread.
         QMetaObject::invokeMethod(this, [this,
             v = std::move(finalVertices),
             i = std::move(finalIndices),
@@ -252,19 +241,14 @@ void MainWindow::OnApplyDecimationClicked(int targetVertexCount)
                 m_viewport->update();
 
                 setEnabled(true);
-                if (!anyRetopoFailed)
-                {
+                if (!anyRetopoFailed) {
                     m_statusLabel->setText(QString("Retopology Complete. Vertices: %1, Triangles: %2")
-                        .arg(v.size())
-                        .arg(i.size() / 3));
+                        .arg(v.size()).arg(i.size() / 3));
                 }
-                else
-                {
-                    m_statusLabel->setText(QString("Finished (Some tiny parts fell back to Triangles). Vertices: %1, Triangles: %2")
-                        .arg(v.size())
-                        .arg(i.size() / 3));
+                else {
+                    m_statusLabel->setText(QString("Finished (Some tiny parts fell back to Original Triangles). Vertices: %1, Triangles: %2")
+                        .arg(v.size()).arg(i.size() / 3));
                 }
             });
-
         });
 }

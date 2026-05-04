@@ -79,8 +79,8 @@
     <Library Include="..\Library\eigen\lib\eigen_blas.lib" />
     <Library Include="..\Library\eigen\lib\eigen_lapack.lib" />
     <Library Include="..\Library\libigl\lib\igl.lib" />
-    <Library Include="..\Library\openmesh\lib\OpenMeshCore.lib" />
-    <Library Include="..\Library\openmesh\lib\OpenMeshTools.lib" />
+    <Library Include="..\Library\openmesh\lib\OpenMeshCored.lib" />
+    <Library Include="..\Library\openmesh\lib\OpenMeshToolsd.lib" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="ViewportWidget.h">

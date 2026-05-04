@@ -14,25 +14,25 @@
 
 class ScopeTimer
 {
-public:
-	explicit ScopeTimer(const char* name)
-		: name_(name), start_(std::chrono::steady_clock::now())
-	{
-		const std::string message = std::string("[Mesh] ") + name_ + " start\n";
-		OutputDebugStringA(message.c_str());
-	}
+	public:
+		explicit ScopeTimer(const char* name)
+			: name_(name), start_(std::chrono::steady_clock::now())
+		{
+			const std::string message = std::string("[Mesh] ") + name_ + " start\n";
+			OutputDebugStringA(message.c_str());
+		}
 
-	~ScopeTimer()
-	{
-		const auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(
-			std::chrono::steady_clock::now() - start_).count();
-		const std::string message = std::string("[Mesh] ") + name_ + " took " + std::to_string(elapsed) + " ms\n";
-		OutputDebugStringA(message.c_str());
-	}
+		~ScopeTimer()
+		{
+			const auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(
+				std::chrono::steady_clock::now() - start_).count();
+			const std::string message = std::string("[Mesh] ") + name_ + " took " + std::to_string(elapsed) + " ms\n";
+			OutputDebugStringA(message.c_str());
+		}
 
-private:
-	const char* name_;
-	std::chrono::steady_clock::time_point start_;
+	private:
+		const char* name_;
+		std::chrono::steady_clock::time_point start_;
 };
 
 static void removeNonManifoldVertices(MeshType& mesh)

@@ -21,6 +21,12 @@ echo [2/4] Generating and Compiling LibIGL...
 cmake -B build -DCMAKE_CXX_STANDARD=17
 cmake --build build --config Release
 
+echo Rescuing LibIGL implementation files...
+:: These commands copy the .cpp and .hpp files from the temporary build/fetch folder
+:: into your permanent Library folder so the Linker can find them later.
+xcopy /s /y "build\libigl_build-prefix\src\libigl_build\include\igl\*.cpp" "Library\libigl\include\igl\"
+xcopy /s /y "build\libigl_build-prefix\src\libigl_build\include\igl\*.hpp" "Library\libigl\include\igl\"
+
 :: CLEANUP: Delete the LibIGL build artifacts after compilation
 echo Cleaning up LibIGL build artifacts...
 if exist "build" rmdir /s /q "build"
