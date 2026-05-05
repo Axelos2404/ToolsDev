@@ -112,7 +112,7 @@ void ViewportWidget::paintGL()
     m_shader.setUniformValue("uModel", model);
     m_shader.setUniformValue("uNormalMat", normalMat);
 
-    // 1. FILLED PASS (Draw the solid faces)
+    // FILLED PASS (Draw the solid faces)
     glEnable(GL_POLYGON_OFFSET_FILL);
     glPolygonOffset(1.0f, 1.0f);
     m_shader.setUniformValue("uUseSolidColor", 0);
@@ -124,7 +124,7 @@ void ViewportWidget::paintGL()
         glDrawElements(GL_TRIANGLES, gpu.triIndexCount, GL_UNSIGNED_INT, nullptr);
     }
 
-    // 2. WIREFRAME PASS (Draw our custom Lines without diagonals)
+    // WIREFRAME PASS (Draw our custom Lines without diagonals)
     glDisable(GL_POLYGON_OFFSET_FILL);
     glLineWidth(1.5f); // Slightly thicker for a premium feel
     m_shader.setUniformValue("uUseSolidColor", 1);
@@ -223,7 +223,7 @@ void ViewportWidget::UploadMesh(const MeshData& mesh)
     glCreateBuffers(1, &gpu.eboTriangles);
     glCreateBuffers(1, &gpu.eboLines); // New buffer for wireframe
 
-    // 1. Generate Custom Wireframe Indices (Blender style)
+    // Generate Custom Wireframe Indices (Blender style)
     std::vector<unsigned int> lineIndices;
     lineIndices.reserve(mesh.indices.size() * 2);
 
@@ -260,7 +260,7 @@ void ViewportWidget::UploadMesh(const MeshData& mesh)
         }
     }
 
-    // 2. Upload Data to GPU
+    // Upload Data to GPU
     glNamedBufferStorage(gpu.vbo, mesh.vertices.size() * sizeof(Vertex), mesh.vertices.data(), 0);
     glNamedBufferStorage(gpu.eboTriangles, mesh.indices.size() * sizeof(unsigned int), mesh.indices.data(), 0);
     glNamedBufferStorage(gpu.eboLines, lineIndices.size() * sizeof(unsigned int), lineIndices.data(), 0);

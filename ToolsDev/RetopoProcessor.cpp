@@ -1,4 +1,4 @@
-// 1. Windows and Standard Library Protections
+// Windows and Standard Library Protections
 #define NOMINMAX
 #define _HAS_STD_BYTE 0
 #define _SILENCE_ALL_CXX17_DEPRECATION_WARNINGS
@@ -8,7 +8,7 @@
 // Setting it to -1 tells TBB to use all available CPU cores.
 int nprocs = -1;
 
-// 2. The C++17 TBB Hack
+// The C++17 TBB skip the annoying errors
 #if __cplusplus >= 201703L || _MSVC_LANG >= 201703L
 namespace std {
     template <typename Arg1, typename Arg2, typename Result>
@@ -25,7 +25,7 @@ namespace std {
 }
 #endif
 
-// 3. Project and Instant Meshes Includes
+// Project and Instant Meshes Includes
 #include "RetopoProcessor.h"
 #include <instant-meshes/src/common.h>
 #include <instant-meshes/src/adjacency.h>
@@ -130,14 +130,13 @@ namespace RetopoProcessor {
             std::set<uint32_t> crease_in, crease_out;
             MatrixXu F_out;
 
-            // --- THE FIX: PRESERVE SUBMESH BOUNDARIES ---
+            // PRESERVE SUBMESH BOUNDARIES
             // This locks the outer border of the part so it doesn't shrink-wrap and erode.
             for (uint32_t i = 0; i < E2E.size(); ++i) {
                 if (boundary[i]) {
                     crease_in.insert(i);
                 }
             }
-            // --------------------------------------------
 
             extract_graph(mRes, true, 4, 4, adj_new, O_new, N_new, crease_in, crease_out, false, true, true, true);
 

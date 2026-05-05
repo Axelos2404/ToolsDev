@@ -157,20 +157,20 @@ void MainWindow::RefreshViewportAndUI()
                 .arg(m_currentMeshIndex + 1).arg(m_currentModel.meshes.size()).arg(currentPart.name.c_str()).arg(currentPart.vertices.size()));
         }
 
-        // 1. Finished parts (Only show if context checkbox is true)
+        // Finished parts (Only show if context checkbox is true)
         if (showContext) {
             for (size_t i = 0; i < m_currentMeshIndex; ++i) {
                 displayMeshes.push_back(m_currentModel.meshes[i]);
             }
         }
 
-        // 2. The active target part (Always show this!)
+        // The active target part (Always show this!)
         MeshData activePart;
         activePart.vertices = m_showingPreview ? m_previewVertices : currentPart.vertices;
         activePart.indices = m_showingPreview ? m_previewIndices : currentPart.indices;
         displayMeshes.push_back(activePart);
 
-        // 3. The raw future parts (Only show if context checkbox is true)
+        // The raw future parts (Only show if context checkbox is true)
         if (showContext) {
             for (size_t i = m_currentMeshIndex + 1; i < m_currentModel.meshes.size(); ++i) {
                 displayMeshes.push_back(m_currentModel.meshes[i]);
