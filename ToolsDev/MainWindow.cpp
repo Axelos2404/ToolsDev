@@ -10,8 +10,6 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
-#include <QSlider>
-#include <QPushButton>
 #include <fstream>
 #include <filesystem>
 
@@ -21,234 +19,234 @@ MainWindow::MainWindow(QWidget* parent)
     setWindowTitle("ToolsDev");
     resize(1280, 720);
 
-    // Viewport
     m_viewport = new ViewportWidget(this);
     setCentralWidget(m_viewport);
 
-    // Menu bar
     QMenu* fileMenu = menuBar()->addMenu("&File");
     fileMenu->addAction("&Open Model...", QKeySequence::Open, this, &MainWindow::OnFileOpen);
     fileMenu->addSeparator();
     fileMenu->addAction("E&xit", QKeySequence::Quit, this, &QMainWindow::close);
 
-    QMenu* helpMenu = menuBar()->addMenu("&Help");
-    helpMenu->addAction("&About", this, [this]() {
-        QMessageBox::about(this, "About ToolsDev",
-            "ToolsDev - Auto Retopology & UV Unwrapping Tool");
-        });
-
-    // Tools Dock Widget
     QDockWidget* toolsDock = new QDockWidget("Retopology Tools", this);
     toolsDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
     QWidget* dockContents = new QWidget();
     QVBoxLayout* dockLayout = new QVBoxLayout(dockContents);
 
-    // Slider setup
-    QLabel* targetVertLabel = new QLabel("Target Vertex Count: 100000");
-    QSlider* targetVertSlider = new QSlider(Qt::Horizontal);
-    targetVertSlider->setRange(10, 200000); // Expanded range for complex models
-    targetVertSlider->setValue(100000);
+    QLabel* targetVertLabel = new QLabel("Target Vertex Count:");
 
-    // Update label when slider moves
-    connect(targetVertSlider, &QSlider::valueChanged, targetVertLabel, [targetVertLabel](int value) {
-        targetVertLabel->setText(QString("Target Vertex Count: %1").arg(value));
+    // Wire up the new class-level controls
+    m_targetVertSlider = new QSlider(Qt::Horizontal);
+    m_targetVertSlider->setRange(10, 200000);
+    m_targetVertSlider->setValue(100000);
+
+    m_targetVertSpinBox = new QSpinBox();
+    m_targetVertSpinBox->setRange(10, 200000);
+    m_targetVertSpinBox->setValue(100000);
+    m_targetVertSpinBox->setSingleStep(1000);
+
+    connect(m_targetVertSlider, &QSlider::valueChanged, m_targetVertSpinBox, &QSpinBox::setValue);
+    connect(m_targetVertSpinBox, QOverload<int>::of(&QSpinBox::valueChanged), m_targetVertSlider, &QSlider::setValue);
+
+    QHBoxLayout* targetLayout = new QHBoxLayout();
+    targetLayout->addWidget(targetVertLabel);
+    targetLayout->addWidget(m_targetVertSpinBox);
+
+    // Context Checkbox
+    m_chkShowContext = new QCheckBox("Show the rest of the model");
+    m_chkShowContext->setChecked(true); // Default to showing everything
+    connect(m_chkShowContext, &QCheckBox::toggled, this, [this]() {
+        RefreshViewportAndUI();
         });
 
-    QPushButton* applyDecimationBtn = new QPushButton("Apply Decimation");
+    m_btnPreview = new QPushButton("Preview Retopology");
+    m_btnAccept = new QPushButton("Accept & Next Part");
+    m_btnAccept->setEnabled(false);
 
-    // Connect the button to your function, passing the slider value
-    connect(applyDecimationBtn, &QPushButton::clicked, this, [this, targetVertSlider]() {
-        OnApplyDecimationClicked(targetVertSlider->value());
+    connect(m_btnPreview, &QPushButton::clicked, this, [this]() {
+        OnApplyDecimationClicked(m_targetVertSpinBox->value());
         });
 
-    dockLayout->addWidget(targetVertLabel);
-    dockLayout->addWidget(targetVertSlider);
-    dockLayout->addWidget(applyDecimationBtn);
+    connect(m_btnAccept, &QPushButton::clicked, this, [this]() {
+        OnAcceptClicked();
+        });
+
+    dockLayout->addLayout(targetLayout);
+    dockLayout->addWidget(m_targetVertSlider);
+    dockLayout->addWidget(m_btnPreview);
+    dockLayout->addWidget(m_btnAccept);
     dockLayout->addStretch();
 
     toolsDock->setWidget(dockContents);
     addDockWidget(Qt::RightDockWidgetArea, toolsDock);
 
-    // Status bar
     m_statusLabel = new QLabel("Ready");
     statusBar()->addWidget(m_statusLabel);
 }
 
 MainWindow::~MainWindow()
 {
-    if (m_workerThread.joinable())
-        m_workerThread.join();
+    if (m_workerThread.joinable()) m_workerThread.join();
 }
 
 void MainWindow::OnFileOpen()
 {
-    QString filePath = QFileDialog::getOpenFileName(this,
-        "Open 3D Model",
-        QString(),
-        "3D Models (*.obj *.fbx *.gltf *.glb *.dae *.stl *.ply *.3ds);;All Files (*.*)");
-
-    if (filePath.isEmpty())
-        return;
+    QString filePath = QFileDialog::getOpenFileName(this, "Open 3D Model", QString(), "3D Models (*.obj *.fbx *.gltf *.glb *.dae *.stl *.ply *.3ds);;All Files (*.*)");
+    if (filePath.isEmpty()) return;
 
     if (m_loader.Load(filePath.toStdString(), m_currentModel))
     {
+        m_currentMeshIndex = 0;
+        m_retopoVertices.clear();
+        m_retopoIndices.clear();
+
+        m_showingPreview = false;
+        m_previewVertices.clear();
+        m_previewIndices.clear();
+
+        if (m_btnAccept) m_btnAccept->setEnabled(false);
+        if (m_btnPreview) m_btnPreview->setEnabled(true);
+
         m_viewport->SetModel(m_currentModel);
-
-        int totalVerts = 0, totalTris = 0;
-        for (const auto& mesh : m_currentModel.meshes)
-        {
-            totalVerts += static_cast<int>(mesh.vertices.size());
-            totalTris += static_cast<int>(mesh.indices.size()) / 3;
-        }
-
-        m_statusLabel->setText(QString("Loaded: %1 meshes, %2 vertices, %3 triangles")
-            .arg(m_currentModel.meshes.size())
-            .arg(totalVerts)
-            .arg(totalTris));
+        RefreshViewportAndUI();
     }
     else
     {
-        QMessageBox::warning(this, "Load Error",
-            QString::fromStdString(m_loader.GetLastError()));
+        QMessageBox::warning(this, "Load Error", QString::fromStdString(m_loader.GetLastError()));
     }
 }
 
 void ExportToOBJ(const std::string& filepath, const std::vector<Vertex>& verts, const std::vector<unsigned int>& inds)
 {
-    // Automatically create the directory if it doesn't exist
     std::filesystem::path pathObj(filepath);
-    if (pathObj.has_parent_path()) {
-        std::filesystem::create_directories(pathObj.parent_path());
-    }
+    if (pathObj.has_parent_path()) std::filesystem::create_directories(pathObj.parent_path());
 
     std::ofstream file(filepath);
-    if (!file.is_open()) {
-        OutputDebugStringA("[Pipeline] FAILED to open export file!\n");
-        return;
-    }
+    if (!file.is_open()) return;
 
-    // 1. Write positions
-    for (const auto& v : verts)
-        file << "v " << v.position[0] << " " << v.position[1] << " " << v.position[2] << "\n";
+    for (const auto& v : verts) file << "v " << v.position[0] << " " << v.position[1] << " " << v.position[2] << "\n";
+    for (const auto& v : verts) file << "vt " << v.texCoord[0] << " " << v.texCoord[1] << "\n";
+    for (const auto& v : verts) file << "vn " << v.normal[0] << " " << v.normal[1] << " " << v.normal[2] << "\n";
 
-    // 2. Write MIQ UV coordinates
-    for (const auto& v : verts)
-        file << "vt " << v.texCoord[0] << " " << v.texCoord[1] << "\n";
-
-    // 3. Write Normals
-    for (const auto& v : verts)
-        file << "vn " << v.normal[0] << " " << v.normal[1] << " " << v.normal[2] << "\n";
-
-    // 4. Write Triangle Faces (OBJ is 1-indexed, format is v/vt/vn)
     for (size_t i = 0; i < inds.size(); i += 3) {
-        unsigned int i0 = inds[i] + 1;
-        unsigned int i1 = inds[i + 1] + 1;
-        unsigned int i2 = inds[i + 2] + 1;
-        file << "f " << i0 << "/" << i0 << "/" << i0 << " "
-            << i1 << "/" << i1 << "/" << i1 << " "
-            << i2 << "/" << i2 << "/" << i2 << "\n";
+        unsigned int i0 = inds[i] + 1, i1 = inds[i + 1] + 1, i2 = inds[i + 2] + 1;
+        file << "f " << i0 << "/" << i0 << "/" << i0 << " " << i1 << "/" << i1 << "/" << i1 << " " << i2 << "/" << i2 << "/" << i2 << "\n";
     }
     file.close();
-    OutputDebugStringA("[Pipeline] OBJ Export Successful!\n");
+}
+
+void MainWindow::RefreshViewportAndUI()
+{
+    if (m_currentModel.meshes.empty()) return;
+
+    std::vector<MeshData> displayMeshes;
+    bool showContext = m_chkShowContext && m_chkShowContext->isChecked();
+
+    if (m_currentMeshIndex < m_currentModel.meshes.size())
+    {
+        const auto& currentPart = m_currentModel.meshes[m_currentMeshIndex];
+
+        if (m_showingPreview) {
+            m_statusLabel->setText(QString("PREVIEWING: Part %1 of %2 | '%3' | Preview Vertices: %4")
+                .arg(m_currentMeshIndex + 1).arg(m_currentModel.meshes.size()).arg(currentPart.name.c_str()).arg(m_previewVertices.size()));
+        }
+        else {
+            if (m_targetVertSpinBox) {
+                m_targetVertSpinBox->setValue(static_cast<int>(currentPart.vertices.size()));
+            }
+            m_statusLabel->setText(QString("READY: Part %1 of %2 | '%3' | Original Vertices: %4")
+                .arg(m_currentMeshIndex + 1).arg(m_currentModel.meshes.size()).arg(currentPart.name.c_str()).arg(currentPart.vertices.size()));
+        }
+
+        // 1. Finished parts (Only show if context checkbox is true)
+        if (showContext) {
+            for (size_t i = 0; i < m_currentMeshIndex; ++i) {
+                displayMeshes.push_back(m_currentModel.meshes[i]);
+            }
+        }
+
+        // 2. The active target part (Always show this!)
+        MeshData activePart;
+        activePart.vertices = m_showingPreview ? m_previewVertices : currentPart.vertices;
+        activePart.indices = m_showingPreview ? m_previewIndices : currentPart.indices;
+        displayMeshes.push_back(activePart);
+
+        // 3. The raw future parts (Only show if context checkbox is true)
+        if (showContext) {
+            for (size_t i = m_currentMeshIndex + 1; i < m_currentModel.meshes.size(); ++i) {
+                displayMeshes.push_back(m_currentModel.meshes[i]);
+            }
+        }
+
+        m_viewport->UpdateMeshes(displayMeshes);
+    }
+    else
+    {
+        // Everything finished
+        MeshData finalBlob;
+        finalBlob.vertices = m_retopoVertices;
+        finalBlob.indices = m_retopoIndices;
+        displayMeshes.push_back(finalBlob);
+
+        m_statusLabel->setText("All parts processed! Exporting to C:\\Temp\\Final_StepByStep.obj");
+        ExportToOBJ("C:\\Temp\\Final_StepByStep.obj", m_retopoVertices, m_retopoIndices);
+
+        if (m_btnPreview) m_btnPreview->setEnabled(false);
+        if (m_btnAccept) m_btnAccept->setEnabled(false);
+
+        m_viewport->UpdateMeshes(displayMeshes);
+    }
 }
 
 void MainWindow::OnApplyDecimationClicked(int targetVertexCount)
 {
-    if (m_currentModel.meshes.empty())
-    {
-        QMessageBox::information(this, "No Model", "Please load a model before applying decimation.");
-        return;
-    }
-
-    if (m_workerThread.joinable()) {
-        m_workerThread.join();
-    }
+    if (m_currentMeshIndex >= m_currentModel.meshes.size()) return;
+    if (m_workerThread.joinable()) m_workerThread.join();
 
     setEnabled(false);
-    m_statusLabel->setText("Processing sub-meshes individually. Please wait...");
+    m_statusLabel->setText(QString("Calculating Preview for Part %1...").arg(m_currentMeshIndex + 1));
 
-    auto modelDataCopy = m_currentModel;
+    auto rawMesh = m_currentModel.meshes[m_currentMeshIndex];
 
-    m_workerThread = std::thread([this, modelDataCopy, targetVertexCount]() {
+    m_workerThread = std::thread([this, rawMesh, targetVertexCount]() {
 
-        std::vector<Vertex> finalVertices;
-        std::vector<unsigned int> finalIndices;
+        std::vector<Vertex> quadVerts;
+        std::vector<unsigned int> quadInds;
+        bool retopoOk = false;
 
-        // Calculate total original vertices to distribute the target budget proportionally
-        size_t totalOriginalVerts = 0;
-        for (const auto& mesh : modelDataCopy.meshes) {
-            totalOriginalVerts += mesh.vertices.size();
+        if (rawMesh.vertices.size() > 50 && (rawMesh.indices.size() / 3) > 20) {
+            retopoOk = RetopoProcessor::processRetopology(
+                rawMesh.vertices, rawMesh.indices,
+                quadVerts, quadInds, targetVertexCount);
         }
 
-        bool anyRetopoFailed = false;
-
-        // Iterate through each sub-mesh independently
-        for (size_t m_idx = 0; m_idx < modelDataCopy.meshes.size(); ++m_idx)
-        {
-            const auto& rawMesh = modelDataCopy.meshes[m_idx];
-            if (rawMesh.vertices.empty() || rawMesh.indices.empty()) continue;
-
-            // 1. Calculate proportional target vertex count for this specific part
-            double ratio = static_cast<double>(rawMesh.vertices.size()) / static_cast<double>(totalOriginalVerts);
-            int localTarget = std::max(10, static_cast<int>(targetVertexCount * ratio));
-
-            // 2. Retopologize directly from the RAW high-res mesh
-            std::vector<Vertex> quadVerts;
-            std::vector<unsigned int> quadInds;
-            bool retopoOk = false;
-
-            // SAFEGUARD: MIQ needs at least a basic surface to work with.
-            if (rawMesh.vertices.size() > 100 && (rawMesh.indices.size() / 3) > 50)
-            {
-                retopoOk = RetopoProcessor::processRetopology(
-                    rawMesh.vertices, rawMesh.indices,
-                    quadVerts, quadInds, localTarget);
-            }
-            else
-            {
-                OutputDebugStringA(("[Pipeline] Skipping MIQ for tiny mesh part (" + std::to_string(rawMesh.vertices.size()) + " verts)\n").c_str());
-            }
-
-            // 3. Fallback to the ORIGINAL mesh if Instant Meshes was skipped or failed
-            if (!retopoOk) {
-                anyRetopoFailed = true;
-                quadVerts = rawMesh.vertices;
-                quadInds = rawMesh.indices;
-            }
-
-            // 4. Accumulate into the final global buffers for the viewport
-            unsigned int vertexOffset = static_cast<unsigned int>(finalVertices.size());
-            finalVertices.insert(finalVertices.end(), quadVerts.begin(), quadVerts.end());
-
-            for (unsigned int idx : quadInds) {
-                finalIndices.push_back(idx + vertexOffset);
-            }
-
-            OutputDebugStringA(("[Pipeline] Processed mesh " + std::to_string(m_idx + 1) + "/" + std::to_string(modelDataCopy.meshes.size()) + "\n").c_str());
+        if (!retopoOk) {
+            quadVerts = rawMesh.vertices;
+            quadInds = rawMesh.indices;
         }
 
-        // Export BEFORE we move the memory to the UI thread!
-        OutputDebugStringA("[Pipeline] Exporting OBJ...\n");
-        ExportToOBJ("C:\\Temp\\MIQ_Test_Output.obj", finalVertices, finalIndices);
-
-        // Schedule viewport update back onto the main UI thread.
-        QMetaObject::invokeMethod(this, [this,
-            v = std::move(finalVertices),
-            i = std::move(finalIndices),
-            anyRetopoFailed]() mutable {
-
-                m_viewport->UpdateMesh(v, i);
-                m_viewport->update();
-
-                setEnabled(true);
-                if (!anyRetopoFailed) {
-                    m_statusLabel->setText(QString("Retopology Complete. Vertices: %1, Triangles: %2")
-                        .arg(v.size()).arg(i.size() / 3));
-                }
-                else {
-                    m_statusLabel->setText(QString("Finished (Some tiny parts fell back to Original Triangles). Vertices: %1, Triangles: %2")
-                        .arg(v.size()).arg(i.size() / 3));
-                }
+        QMetaObject::invokeMethod(this, [this, v = std::move(quadVerts), i = std::move(quadInds)]() mutable {
+            m_previewVertices = std::move(v);
+            m_previewIndices = std::move(i);
+            m_showingPreview = true;
+            m_btnAccept->setEnabled(true);
+            RefreshViewportAndUI();
+            setEnabled(true);
             });
         });
+}
+
+void MainWindow::OnAcceptClicked()
+{
+    if (!m_showingPreview) return;
+
+    unsigned int offset = static_cast<unsigned int>(m_retopoVertices.size());
+    m_retopoVertices.insert(m_retopoVertices.end(), m_previewVertices.begin(), m_previewVertices.end());
+    for (unsigned int idx : m_previewIndices) m_retopoIndices.push_back(idx + offset);
+
+    m_showingPreview = false;
+    m_previewVertices.clear();
+    m_previewIndices.clear();
+    m_currentMeshIndex++;
+    m_btnAccept->setEnabled(false);
+    RefreshViewportAndUI();
 }

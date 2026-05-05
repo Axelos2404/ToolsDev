@@ -9,9 +9,6 @@
 int nprocs = -1;
 
 // 2. The C++17 TBB Hack
-// Old TBB relies on functions removed in C++17, so I injected dummy versions 
-// here so the TBB headers compile flawlessly in current Visual Studio.
-// I got this off of internet, but it seems to work fine and doesn't cause any issues with the rest of the code.
 #if __cplusplus >= 201703L || _MSVC_LANG >= 201703L
 namespace std {
     template <typename Arg1, typename Arg2, typename Result>
@@ -62,9 +59,6 @@ namespace RetopoProcessor {
     {
         if (inVertices.empty() || inIndices.empty()) return Fail("Empty input mesh.");
 
-        OutputDebugStringA("[Retopo] 1. Initializing and Welding Data Matrices...\n");
-
-        // Load raw data into Eigen (Row-Major for LibIGL)
         Eigen::MatrixXd V_raw(inVertices.size(), 3);
         for (size_t i = 0; i < inVertices.size(); ++i) {
             V_raw.row(i) << (double)inVertices[i].position[0], (double)inVertices[i].position[1], (double)inVertices[i].position[2];
@@ -76,25 +70,20 @@ namespace RetopoProcessor {
         }
 
         try {
-            // STEP 2: WELD THE MESH (Crucial for cars)
-            OutputDebugStringA("[Retopo] 2. Welding Seams...\n");
-            Eigen::MatrixXd SV;          // Welded vertices
-            Eigen::MatrixXi SF;          // Welded faces (Nx3)
-            Eigen::VectorXi SVI, SVJ;    // Mapping vectors (Explicitly 1D)
+            // WELD LOCALLY
+            Eigen::MatrixXd SV;
+            Eigen::MatrixXi SF;
+            Eigen::VectorXi SVI, SVJ;
+            igl::remove_duplicate_vertices(V_raw, F_raw, 1e-7, SV, SVI, SVJ, SF);
 
-            // Increased tolerance to 1e-4 to catch Assimp's split vertices
-            igl::remove_duplicate_vertices(V_raw, F_raw, 1e-4, SV, SVI, SVJ, SF);
-
-			Eigen::MatrixXd V_clean;    // Final cleaned vertex list (Row-Major)
-			Eigen::MatrixXi F_clean;    // Final cleaned face list (Row-Major)
-			Eigen::VectorXi I_unref;    // Mapping vector for unreferenced vertices (Explicitly 1D)
+            Eigen::MatrixXd V_clean;
+            Eigen::MatrixXi F_clean;
+            Eigen::VectorXi I_unref;
             igl::remove_unreferenced(SV, SF, V_clean, F_clean, I_unref);
 
-            // Convert to Instant Meshes Format (Column-Major Float/UInt)
             MatrixXf V_im = V_clean.cast<float>().transpose();
             MatrixXu F_im = F_clean.cast<uint32_t>().transpose();
 
-            OutputDebugStringA("[Retopo] 3. Calculating Fields...\n");
             Eigen::MatrixXd N_d;
             igl::per_vertex_normals(V_clean, F_clean, N_d);
             MatrixXf N_im = N_d.cast<float>().transpose();
@@ -103,13 +92,11 @@ namespace RetopoProcessor {
             igl::doublearea(V_clean, F_clean, A_d);
             VectorXf A_im = (A_d.cast<float>() / 2.0f);
 
-            // STEP 4: TOPOLOGY
             VectorXu V2E, E2E;
             VectorXb boundary, nonManifold;
             build_dedge(F_im, V_im, V2E, E2E, boundary, nonManifold, nullptr, true);
             AdjacencyMatrix adj = generate_adjacency_matrix_uniform(F_im, V2E, E2E, nonManifold);
 
-            // STEP 5: HIERARCHY
             MultiResolutionHierarchy mRes;
             mRes.setV(std::move(V_im));
             mRes.setF(std::move(F_im));
@@ -118,6 +105,7 @@ namespace RetopoProcessor {
             mRes.setA(std::move(A_im));
             mRes.setAdj(std::move(adj));
 
+            // DYNAMIC SCALE CALCULATION PER-PART
             Float totalArea = mRes.A().sum();
             Float target_scale = std::sqrt(totalArea / std::max(1, targetVertexCount));
             mRes.setScale(target_scale);
@@ -125,31 +113,37 @@ namespace RetopoProcessor {
             mRes.build(false);
             mRes.resetSolution();
 
-            // STEP 6: OPTIMIZE
             Optimizer opt(mRes, false);
             opt.setRoSy(4);
             opt.setPoSy(4);
             opt.setExtrinsic(true);
 
-            opt.optimizeOrientations(-1); // -1 = full hierarchy
-            opt.notify();
-            opt.wait();
+            opt.optimizeOrientations(-1);
+            opt.notify(); opt.wait();
 
             opt.optimizePositions(-1);
-            opt.notify();
-            opt.wait();
+            opt.notify(); opt.wait();
             opt.shutdown();
 
-            // STEP 7: EXTRACT
             std::vector<std::vector<TaggedLink>> adj_new;
             MatrixXf O_new, N_new, Nf_new;
             std::set<uint32_t> crease_in, crease_out;
             MatrixXu F_out;
 
-            extract_graph(mRes, true, 4, 4, adj_new, O_new, N_new, crease_in, crease_out, false, true, true, true);
-            extract_faces(adj_new, O_new, N_new, Nf_new, F_out, 4, target_scale, crease_out, true, true, nullptr, 2);
+            // --- THE FIX: PRESERVE SUBMESH BOUNDARIES ---
+            // This locks the outer border of the part so it doesn't shrink-wrap and erode.
+            for (uint32_t i = 0; i < E2E.size(); ++i) {
+                if (boundary[i]) {
+                    crease_in.insert(i);
+                }
+            }
+            // --------------------------------------------
 
-            // STEP 8: OUTPUT
+            extract_graph(mRes, true, 4, 4, adj_new, O_new, N_new, crease_in, crease_out, false, true, true, true);
+
+            // Extract using the local target_scale
+            extract_faces(adj_new, O_new, N_new, Nf_new, F_out, 4, target_scale, crease_out, false, true, nullptr, 2);
+
             outVertices.clear();
             outIndices.clear();
             for (int i = 0; i < O_new.cols(); ++i) {
@@ -159,9 +153,46 @@ namespace RetopoProcessor {
                 v.texCoord[0] = 0; v.texCoord[1] = 0;
                 outVertices.push_back(v);
             }
+
+            // DYNAMIC N-GON PARSER
             for (int i = 0; i < F_out.cols(); ++i) {
-                outIndices.push_back(F_out(0, i)); outIndices.push_back(F_out(1, i)); outIndices.push_back(F_out(2, i));
-                outIndices.push_back(F_out(0, i)); outIndices.push_back(F_out(2, i)); outIndices.push_back(F_out(3, i));
+                std::vector<uint32_t> faceVerts;
+
+                // Safely read only the rows that actually exist in the matrix
+                for (int r = 0; r < F_out.rows(); ++r) {
+                    uint32_t v = F_out(r, i);
+                    // Ignore Instant Meshes' padding (-1)
+                    if (v != (uint32_t)-1) {
+                        faceVerts.push_back(v);
+                    }
+                }
+
+                if (faceVerts.size() < 3) continue; // Skip degenerate lines/points
+
+                if (faceVerts.size() == 3) {
+                    // Standard Triangle
+                    outIndices.push_back(faceVerts[0]);
+                    outIndices.push_back(faceVerts[1]);
+                    outIndices.push_back(faceVerts[2]);
+                }
+                else if (faceVerts.size() == 4) {
+                    // Standard Quad (Split perfectly down the diagonal for OpenGL)
+                    outIndices.push_back(faceVerts[0]);
+                    outIndices.push_back(faceVerts[1]);
+                    outIndices.push_back(faceVerts[2]);
+
+                    outIndices.push_back(faceVerts[2]);
+                    outIndices.push_back(faceVerts[3]);
+                    outIndices.push_back(faceVerts[0]);
+                }
+                else {
+                    // N-Gon (Pentagon/Hexagon) Triangulation Fan
+                    for (size_t v = 1; v + 1 < faceVerts.size(); ++v) {
+                        outIndices.push_back(faceVerts[0]);
+                        outIndices.push_back(faceVerts[v]);
+                        outIndices.push_back(faceVerts[v + 1]);
+                    }
+                }
             }
         }
         catch (...) { return Fail("Processing failure."); }

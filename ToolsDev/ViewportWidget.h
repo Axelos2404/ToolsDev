@@ -15,8 +15,10 @@ struct GpuMesh
 {
     GLuint vao = 0;
     GLuint vbo = 0;
-    GLuint ebo = 0;
-    GLsizei indexCount = 0;
+    GLuint eboTriangles = 0; // For solid faces
+    GLuint eboLines = 0;     // For our custom quad wireframe
+    GLsizei triIndexCount = 0;
+    GLsizei lineIndexCount = 0;
 };
 
 class ViewportWidget : public QOpenGLWidget, protected QOpenGLFunctions_4_5_Core
@@ -28,7 +30,7 @@ public:
     ~ViewportWidget() override;
 
     void SetModel(const ModelData& model);
-    void UpdateMesh(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices);
+    void UpdateMeshes(const std::vector<MeshData>& meshes);
 
 protected:
     void initializeGL() override;

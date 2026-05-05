@@ -55,7 +55,6 @@ void main()
 }
 )";
 
-
 ViewportWidget::ViewportWidget(QWidget* parent)
     : QOpenGLWidget(parent)
 {
@@ -91,7 +90,6 @@ void ViewportWidget::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    // Dynamic near/far planes based on zoom distance
     float nearPlane = m_zoom * 0.001f;
     float farPlane = m_zoom * 100.0f;
     nearPlane = std::max(nearPlane, 0.001f);
@@ -114,32 +112,32 @@ void ViewportWidget::paintGL()
     m_shader.setUniformValue("uModel", model);
     m_shader.setUniformValue("uNormalMat", normalMat);
 
-    // Filled pass
+    // 1. FILLED PASS (Draw the solid faces)
     glEnable(GL_POLYGON_OFFSET_FILL);
     glPolygonOffset(1.0f, 1.0f);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     m_shader.setUniformValue("uUseSolidColor", 0);
 
     for (const auto& gpu : m_gpuMeshes)
     {
         glBindVertexArray(gpu.vao);
-        glDrawElements(GL_TRIANGLES, gpu.indexCount, GL_UNSIGNED_INT, nullptr);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, gpu.eboTriangles);
+        glDrawElements(GL_TRIANGLES, gpu.triIndexCount, GL_UNSIGNED_INT, nullptr);
     }
 
-    // Wireframe overlay
+    // 2. WIREFRAME PASS (Draw our custom Lines without diagonals)
     glDisable(GL_POLYGON_OFFSET_FILL);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-    glLineWidth(1.0f);
+    glLineWidth(1.5f); // Slightly thicker for a premium feel
     m_shader.setUniformValue("uUseSolidColor", 1);
     m_shader.setUniformValue("uSolidColor", QVector3D(0.05f, 0.05f, 0.05f));
 
     for (const auto& gpu : m_gpuMeshes)
     {
         glBindVertexArray(gpu.vao);
-        glDrawElements(GL_TRIANGLES, gpu.indexCount, GL_UNSIGNED_INT, nullptr);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, gpu.eboLines);
+        // Notice we are using GL_LINES now, not GL_TRIANGLES
+        glDrawElements(GL_LINES, gpu.lineIndexCount, GL_UNSIGNED_INT, nullptr);
     }
 
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glBindVertexArray(0);
     m_shader.release();
 }
@@ -188,10 +186,8 @@ void ViewportWidget::SetModel(const ModelData& model)
 
 void ViewportWidget::FitCameraToModel(const ModelData& model)
 {
-    if (model.meshes.empty())
-        return;
+    if (model.meshes.empty()) return;
 
-    // Compute bounding box
     constexpr float maxF = std::numeric_limits<float>::max();
     QVector3D bboxMin(maxF, maxF, maxF);
     QVector3D bboxMax(-maxF, -maxF, -maxF);
@@ -209,13 +205,10 @@ void ViewportWidget::FitCameraToModel(const ModelData& model)
         }
     }
 
-    // Center the orbit target on the model
     m_target = (bboxMin + bboxMax) * 0.5f;
-
-    // Set zoom to fit the bounding sphere
     float radius = (bboxMax - bboxMin).length() * 0.5f;
     float fovRad = qDegreesToRadians(45.0f * 0.5f);
-    m_zoom = radius / std::tan(fovRad) * 1.5f;  // 1.5x padding
+    m_zoom = radius / std::tan(fovRad) * 1.5f;
 
     m_rotX = 30.0f;
     m_rotY = -45.0f;
@@ -227,54 +220,83 @@ void ViewportWidget::UploadMesh(const MeshData& mesh)
 
     glCreateVertexArrays(1, &gpu.vao);
     glCreateBuffers(1, &gpu.vbo);
-    glCreateBuffers(1, &gpu.ebo);
+    glCreateBuffers(1, &gpu.eboTriangles);
+    glCreateBuffers(1, &gpu.eboLines); // New buffer for wireframe
 
-    glNamedBufferStorage(gpu.vbo,
-        mesh.vertices.size() * sizeof(Vertex),
-        mesh.vertices.data(), 0);
+    // 1. Generate Custom Wireframe Indices (Blender style)
+    std::vector<unsigned int> lineIndices;
+    lineIndices.reserve(mesh.indices.size() * 2);
 
-    glNamedBufferStorage(gpu.ebo,
-        mesh.indices.size() * sizeof(unsigned int),
-        mesh.indices.data(), 0);
+    for (size_t i = 0; i < mesh.indices.size(); )
+    {
+        // Detect the exact quad pattern we wrote in RetopoProcessor (v0-v1-v2, v2-v3-v0)
+        if (i + 5 < mesh.indices.size() &&
+            mesh.indices[i] == mesh.indices[i + 5] &&
+            mesh.indices[i + 2] == mesh.indices[i + 3])
+        {
+            unsigned int v0 = mesh.indices[i];
+            unsigned int v1 = mesh.indices[i + 1];
+            unsigned int v2 = mesh.indices[i + 2];
+            unsigned int v3 = mesh.indices[i + 4];
+
+            // Push only the 4 outer edges of the quad, skipping the v0-v2 diagonal!
+            lineIndices.push_back(v0); lineIndices.push_back(v1);
+            lineIndices.push_back(v1); lineIndices.push_back(v2);
+            lineIndices.push_back(v2); lineIndices.push_back(v3);
+            lineIndices.push_back(v3); lineIndices.push_back(v0);
+            i += 6; // Skip past this quad
+        }
+        else
+        {
+            // Standard triangle
+            unsigned int v0 = mesh.indices[i];
+            unsigned int v1 = mesh.indices[i + 1];
+            unsigned int v2 = mesh.indices[i + 2];
+
+            lineIndices.push_back(v0); lineIndices.push_back(v1);
+            lineIndices.push_back(v1); lineIndices.push_back(v2);
+            lineIndices.push_back(v2); lineIndices.push_back(v0);
+            i += 3;
+        }
+    }
+
+    // 2. Upload Data to GPU
+    glNamedBufferStorage(gpu.vbo, mesh.vertices.size() * sizeof(Vertex), mesh.vertices.data(), 0);
+    glNamedBufferStorage(gpu.eboTriangles, mesh.indices.size() * sizeof(unsigned int), mesh.indices.data(), 0);
+    glNamedBufferStorage(gpu.eboLines, lineIndices.size() * sizeof(unsigned int), lineIndices.data(), 0);
 
     glVertexArrayVertexBuffer(gpu.vao, 0, gpu.vbo, 0, sizeof(Vertex));
-    glVertexArrayElementBuffer(gpu.vao, gpu.ebo);
+    glVertexArrayElementBuffer(gpu.vao, gpu.eboTriangles); // Bind triangles by default
 
-    // position
+    // Attributes
     glEnableVertexArrayAttrib(gpu.vao, 0);
     glVertexArrayAttribFormat(gpu.vao, 0, 3, GL_FLOAT, GL_FALSE, offsetof(Vertex, position));
     glVertexArrayAttribBinding(gpu.vao, 0, 0);
 
-    // normal
     glEnableVertexArrayAttrib(gpu.vao, 1);
     glVertexArrayAttribFormat(gpu.vao, 1, 3, GL_FLOAT, GL_FALSE, offsetof(Vertex, normal));
     glVertexArrayAttribBinding(gpu.vao, 1, 0);
 
-    // texcoord
     glEnableVertexArrayAttrib(gpu.vao, 2);
     glVertexArrayAttribFormat(gpu.vao, 2, 2, GL_FLOAT, GL_FALSE, offsetof(Vertex, texCoord));
     glVertexArrayAttribBinding(gpu.vao, 2, 0);
 
-    gpu.indexCount = static_cast<GLsizei>(mesh.indices.size());
+    gpu.triIndexCount = static_cast<GLsizei>(mesh.indices.size());
+    gpu.lineIndexCount = static_cast<GLsizei>(lineIndices.size());
     m_gpuMeshes.push_back(gpu);
 }
 
-void ViewportWidget::UpdateMesh(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices)
+void ViewportWidget::UpdateMeshes(const std::vector<MeshData>& meshes)
 {
     makeCurrent();
     CleanupGpuMeshes();
 
-    // Reconstruct the new decimated mesh
-    MeshData updatedMesh;
-    updatedMesh.vertices = vertices;
-    updatedMesh.indices = indices;
-
-    // Upload the new mesh to the GPU
-    UploadMesh(updatedMesh);
+    for (const auto& mesh : meshes)
+    {
+        UploadMesh(mesh);
+    }
 
     doneCurrent();
-
-    // Request a UI redraw
     update();
 }
 
@@ -284,7 +306,8 @@ void ViewportWidget::CleanupGpuMeshes()
     {
         glDeleteVertexArrays(1, &gpu.vao);
         glDeleteBuffers(1, &gpu.vbo);
-        glDeleteBuffers(1, &gpu.ebo);
+        glDeleteBuffers(1, &gpu.eboTriangles);
+        glDeleteBuffers(1, &gpu.eboLines);
     }
     m_gpuMeshes.clear();
 }
