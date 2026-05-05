@@ -6,6 +6,7 @@
 
 #include <OpenMesh/Tools/Decimater/DecimaterT.hh>
 #include <OpenMesh/Tools/Decimater/ModQuadricT.hh>
+#include <OpenMesh/Tools/Decimater/ModNormalFlippingT.hh>
 #include <vector>
 #include <chrono>
 #include <map>
@@ -127,12 +128,35 @@ namespace MeshProcessor
 	void decimateMesh(MeshType& mesh, int TargetVertexCount)
 	{
 		ScopeTimer decimateTimer("DecimateMesh");
+
+		// Ensure properties required for decimation and non-manifold removal are requested
+		mesh.request_face_status();
+		mesh.request_edge_status();
+		mesh.request_halfedge_status();
+		mesh.request_vertex_status();
+
+		// Ensure normals exist since ModNormalFlippingT requires them
+		mesh.request_face_normals();
+		mesh.request_vertex_normals();
+		mesh.update_normals();
+
+		// Clean geometry first so the decimater doesn't choke on it
+		removeNonManifoldVertices(mesh);
+
 		typedef OpenMesh::Decimater::DecimaterT<MeshType> Decimater;
 		typedef OpenMesh::Decimater::ModQuadricT<MeshType>::Handle HModQuadric;
+		typedef OpenMesh::Decimater::ModNormalFlippingT<MeshType>::Handle HModNormal;
+
 		Decimater decimater(mesh);
+
 		HModQuadric hModQuadric;
 		decimater.add(hModQuadric);
 		decimater.module(hModQuadric).unset_max_err();
+
+		// Prevent normals from flipping (reduces black visual artifacts and folding)
+		HModNormal hModNormal;
+		decimater.add(hModNormal);
+		decimater.module(hModNormal).set_max_normal_deviation(90.0); // 90 degree threshold
 
 		{
 			ScopeTimer stepTimer("Decimater.initialize");
@@ -146,20 +170,9 @@ namespace MeshProcessor
 			ScopeTimer stepTimer("Mesh.garbage_collection");
 			mesh.garbage_collection();
 		}
-		{
-			ScopeTimer stepTimer("RemoveNonManifoldVertices");
-			removeNonManifoldVertices(mesh);
-		}
-		{
-			ScopeTimer stepTimer("Final Garbage Collection");
-			mesh.garbage_collection();
-		}
-		{
-			ScopeTimer stepTimer("Mesh.update_normals");
-			mesh.request_face_normals();
-			mesh.request_vertex_normals();
-			mesh.update_normals();
-		}
+
+		// If needed, recalculate normals after geometry changes
+		mesh.update_normals();
 	}
 
 	void extractRawFromOpenMesh(const MeshType& mesh, std::vector<Vertex>& outVertices, std::vector<unsigned int>& outIndices)

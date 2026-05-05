@@ -107,7 +107,18 @@ namespace RetopoProcessor {
 
             // DYNAMIC SCALE CALCULATION PER-PART
             Float totalArea = mRes.A().sum();
+
+            // Approximate the average edge length of the original dense triangles
+            Float avgTriangleArea = totalArea / std::max(1, (int)F_clean.rows());
+            Float minSafeScale = std::sqrt(avgTriangleArea) * 2.5f; // Must be 2.5x larger than source edges
+
             Float target_scale = std::sqrt(totalArea / std::max(1, targetVertexCount));
+
+            // Prevent the grid from matching the original mesh density
+            if (target_scale < minSafeScale) {
+                target_scale = minSafeScale;
+            }
+
             mRes.setScale(target_scale);
 
             mRes.build(false);

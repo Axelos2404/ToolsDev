@@ -169,7 +169,14 @@ xcopy /y /d "$(SolutionDir)Library\eigen\bin\*.dll" "$(OutDir)"</Command>
       <Command>xcopy /y /d "$(SolutionDir)Library\eigen\bin\*.dll" "$(OutDir)"</Command>
       <Command>xcopy /y /d "$(SolutionDir)Library\instant-meshes\build\ext\tbb\Release\tbb.dll" "$(OutDir)"
 xcopy /y /d "$(SolutionDir)Library\assimp\bin\*.dll" "$(OutDir)"
-xcopy /y /d "$(SolutionDir)Library\eigen\bin\*.dll" "$(OutDir)"</Command>
+xcopy /y /d "$(SolutionDir)Library\eigen\bin\*.dll" "$(OutDir)"
+xcopy /Y /D "E:\Qt\6.10.2\msvc2022_64\bin\Qt6OpenGLWidgets.dll" "$(OutDir)"
+xcopy /Y /D "E:\Qt\6.10.2\msvc2022_64\bin\Qt6Widgets.dll" "$(OutDir)"
+xcopy /Y /D "E:\Qt\6.10.2\msvc2022_64\bin\Qt6OpenGL.dll" "$(OutDir)"
+xcopy /Y /D "E:\Qt\6.10.2\msvc2022_64\bin\Qt6Gui.dll" "$(OutDir)"
+xcopy /Y /D "E:\Qt\6.10.2\msvc2022_64\bin\Qt6Core.dll" "$(OutDir)"
+if not exist "$(OutDir)platforms" mkdir "$(OutDir)platforms"
+xcopy /Y /D "E:\Qt\6.10.2\msvc2022_64\plugins\platforms\qwindows.dll" "$(OutDir)platforms\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

@@ -58,21 +58,36 @@ MainWindow::MainWindow(QWidget* parent)
         RefreshViewportAndUI();
         });
 
-    m_btnPreview = new QPushButton("Preview Retopology");
+    m_chkUseInstantMeshes = new QCheckBox("Use Quad Retopology (Instant Meshes)");
+    m_chkUseInstantMeshes->setChecked(false); // Default to standard safe OpenMesh Decimation
+
+    m_btnPreview = new QPushButton("Preview Result");
+
+    m_btnApply = new QPushButton("Apply (Keep Editing)");
+    m_btnApply->setEnabled(false);
+
     m_btnAccept = new QPushButton("Accept & Next Part");
-    m_btnAccept->setEnabled(false);
+    m_btnAccept->setEnabled(true);
 
     connect(m_btnPreview, &QPushButton::clicked, this, [this]() {
         OnApplyDecimationClicked(m_targetVertSpinBox->value());
+        });
+
+    connect(m_btnApply, &QPushButton::clicked, this, [this]() {
+        OnApplyClicked();
         });
 
     connect(m_btnAccept, &QPushButton::clicked, this, [this]() {
         OnAcceptClicked();
         });
 
+    // Add to Layout
     dockLayout->addLayout(targetLayout);
     dockLayout->addWidget(m_targetVertSlider);
+    dockLayout->addWidget(m_chkShowContext);
+    dockLayout->addWidget(m_chkUseInstantMeshes);
     dockLayout->addWidget(m_btnPreview);
+    dockLayout->addWidget(m_btnApply);
     dockLayout->addWidget(m_btnAccept);
     dockLayout->addStretch();
 
@@ -127,9 +142,37 @@ void ExportToOBJ(const std::string& filepath, const std::vector<Vertex>& verts, 
     for (const auto& v : verts) file << "vt " << v.texCoord[0] << " " << v.texCoord[1] << "\n";
     for (const auto& v : verts) file << "vn " << v.normal[0] << " " << v.normal[1] << " " << v.normal[2] << "\n";
 
+    // Attempt to merge back triangles into quads based on the RetopoProcessor generation logic (0,1,2) + (2,3,0)
     for (size_t i = 0; i < inds.size(); i += 3) {
+
+        // Check if there is another triangle after this one that completes the quad format: (0,1,2) + (2,3,0)
+        if (i + 5 < inds.size()) {
+            unsigned int t1_0 = inds[i];
+            unsigned int t1_1 = inds[i + 1];
+            unsigned int t1_2 = inds[i + 2];
+
+            unsigned int t2_0 = inds[i + 3];
+            unsigned int t2_1 = inds[i + 4];
+            unsigned int t2_2 = inds[i + 5];
+
+            // If the next triangle matches the exact signature of a split quad from RetopoProcessor
+            if (t1_2 == t2_0 && t1_0 == t2_2) {
+                // It's a quad: print it as 4 points and skip the next triangle
+                unsigned int i0 = t1_0 + 1, i1 = t1_1 + 1, i2 = t1_2 + 1, i3 = t2_1 + 1;
+                file << "f " << i0 << "/" << i0 << "/" << i0 << " "
+                    << i1 << "/" << i1 << "/" << i1 << " "
+                    << i2 << "/" << i2 << "/" << i2 << " "
+                    << i3 << "/" << i3 << "/" << i3 << "\n";
+                i += 3; // Skip next triangle
+                continue;
+            }
+        }
+
+        // Output as standard triangle if it didn't match the quad pattern
         unsigned int i0 = inds[i] + 1, i1 = inds[i + 1] + 1, i2 = inds[i + 2] + 1;
-        file << "f " << i0 << "/" << i0 << "/" << i0 << " " << i1 << "/" << i1 << "/" << i1 << " " << i2 << "/" << i2 << "/" << i2 << "\n";
+        file << "f " << i0 << "/" << i0 << "/" << i0 << " "
+            << i1 << "/" << i1 << "/" << i1 << " "
+            << i2 << "/" << i2 << "/" << i2 << "\n";
     }
     file.close();
 }
@@ -187,8 +230,8 @@ void MainWindow::RefreshViewportAndUI()
         finalBlob.indices = m_retopoIndices;
         displayMeshes.push_back(finalBlob);
 
-        m_statusLabel->setText("All parts processed! Exporting to C:\\Temp\\Final_StepByStep.obj");
-        ExportToOBJ("C:\\Temp\\Final_StepByStep.obj", m_retopoVertices, m_retopoIndices);
+        m_statusLabel->setText("All parts processed! Exporting to ..\\Export\\Final_StepByStep.obj");
+        ExportToOBJ("..\\Export\\Final_StepByStep.obj", m_retopoVertices, m_retopoIndices);
 
         if (m_btnPreview) m_btnPreview->setEnabled(false);
         if (m_btnAccept) m_btnAccept->setEnabled(false);
@@ -207,27 +250,56 @@ void MainWindow::OnApplyDecimationClicked(int targetVertexCount)
 
     auto rawMesh = m_currentModel.meshes[m_currentMeshIndex];
 
-    m_workerThread = std::thread([this, rawMesh, targetVertexCount]() {
+    // Read UI state before firing thread
+    bool useRetopology = m_chkUseInstantMeshes->isChecked();
 
-        std::vector<Vertex> quadVerts;
-        std::vector<unsigned int> quadInds;
-        bool retopoOk = false;
+    m_workerThread = std::thread([this, rawMesh, targetVertexCount, useRetopology]() {
+
+        std::vector<Vertex> previewVerts;
+        std::vector<unsigned int> previewInds;
+        bool ok = false;
 
         if (rawMesh.vertices.size() > 50 && (rawMesh.indices.size() / 3) > 20) {
-            retopoOk = RetopoProcessor::processRetopology(
-                rawMesh.vertices, rawMesh.indices,
-                quadVerts, quadInds, targetVertexCount);
+            std::vector<Vertex> sourceVerts = rawMesh.vertices;
+            std::vector<unsigned int> sourceInds = rawMesh.indices;
+
+            // If the user wants standard fast Decimation OR if the target is too dense for Instant Meshes
+            int maxRetopoAllowed = static_cast<int>(rawMesh.vertices.size() * 0.25f);
+
+            if (!useRetopology || targetVertexCount > maxRetopoAllowed) {
+                ModelData tempModel;
+                tempModel.meshes.push_back(rawMesh);
+                MeshType oMesh = MeshProcessor::convertRawToOpenMesh(tempModel);
+
+                MeshProcessor::decimateMesh(oMesh, targetVertexCount);
+                MeshProcessor::extractRawFromOpenMesh(oMesh, sourceVerts, sourceInds);
+
+                // If user didn't want quads, we are done
+                if (!useRetopology) {
+                    ok = true;
+                    previewVerts = sourceVerts;
+                    previewInds = sourceInds;
+                }
+            }
+
+            // If the user requested Quads, run Instant Meshes on the current source
+            if (useRetopology) {
+                ok = RetopoProcessor::processRetopology(
+                    sourceVerts, sourceInds,
+                    previewVerts, previewInds, targetVertexCount);
+            }
         }
 
-        if (!retopoOk) {
-            quadVerts = rawMesh.vertices;
-            quadInds = rawMesh.indices;
+        if (!ok && previewVerts.empty()) {
+            previewVerts = rawMesh.vertices;
+            previewInds = rawMesh.indices;
         }
 
-        QMetaObject::invokeMethod(this, [this, v = std::move(quadVerts), i = std::move(quadInds)]() mutable {
+        QMetaObject::invokeMethod(this, [this, v = std::move(previewVerts), i = std::move(previewInds)]() mutable {
             m_previewVertices = std::move(v);
             m_previewIndices = std::move(i);
             m_showingPreview = true;
+            m_btnApply->setEnabled(true);
             m_btnAccept->setEnabled(true);
             RefreshViewportAndUI();
             setEnabled(true);
@@ -235,18 +307,44 @@ void MainWindow::OnApplyDecimationClicked(int targetVertexCount)
         });
 }
 
-void MainWindow::OnAcceptClicked()
+void MainWindow::OnApplyClicked()
 {
     if (!m_showingPreview) return;
 
-    unsigned int offset = static_cast<unsigned int>(m_retopoVertices.size());
-    m_retopoVertices.insert(m_retopoVertices.end(), m_previewVertices.begin(), m_previewVertices.end());
-    for (unsigned int idx : m_previewIndices) m_retopoIndices.push_back(idx + offset);
+    // Overwrite the current base geometry with the previewed geometry
+    m_currentModel.meshes[m_currentMeshIndex].vertices = m_previewVertices;
+    m_currentModel.meshes[m_currentMeshIndex].indices = m_previewIndices;
 
     m_showingPreview = false;
     m_previewVertices.clear();
     m_previewIndices.clear();
-    m_currentMeshIndex++;
-    m_btnAccept->setEnabled(false);
+
+    m_btnApply->setEnabled(false); // Disable until they preview again
+
+    RefreshViewportAndUI();
+}
+
+void MainWindow::OnAcceptClicked()
+{
+    // Grab whichever geometry is currently active/visible
+    const std::vector<Vertex>& verts = m_showingPreview ? m_previewVertices : m_currentModel.meshes[m_currentMeshIndex].vertices;
+    const std::vector<unsigned int>& inds = m_showingPreview ? m_previewIndices : m_currentModel.meshes[m_currentMeshIndex].indices;
+
+    unsigned int offset = static_cast<unsigned int>(m_retopoVertices.size());
+    m_retopoVertices.insert(m_retopoVertices.end(), verts.begin(), verts.end());
+    for (unsigned int idx : inds) m_retopoIndices.push_back(idx + offset);
+
+    m_showingPreview = false;
+    m_previewVertices.clear();
+    m_previewIndices.clear();
+
+    m_currentMeshIndex++; // Move to the next part
+    m_btnApply->setEnabled(false);
+
+    // Only disable accept if we're out of parts
+    if (m_currentMeshIndex >= m_currentModel.meshes.size()) {
+        m_btnAccept->setEnabled(false);
+    }
+
     RefreshViewportAndUI();
 }

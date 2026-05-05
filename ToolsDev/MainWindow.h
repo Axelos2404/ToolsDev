@@ -20,6 +20,7 @@ public:
     explicit MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
     void OnApplyDecimationClicked(int targetVertexCount);
+    void OnApplyClicked();
     void OnAcceptClicked();
 
 private slots:
@@ -30,11 +31,13 @@ private:
     QLabel* m_statusLabel = nullptr;
 
     QPushButton* m_btnPreview = nullptr;
+    QPushButton* m_btnApply = nullptr;
     QPushButton* m_btnAccept = nullptr;
 
     QSlider* m_targetVertSlider = nullptr;
     QSpinBox* m_targetVertSpinBox = nullptr;
     QCheckBox* m_chkShowContext = nullptr;
+    QCheckBox* m_chkUseInstantMeshes = nullptr;
 
     ModelLoader m_loader;
     ModelData m_currentModel;
